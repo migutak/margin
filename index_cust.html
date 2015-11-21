@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>MarginIQ</title>
+    <link rel="shortcut icon" type="image/png" href="images/favicon.ico"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="angular-ui-notification/dist/angular-ui-notification.min.css">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <!-- Theme style -->
+    <link href="plugins/dist/css/AdminLTE.min.css" rel="stylesheet" type="text/css" />
+    <link href="plugins/dist/css/skins/skin-blue.min.css" rel="stylesheet" type="text/css" />
+    
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+	
+     
+    <!-- Angular 
+	  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular.min.js"></script>-->
+	  <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+	  <script src="angular-ui-notification/dist/angular-ui-notification.min.js"></script>
+	  <link href="dist/angular-busy.css" rel="stylesheet">
+  
+  
+    <script src="dist/angular-busy.js"></script>
+  
+	  <!-- UI-Router -->
+	  <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.8/angular-ui-router.min.js"></script>
+	  <script src="https://cdn.firebase.com/js/client/2.0.4/firebase.js"></script>
+	  <script src="https://cdn.firebase.com/libs/angularfire/1.1.3/angularfire.min.js"></script>
+	  
+   	 <script src="plugins/datepicker/bootstrap-datepicker.js" type="text/javascript"></script>
+   	 <link href="plugins/datepicker/datepicker3.css" rel="stylesheet" type="text/css" />
+   	 
+   	 <!-- Multiselect -->
+	 <script type="text/javascript" src="assets/dist/js/bootstrap-select.min.js"></script>
+     <link rel="stylesheet" href="assets/dist/css/bootstrap-select.css" type="text/css">
+     
+  <!-- Include Bootstrap-select CSS, JS -->
+	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.2/css/bootstrap-select.min.css" />
+	<script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.2/js/bootstrap-select.min.js"></script>
+	
+	<!--highland charts -->
+	<script src="highcharts/highcharts.js"></script>
+	<script src="highcharts/exporting.js"></script>
+	<script src="highcharts/data.js"></script>
+	<script src="highcharts/drilldown.js"></script>
+     
+   	 
+    <!-- App Script -->
+    <script type="text/javascript" src="js/cust.js"></script>  
+    <script type="text/javascript" src="controllers/controllers.js"></script>
+	<script type="text/javascript" src="services/services.js"></script>
+</head>
+<body class="skin-blue sidebar-mini" ng-app="myapp" ng-controller="indexcustCtrl">
+	<div class="wrapper">
+		<header class="main-header">
+			<!-- Logo -->
+	        <a href="#" class="logo">
+	            <!-- mini logo for sidebar mini 50x50 pixels -->
+	            <span class="logo-mini"><b>M</b>IQ</span>
+	            <!-- logo for regular state and mobile devices -->
+	            <span class="logo-lg"><b>MaginIQ</b></span>
+	        </a>
+	        <nav class="navbar navbar-static-top" role="navigation">
+            <!-- Sidebar toggle button-->
+            <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+                <span class="sr-only">Toggle navigation</span>
+            </a>
+            <!-- Navbar Right Menu -->
+            <div class="navbar-custom-menu">
+                <ul class="nav navbar-nav">
+                  <!-- Messages: style can be found in dropdown.less-->
+              <li class="dropdown messages-menu">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                  <i class="fa fa-envelope-o"></i>
+                  <span class="label label-success">{{size}}</span>
+                </a>
+                <ul class="dropdown-menu">
+                  <li class="header">You have {{size}} messages</li>
+                  <li>
+                    <!-- inner menu: contains the actual data -->
+                    <ul class="menu">
+                      <li ng-repeat="ord in alerts"><!-- start message -->
+                        <a href="#">
+                          <div class="pull-left">
+                            <img src="plugins/dist/img/default-50x50.gif" class="img-circle" alt="User Image" />
+                          </div>
+                          <h4>
+                            {{ord.message}}
+                            <small><i class="fa fa-clock-o"></i> 5 mins</small>
+                          </h4>
+                          <p>{{ord.from}}</p>
+                        </a>
+                      </li><!-- end message -->
+                    </ul>
+                  </li>
+                  <li class="footer"><a href="#">See All Messages</a></li>
+                </ul>
+                </li>
+                    <!-- User Account: style can be found in dropdown.less -->
+                    <li class="dropdown user user-menu">
+                        <a href="" class="dropdown-toggle" data-toggle="dropdown">
+                            <img src="plugins/dist/img/user2-160x160.jpg" class="user-image" alt="User Image" />
+                            <span class="hidden-xs">{{user}}</span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <!-- User image -->
+                            <li class="user-header">
+                                <img src="plugins/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image" />
+                                <p>
+                                    {{user}}
+                                    <small></small>
+                                </p>
+                            </li>
+
+                            <!-- Menu Footer-->
+                            <li class="user-footer">
+                                <div class="pull-left">
+                                    <a href="#/profile" class="btn btn-default btn-flat">Profile</a>
+                                </div>
+                                <div class="pull-right">
+                                    <a href="index.html" class="btn btn-default btn-flat">Sign out</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- Control Sidebar Toggle Button -->
+                    <li>
+                        <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+		</header>
+		<!-- Left side column. contains the logo and sidebar -->
+	    <aside class="main-sidebar">
+	        <!-- sidebar: style can be found in sidebar.less -->
+	        <section class="sidebar">
+	            <!-- Sidebar user panel -->
+	            <div class="user-panel">
+	                <div class="pull-left image">
+	                    <img src="plugins/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image" />
+	                </div>
+	                <div class="pull-left info">
+	                    <p></p>
+	                    <a href="#/"><i class="fa fa-circle text-success"></i> {{user}}</a>
+	                </div>
+	            </div>
+	
+	            <!-- sidebar menu: : style can be found in sidebar.less -->
+	            <ul class="sidebar-menu">
+	                <li class="header"></li>
+	                <li><a href="#/"><i class="fa fa-circle-o text-red"></i> <span>Home</span></a></li>
+	                <li><a href="#/custconfirmations"><i class="fa fa-circle-o text-yellow"></i> <span>Confirmations</span>&nbsp;&nbsp;&nbsp;<span class="label label-info">{{confimnotification}}</span></a></li>
+	                <li><a href="#/payments"><i class="fa fa-circle-o text-yellow"></i> <span>Payments</span></a></li>
+	                <li class="treeview">
+		              <a href="#">
+		                <i class="fa fa-pie-chart"></i>
+		                <span>Reports</span>
+		                <i class="fa fa-angle-left pull-right"></i>
+		              </a>
+		              <ul class="treeview-menu">
+		                <li><a href="#/report1"><i class="fa fa-file"></i> Report 1</a></li>
+		                <li><a href="#/report2"><i class="fa fa-file"></i> Report 2</a></li>
+		              </ul>
+		            </li>
+	            </ul>
+	        </section>
+	        <!-- /.sidebar -->
+	    </aside>
+	    <!-- Content Wrapper. Contains page content -->
+    	<div class="content-wrapper">
+    		<!-- Content Header (Page header) -->
+	        <section class="content-header">
+	            <h1>
+	                CUSTOMER
+	                <small>{{Data.pagetitle}}</small>
+	            </h1>
+	            <ol class="breadcrumb">
+	                <li><a href="/home"><i class="fa fa-dashboard"></i> Home</a></li>
+	                <li class="active">{{Data.pagetitle}}</li>
+	            </ol>
+	        </section>
+	        
+	        <div ui-view></div>
+	        
+    	</div>
+	</div>
+	<script src="plugins/dist/js/app.min.js" type="text/javascript"></script>
+</body>
+</html>

@@ -1,0 +1,437 @@
+<div class="row">
+        <div class="col-md-7">
+            <!-- Map box -->
+            <div class="box box-solid bg-light-blue-gradient">
+
+                <div class="box-body">
+                    <div id="custchart" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+                </div><!-- /.box-body-->
+              
+            </div>
+            <!-- /.box -->
+            <div class="dropup">
+              <button class="btn btn-info btn-flat dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                New Order
+                <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                <li><a href="#/neworder">Forex Spot</a></li>
+                <li><a href="#/newforward">Forex Forward</a></li>
+                <li><a href="#/newswap">Forex Swap</a></li>              
+              </ul>
+            </div>
+                        <!--<div>
+                                <div class="input-group-btn">
+			                      <button type="button" class="btn btn-info btn-flat dropdown-toggle" data-toggle="dropdown"> <i class="fa fa-pencil"></i> New Order <span class="fa fa-caret-down"></span></button>
+			                      	<ul class="dropdown-menu" role="menu">
+	                                    <li><a href="#/neworder">Forex Spot</a></li>
+	                                    <li><a href="#/newforward">Forex Forward</a></li>
+	                                    <li><a href="#/newswap">Forex Swap</a></li>
+	                               </ul>
+			                    </div>
+                        </div>-->
+            <div class="tabs-left">
+                <ul class="nav nav-tabs">
+                    <li class="active"><a href="#a" data-toggle="tab"> Open Orders </li></a>
+                </ul>
+                <div class="tab-content">
+
+                    <div class="tab-pane active" id="a">
+                        <input ng-model="searchKeyword" type="text" placeholder="Filter by" autofocus>
+                        <div class="table-responsive" style="min-Height:500px">
+                            <table class="table no-margin">
+                                <thead>
+                                <tr>
+                                    <th>View</th>
+                                    <th>Currency Pair</th>
+                                    <th>Buy/Sell</th>
+                                    <th>Settlement Date</th>
+                                    <th>Buy Amount</th>
+                                    <th>Sell Amount</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr ng-repeat="ord in custorders | filter: searchKeyword">
+                                    <td>
+                                        <!--<button class="btn btn-info" ng-click="viewoffers(ord.orderid)"><i class="fa fa-external-link"></i> <span class="badge">{{ord.nOffers}}</span></button>-->
+                                        <div class="dropdown">
+                                          <button class="btn btn-info btn-flat dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            View Deal <span class="badge">{{ord.nOffers}}</span>
+                                            <span class="caret"></span>
+                                          </button>
+                                          <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                            <li><a href="" ng-click="viewoffers(ord.orderid)">View Offers</a></li>
+                                            <li><a data-toggle="modal" data-target="#myModal" class="announce" data-id="107">Withdraw Order</a></li>
+                                          </ul>
+                                        </div>
+                                    </td>
+                                    <td>{{ord.ccypair}}</td>
+                                    <td>{{ord.buysell}}</td>
+                                    <td>{{ord.settlementdate}}</td>
+                                    <td>{{ord.ccypair | limitTo:ord.limitnum}} {{ord.buyorderamount | number}}</td>
+                                    <td>{{ord.ccypair | limitTo:-ord.limitnum}} {{ord.sellorderamount | number}}</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div><!-- /.table-responsive -->
+                        <div>
+                                <!--<div class="input-group-btn">
+			                      <button type="button" class="btn btn-info btn-flat dropdown-toggle" data-toggle="dropdown">New Order <span class="fa fa-caret-down"></span></button>
+			                      	<ul class="dropdown-menu" role="menu">
+	                                    <li><a href="#/neworder">Forex Spot</a></li>
+	                                    <li><a href="#/newforward">Forex Forward</a></li>
+	                                    <li><a href="#/newswap">Forex Swap</a></li>
+	                               </ul>
+			                    </div> /btn-group -->
+                        </div><!-- /.box-footer -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-5">
+            <div class="row">
+                <div class="nav-tabs-custom">
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a href="#tab_1" data-toggle="tab">Offers {{offertitle}}</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="tab_1">
+                            <input ng-model="query" type="text" placeholder="Filter by" autofocus>
+                            <table class="table table-hover">
+                                <tr>
+                                    <th>Bank</th>
+                                    <th>Rate</th>
+                                    <th>Settlement Amount</th>
+                                    <th>Date of Offer</th>
+                                    <th>Expiry Date</th>
+                                    <th></th>
+                                </tr>
+                                <tr ng-repeat="ord in orderdetails | filter:query">
+                                    <td>{{ord.offeredby}}</td>
+                                    <td>{{ord.offeredrate}}</td>
+                                    <td>{{ord.ccysettleamount}} {{ord.settleamount | number}}</td>
+                                    <td>{{ord.createdate}}</td>
+                                    <td>{{ord.settlementdate}}</td>
+                                    <td>
+                                        <div class="btn-group pull-left">
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-gears"></i></a>
+                                            <ul class="dropdown-menu icons-right dropdown-menu-right">
+                                                <li><a href="#"><i class="fa fa-commenting"></i> Chat</a></li>
+                                                <li><a href="#/offeraccept/{{ord.offerid}}"><i class="fa fa-check"></i> Accept</a></li>
+                                            </ul>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div><!-- /.tab-pane -->
+                        </div><!-- /.tab-pane -->
+                    </div><!-- /.tab-content -->
+                </div>
+            </div>
+        </div>
+ <!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Withdraw Order</h4>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+            <form ng-submit="withdrawOrder()" method="post" id="withdraworderform" class="form-horizontal">
+                <div class="form-group">
+				    	<label class="col-xs-3 control-label">Order ID</label>
+				    	<div class="col-xs-5 selectContainer">
+				    		<input type="text" class="form-control" ng-model="order.orderid" required disabled>
+				    	</div>
+				</div>
+				<div class="form-group">
+                    <label class="col-xs-3 control-label"></label>
+                    	<div class="col-xs-5 selectContainer">
+                    		<button type="submit" class="btn btn-info" ng-disabled="withdraworderform.$invalid">Confirm Withdrawal</button>
+                    	</div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    // Create the chart
+    $('#custchart').highcharts({
+        chart: {
+            type: 'column'
+        },
+        title: {
+            text: 'Orders History'
+        },
+        subtitle: {
+            text: 'Click the columns to view offers made'
+        },
+        xAxis: {
+            type: 'category'
+        },
+        yAxis: {
+            title: {
+                text: 'Total orders made'
+            }
+
+        },
+        legend: {
+            enabled: false
+        },
+        credits: {
+            enabled: false
+        },
+        plotOptions: {
+            series: {
+                borderWidth: 0,
+                dataLabels: {
+                    enabled: true,
+                    format: '{point.y:.0f}'
+                }
+            }
+        },
+
+        tooltip: {
+            headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
+            pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.0f}</b> <br/>'
+        },
+
+        series: [{
+            name: "Month",
+            colorByPoint: true,
+            data: [{
+                name: "January",
+                y: 56.33,
+                drilldown: "January"
+            }, {
+                name: "February",
+                y: 24.03,
+                drilldown: "February"
+            }, {
+                name: "March",
+                y: 10.38,
+                drilldown: "March"
+            }, {
+                name: "April",
+                y: 4.77,
+                drilldown: "April"
+            }, {
+                name: "May",
+                y: 0.91,
+                drilldown: "May"
+            }, {
+                name: "June",
+                y: 0.2,
+                drilldown: null
+            }]
+        }],
+        drilldown: {
+            series: [{
+                name: "January",
+                id: "January",
+                data: [
+                    [
+                        "Bank11",
+                        24.13
+                    ],
+                    [
+                        "Bank8",
+                        17.2
+                    ],
+                    [
+                        "Bank9",
+                        8.11
+                    ],
+                    [
+                        "Bank10",
+                        5.33
+                    ],
+                    [
+                        "Bank6",
+                        1.06
+                    ],
+                    [
+                        "Bank7",
+                        0.5
+                    ]
+                ]
+            }, {
+                name: "February",
+                id: "February",
+                data: [
+                    [
+                        "v40",
+                        5
+                    ],
+                    [
+                        "v41",
+                        4.32
+                    ],
+                    [
+                        "v42",
+                        3.68
+                    ],
+                    [
+                        "v39",
+                        2.96
+                    ],
+                    [
+                        "v36",
+                        2.53
+                    ],
+                    [
+                        "v43",
+                        1.45
+                    ],
+                    [
+                        "v31",
+                        1.24
+                    ],
+                    [
+                        "v35",
+                        0.85
+                    ],
+                    [
+                        "v38",
+                        0.6
+                    ],
+                    [
+                        "v32",
+                        0.55
+                    ],
+                    [
+                        "v37",
+                        0.38
+                    ],
+                    [
+                        "v33",
+                        0.19
+                    ],
+                    [
+                        "v34",
+                        0.14
+                    ],
+                    [
+                        "v30",
+                        0.14
+                    ]
+                ]
+            }, {
+                name: "March",
+                id: "March",
+                data: [
+                    [
+                        "v35",
+                        2.76
+                    ],
+                    [
+                        "v36",
+                        2.32
+                    ],
+                    [
+                        "v37",
+                        2.31
+                    ],
+                    [
+                        "v34",
+                        1.27
+                    ],
+                    [
+                        "v38",
+                        1.02
+                    ],
+                    [
+                        "v31",
+                        0.33
+                    ],
+                    [
+                        "v33",
+                        0.22
+                    ],
+                    [
+                        "v32",
+                        0.15
+                    ]
+                ]
+            }, {
+                name: "April",
+                id: "April",
+                data: [
+                    [
+                        "v8.0",
+                        2.56
+                    ],
+                    [
+                        "v7.1",
+                        0.77
+                    ],
+                    [
+                        "v5.1",
+                        0.42
+                    ],
+                    [
+                        "v5.0",
+                        0.3
+                    ],
+                    [
+                        "v6.1",
+                        0.29
+                    ],
+                    [
+                        "v7.0",
+                        0.26
+                    ],
+                    [
+                        "v6.2",
+                        0.17
+                    ]
+                ]
+            }, {
+                name: "May",
+                id: "May",
+                data: [
+                    [
+                        "v12.x",
+                        0.34
+                    ],
+                    [
+                        "v28",
+                        0.24
+                    ],
+                    [
+                        "v27",
+                        0.17
+                    ],
+                    [
+                        "v29",
+                        0.16
+                    ]
+                ]
+            }]
+        }
+    });
+});
+        </script>
+        
+    <script type="text/javascript">
+        $(document).ready(function(){
+            //console.log('Test .... fnc');
+           $(".announce").click(function(){ // Click to only happen on announce links
+             //$("#cafeId").val($(this).data('id'));
+             //$('#createFormId').modal('show');
+             console.log('Openning Modal');
+           });
+        });
+    </script>

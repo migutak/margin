@@ -1,0 +1,40 @@
+<!-- Main content -->
+<section class="content">
+<i class="fa fa-arrow-left"></i> <a href="#/accepts">Back</a>
+    <div class="row">
+        <div class="col-md-12">
+                <div class="table-responsive">
+                            <table class="table no-margin">
+                                <thead>
+                                <tr>
+                                    <th>View</th>
+                                    <th>OrderID</th>
+                                    <th>Customer</th>
+                                    <th>Ccy Pair</th>
+                                    <th>Buy/Sell</th>
+                                    <th>Ccy/Buy Amount</th>
+                                    <th>Offered Rate</th>
+                                    <th>Ccy/Sell Amount</th>
+                                    <th>Settlement Date</th>
+                                    <th>Status</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr ng-repeat="ord in offers">
+                                    <td><a class="btn btn-info" href="#/editOffer/{{ord.offerid}}"><i class="fa fa-pencil"></i></a></td>
+                                    <td>{{ord.orderidfk}}</td>
+                                    <td>{{ord.usernamefk}}</td>
+                                    <td>{{ord.ccypair}}</td>
+                                    <td>{{ord.buysellbank}}</td>
+                                    <td>{{ord.ccypair | limitTo:ord.limitnum}} {{ord.orderamount | number}}</td>
+                                    <td>{{ord.offeredrate}}</td>
+                                    <td>{{ord.ccypair | limitTo:-ord.limitnum}} {{ord.settleamount | number}}</td>
+                                    <td>{{ord.settlementdate}}</td>
+                                    <td>{{ord.status}}</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div><!-- /.table-responsive -->
+        </div>
+    </div>
+</section>

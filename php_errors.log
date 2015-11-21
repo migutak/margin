@@ -1,0 +1,596 @@
+[13-Oct-2015 21:18:40 UTC] PHP Warning:  mysqli::mysqli(): (HY000/1049): Unknown database 'safari' in /home/ubuntu/workspace/assets/connect.php on line 13
+[13-Oct-2015 21:18:40 UTC] PHP Stack trace:
+[13-Oct-2015 21:18:40 UTC] PHP   1. {main}() /home/ubuntu/workspace/assets/connect.php:0
+[13-Oct-2015 21:18:40 UTC] PHP   2. mysqli->mysqli() /home/ubuntu/workspace/assets/connect.php:13
+[16-Oct-2015 12:56:58 UTC] PHP Fatal error:  Call to a member function fetch_assoc() on a non-object in /home/ubuntu/workspace/assets/insert_new_order.php on line 24
+[16-Oct-2015 12:56:58 UTC] PHP Stack trace:
+[16-Oct-2015 12:56:58 UTC] PHP   1. {main}() /home/ubuntu/workspace/assets/insert_new_order.php:0
+[16-Oct-2015 13:04:54 UTC] PHP Fatal error:  Call to a member function fetch_assoc() on a non-object in /home/ubuntu/workspace/assets/insert_new_order.php on line 25
+[16-Oct-2015 13:04:54 UTC] PHP Stack trace:
+[16-Oct-2015 13:04:54 UTC] PHP   1. {main}() /home/ubuntu/workspace/assets/insert_new_order.php:0
+[16-Oct-2015 13:08:40 UTC] PHP Fatal error:  Call to a member function fetch_assoc() on a non-object in /home/ubuntu/workspace/assets/insert_new_order.php on line 25
+[16-Oct-2015 13:08:40 UTC] PHP Stack trace:
+[16-Oct-2015 13:08:40 UTC] PHP   1. {main}() /home/ubuntu/workspace/assets/insert_new_order.php:0
+[16-Oct-2015 15:19:21 UTC] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, object given in /home/ubuntu/workspace/assets/get_all_orders.php on line 16
+[16-Oct-2015 15:19:21 UTC] PHP Stack trace:
+[16-Oct-2015 15:19:21 UTC] PHP   1. {main}() /home/ubuntu/workspace/assets/get_all_orders.php:0
+[16-Oct-2015 15:19:21 UTC] PHP   2. mysql_num_rows() /home/ubuntu/workspace/assets/get_all_orders.php:16
+[16-Oct-2015 15:35:58 UTC] PHP Warning:  require_once(connect): failed to open stream: No such file or directory in /home/ubuntu/workspace/assets/get_all_orders.php on line 3
+[16-Oct-2015 15:35:58 UTC] PHP Stack trace:
+[16-Oct-2015 15:35:58 UTC] PHP   1. {main}() /home/ubuntu/workspace/assets/get_all_orders.php:0
+[16-Oct-2015 15:35:58 UTC] PHP Fatal error:  require_once(): Failed opening required 'connect' (include_path='.:/usr/share/php:/usr/share/pear') in /home/ubuntu/workspace/assets/get_all_orders.php on line 3
+[16-Oct-2015 15:35:58 UTC] PHP Stack trace:
+[16-Oct-2015 15:35:58 UTC] PHP   1. {main}() /home/ubuntu/workspace/assets/get_all_orders.php:0
+[16-Oct-2015 15:36:23 UTC] PHP Warning:  mysql_select_db() expects parameter 2 to be resource, object given in /home/ubuntu/workspace/assets/get_all_orders.php on line 6
+[16-Oct-2015 15:36:23 UTC] PHP Stack trace:
+[16-Oct-2015 15:36:23 UTC] PHP   1. {main}() /home/ubuntu/workspace/assets/get_all_orders.php:0
+[16-Oct-2015 15:36:23 UTC] PHP   2. mysql_select_db() /home/ubuntu/workspace/assets/get_all_orders.php:6
+[16-Oct-2015 15:36:23 UTC] PHP Warning:  mysql_query() expects parameter 2 to be resource, object given in /home/ubuntu/workspace/assets/get_all_orders.php on line 9
+[16-Oct-2015 15:36:23 UTC] PHP Stack trace:
+[16-Oct-2015 15:36:23 UTC] PHP   1. {main}() /home/ubuntu/workspace/assets/get_all_orders.php:0
+[16-Oct-2015 15:36:23 UTC] PHP   2. mysql_query() /home/ubuntu/workspace/assets/get_all_orders.php:9
+[16-Oct-2015 15:36:23 UTC] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, null given in /home/ubuntu/workspace/assets/get_all_orders.php on line 14
+[16-Oct-2015 15:36:23 UTC] PHP Stack trace:
+[16-Oct-2015 15:36:23 UTC] PHP   1. {main}() /home/ubuntu/workspace/assets/get_all_orders.php:0
+[16-Oct-2015 15:36:23 UTC] PHP   2. mysql_fetch_array() /home/ubuntu/workspace/assets/get_all_orders.php:14
+[16-Oct-2015 15:36:23 UTC] PHP Warning:  fclose() expects parameter 1 to be resource, object given in /home/ubuntu/workspace/assets/get_all_orders.php on line 28
+[16-Oct-2015 15:36:23 UTC] PHP Stack trace:
+[16-Oct-2015 15:36:23 UTC] PHP   1. {main}() /home/ubuntu/workspace/assets/get_all_orders.php:0
+[16-Oct-2015 15:36:23 UTC] PHP   2. fclose() /home/ubuntu/workspace/assets/get_all_orders.php:28
+[16-Oct-2015 17:06:02 UTC] PHP Warning:  mysql_select_db() expects parameter 2 to be resource, object given in /home/ubuntu/workspace/assets/get_all_orders.php on line 6
+[16-Oct-2015 17:06:02 UTC] PHP Stack trace:
+[16-Oct-2015 17:06:02 UTC] PHP   1. {main}() /home/ubuntu/workspace/assets/get_all_orders.php:0
+[16-Oct-2015 17:06:02 UTC] PHP   2. mysql_select_db() /home/ubuntu/workspace/assets/get_all_orders.php:6
+[16-Oct-2015 17:06:02 UTC] PHP Warning:  mysql_query() expects parameter 2 to be resource, object given in /home/ubuntu/workspace/assets/get_all_orders.php on line 9
+[16-Oct-2015 17:06:02 UTC] PHP Stack trace:
+[16-Oct-2015 17:06:02 UTC] PHP   1. {main}() /home/ubuntu/workspace/assets/get_all_orders.php:0
+[16-Oct-2015 17:06:02 UTC] PHP   2. mysql_query() /home/ubuntu/workspace/assets/get_all_orders.php:9
+[16-Oct-2015 17:06:02 UTC] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, null given in /home/ubuntu/workspace/assets/get_all_orders.php on line 14
+[16-Oct-2015 17:06:02 UTC] PHP Stack trace:
+[16-Oct-2015 17:06:02 UTC] PHP   1. {main}() /home/ubuntu/workspace/assets/get_all_orders.php:0
+[16-Oct-2015 17:06:02 UTC] PHP   2. mysql_fetch_array() /home/ubuntu/workspace/assets/get_all_orders.php:14
+[16-Oct-2015 17:06:02 UTC] PHP Warning:  fclose() expects parameter 1 to be resource, object given in /home/ubuntu/workspace/assets/get_all_orders.php on line 28
+[16-Oct-2015 17:06:02 UTC] PHP Stack trace:
+[16-Oct-2015 17:06:02 UTC] PHP   1. {main}() /home/ubuntu/workspace/assets/get_all_orders.php:0
+[16-Oct-2015 17:06:02 UTC] PHP   2. fclose() /home/ubuntu/workspace/assets/get_all_orders.php:28
+[16-Oct-2015 19:13:41 UTC] PHP Warning:  mysql_select_db() expects parameter 2 to be resource, object given in /home/ubuntu/workspace/assets/get_all_orders.php on line 13
+[16-Oct-2015 19:13:41 UTC] PHP Stack trace:
+[16-Oct-2015 19:13:41 UTC] PHP   1. {main}() /home/ubuntu/workspace/assets/get_all_orders.php:0
+[16-Oct-2015 19:13:41 UTC] PHP   2. mysql_select_db() /home/ubuntu/workspace/assets/get_all_orders.php:13
+[16-Oct-2015 19:13:41 UTC] PHP Warning:  mysql_query() expects parameter 2 to be resource, object given in /home/ubuntu/workspace/assets/get_all_orders.php on line 16
+[16-Oct-2015 19:13:41 UTC] PHP Stack trace:
+[16-Oct-2015 19:13:41 UTC] PHP   1. {main}() /home/ubuntu/workspace/assets/get_all_orders.php:0
+[16-Oct-2015 19:13:41 UTC] PHP   2. mysql_query() /home/ubuntu/workspace/assets/get_all_orders.php:16
+[16-Oct-2015 19:13:41 UTC] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, null given in /home/ubuntu/workspace/assets/get_all_orders.php on line 21
+[16-Oct-2015 19:13:41 UTC] PHP Stack trace:
+[16-Oct-2015 19:13:41 UTC] PHP   1. {main}() /home/ubuntu/workspace/assets/get_all_orders.php:0
+[16-Oct-2015 19:13:41 UTC] PHP   2. mysql_fetch_array() /home/ubuntu/workspace/assets/get_all_orders.php:21
+[16-Oct-2015 19:13:41 UTC] PHP Warning:  fclose() expects parameter 1 to be resource, object given in /home/ubuntu/workspace/assets/get_all_orders.php on line 35
+[16-Oct-2015 19:13:41 UTC] PHP Stack trace:
+[16-Oct-2015 19:13:41 UTC] PHP   1. {main}() /home/ubuntu/workspace/assets/get_all_orders.php:0
+[16-Oct-2015 19:13:41 UTC] PHP   2. fclose() /home/ubuntu/workspace/assets/get_all_orders.php:35
+[16-Oct-2015 19:14:34 UTC] PHP Warning:  mysql_select_db() expects parameter 2 to be resource, object given in /home/ubuntu/workspace/assets/get_all_orders.php on line 13
+[16-Oct-2015 19:14:34 UTC] PHP Stack trace:
+[16-Oct-2015 19:14:34 UTC] PHP   1. {main}() /home/ubuntu/workspace/assets/get_all_orders.php:0
+[16-Oct-2015 19:14:34 UTC] PHP   2. mysql_select_db() /home/ubuntu/workspace/assets/get_all_orders.php:13
+[16-Oct-2015 19:14:34 UTC] PHP Warning:  mysql_query() expects parameter 2 to be resource, object given in /home/ubuntu/workspace/assets/get_all_orders.php on line 16
+[16-Oct-2015 19:14:34 UTC] PHP Stack trace:
+[16-Oct-2015 19:14:34 UTC] PHP   1. {main}() /home/ubuntu/workspace/assets/get_all_orders.php:0
+[16-Oct-2015 19:14:34 UTC] PHP   2. mysql_query() /home/ubuntu/workspace/assets/get_all_orders.php:16
+[16-Oct-2015 19:14:34 UTC] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, null given in /home/ubuntu/workspace/assets/get_all_orders.php on line 21
+[16-Oct-2015 19:14:34 UTC] PHP Stack trace:
+[16-Oct-2015 19:14:34 UTC] PHP   1. {main}() /home/ubuntu/workspace/assets/get_all_orders.php:0
+[16-Oct-2015 19:14:34 UTC] PHP   2. mysql_fetch_array() /home/ubuntu/workspace/assets/get_all_orders.php:21
+[16-Oct-2015 19:14:34 UTC] PHP Warning:  fclose() expects parameter 1 to be resource, object given in /home/ubuntu/workspace/assets/get_all_orders.php on line 35
+[16-Oct-2015 19:14:34 UTC] PHP Stack trace:
+[16-Oct-2015 19:14:34 UTC] PHP   1. {main}() /home/ubuntu/workspace/assets/get_all_orders.php:0
+[16-Oct-2015 19:14:34 UTC] PHP   2. fclose() /home/ubuntu/workspace/assets/get_all_orders.php:35
+[16-Oct-2015 19:14:38 UTC] PHP Warning:  mysql_select_db() expects parameter 2 to be resource, object given in /home/ubuntu/workspace/assets/get_all_orders.php on line 13
+[16-Oct-2015 19:14:38 UTC] PHP Stack trace:
+[16-Oct-2015 19:14:38 UTC] PHP   1. {main}() /home/ubuntu/workspace/assets/get_all_orders.php:0
+[16-Oct-2015 19:14:38 UTC] PHP   2. mysql_select_db() /home/ubuntu/workspace/assets/get_all_orders.php:13
+[16-Oct-2015 19:14:38 UTC] PHP Warning:  mysql_query() expects parameter 2 to be resource, object given in /home/ubuntu/workspace/assets/get_all_orders.php on line 16
+[16-Oct-2015 19:14:38 UTC] PHP Stack trace:
+[16-Oct-2015 19:14:38 UTC] PHP   1. {main}() /home/ubuntu/workspace/assets/get_all_orders.php:0
+[16-Oct-2015 19:14:38 UTC] PHP   2. mysql_query() /home/ubuntu/workspace/assets/get_all_orders.php:16
+[16-Oct-2015 19:14:38 UTC] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, null given in /home/ubuntu/workspace/assets/get_all_orders.php on line 21
+[16-Oct-2015 19:14:38 UTC] PHP Stack trace:
+[16-Oct-2015 19:14:38 UTC] PHP   1. {main}() /home/ubuntu/workspace/assets/get_all_orders.php:0
+[16-Oct-2015 19:14:38 UTC] PHP   2. mysql_fetch_array() /home/ubuntu/workspace/assets/get_all_orders.php:21
+[16-Oct-2015 19:14:38 UTC] PHP Warning:  fclose() expects parameter 1 to be resource, object given in /home/ubuntu/workspace/assets/get_all_orders.php on line 35
+[16-Oct-2015 19:14:38 UTC] PHP Stack trace:
+[16-Oct-2015 19:14:38 UTC] PHP   1. {main}() /home/ubuntu/workspace/assets/get_all_orders.php:0
+[16-Oct-2015 19:14:38 UTC] PHP   2. fclose() /home/ubuntu/workspace/assets/get_all_orders.php:35
+[16-Oct-2015 19:15:00 UTC] PHP Warning:  mysql_query() expects parameter 2 to be resource, object given in /home/ubuntu/workspace/assets/get_all_orders.php on line 16
+[16-Oct-2015 19:15:00 UTC] PHP Stack trace:
+[16-Oct-2015 19:15:00 UTC] PHP   1. {main}() /home/ubuntu/workspace/assets/get_all_orders.php:0
+[16-Oct-2015 19:15:00 UTC] PHP   2. mysql_query() /home/ubuntu/workspace/assets/get_all_orders.php:16
+[16-Oct-2015 19:15:00 UTC] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, null given in /home/ubuntu/workspace/assets/get_all_orders.php on line 21
+[16-Oct-2015 19:15:00 UTC] PHP Stack trace:
+[16-Oct-2015 19:15:00 UTC] PHP   1. {main}() /home/ubuntu/workspace/assets/get_all_orders.php:0
+[16-Oct-2015 19:15:00 UTC] PHP   2. mysql_fetch_array() /home/ubuntu/workspace/assets/get_all_orders.php:21
+[16-Oct-2015 19:15:00 UTC] PHP Warning:  fclose() expects parameter 1 to be resource, object given in /home/ubuntu/workspace/assets/get_all_orders.php on line 35
+[16-Oct-2015 19:15:00 UTC] PHP Stack trace:
+[16-Oct-2015 19:15:00 UTC] PHP   1. {main}() /home/ubuntu/workspace/assets/get_all_orders.php:0
+[16-Oct-2015 19:15:00 UTC] PHP   2. fclose() /home/ubuntu/workspace/assets/get_all_orders.php:35
+[16-Oct-2015 19:25:45 UTC] PHP Warning:  mysql_close() expects parameter 1 to be resource, null given in /home/ubuntu/workspace/assets/get_all_orders.php on line 19
+[16-Oct-2015 19:25:45 UTC] PHP Stack trace:
+[16-Oct-2015 19:25:45 UTC] PHP   1. {main}() /home/ubuntu/workspace/assets/get_all_orders.php:0
+[16-Oct-2015 19:25:45 UTC] PHP   2. mysql_close() /home/ubuntu/workspace/assets/get_all_orders.php:19
+[16-Oct-2015 19:26:29 UTC] PHP Warning:  mysql_close() expects parameter 1 to be resource, string given in /home/ubuntu/workspace/assets/get_all_orders.php on line 19
+[16-Oct-2015 19:26:29 UTC] PHP Stack trace:
+[16-Oct-2015 19:26:29 UTC] PHP   1. {main}() /home/ubuntu/workspace/assets/get_all_orders.php:0
+[16-Oct-2015 19:26:29 UTC] PHP   2. mysql_close() /home/ubuntu/workspace/assets/get_all_orders.php:19
+[16-Oct-2015 19:26:50 UTC] PHP Warning:  mysql_close() expects parameter 1 to be resource, string given in /home/ubuntu/workspace/assets/get_all_orders.php on line 19
+[16-Oct-2015 19:26:50 UTC] PHP Stack trace:
+[16-Oct-2015 19:26:50 UTC] PHP   1. {main}() /home/ubuntu/workspace/assets/get_all_orders.php:0
+[16-Oct-2015 19:26:50 UTC] PHP   2. mysql_close() /home/ubuntu/workspace/assets/get_all_orders.php:19
+[16-Oct-2015 19:27:27 UTC] PHP Warning:  mysql_close() expects parameter 1 to be resource, string given in /home/ubuntu/workspace/assets/get_all_orders.php on line 19
+[16-Oct-2015 19:27:27 UTC] PHP Stack trace:
+[16-Oct-2015 19:27:27 UTC] PHP   1. {main}() /home/ubuntu/workspace/assets/get_all_orders.php:0
+[16-Oct-2015 19:27:27 UTC] PHP   2. mysql_close() /home/ubuntu/workspace/assets/get_all_orders.php:19
+[16-Oct-2015 19:39:07 UTC] PHP Warning:  mysql_close() expects parameter 1 to be resource, string given in /home/ubuntu/workspace/assets/get_all_orders.php on line 19
+[16-Oct-2015 19:39:07 UTC] PHP Stack trace:
+[16-Oct-2015 19:39:07 UTC] PHP   1. {main}() /home/ubuntu/workspace/assets/get_all_orders.php:0
+[16-Oct-2015 19:39:07 UTC] PHP   2. mysql_close() /home/ubuntu/workspace/assets/get_all_orders.php:19
+[16-Oct-2015 19:43:43 UTC] PHP Warning:  mysql_close() expects parameter 1 to be resource, string given in /home/ubuntu/workspace/assets/get_all_orders.php on line 19
+[16-Oct-2015 19:43:43 UTC] PHP Stack trace:
+[16-Oct-2015 19:43:43 UTC] PHP   1. {main}() /home/ubuntu/workspace/assets/get_all_orders.php:0
+[16-Oct-2015 19:43:43 UTC] PHP   2. mysql_close() /home/ubuntu/workspace/assets/get_all_orders.php:19
+[17-Oct-2015 04:23:57 UTC] PHP Warning:  mysql_close() expects parameter 1 to be resource, string given in /home/ubuntu/workspace/assets/get_all_orders.php on line 19
+[17-Oct-2015 04:23:57 UTC] PHP Stack trace:
+[17-Oct-2015 04:23:57 UTC] PHP   1. {main}() /home/ubuntu/workspace/assets/get_all_orders.php:0
+[17-Oct-2015 04:23:57 UTC] PHP   2. mysql_close() /home/ubuntu/workspace/assets/get_all_orders.php:19
+[17-Oct-2015 04:24:57 UTC] PHP Warning:  mysql_close() expects parameter 1 to be resource, string given in /home/ubuntu/workspace/assets/get_all_orders.php on line 19
+[17-Oct-2015 04:24:57 UTC] PHP Stack trace:
+[17-Oct-2015 04:24:57 UTC] PHP   1. {main}() /home/ubuntu/workspace/assets/get_all_orders.php:0
+[17-Oct-2015 04:24:57 UTC] PHP   2. mysql_close() /home/ubuntu/workspace/assets/get_all_orders.php:19
+[17-Oct-2015 04:25:35 UTC] PHP Warning:  mysql_close() expects parameter 1 to be resource, string given in /home/ubuntu/workspace/assets/get_all_orders.php on line 19
+[17-Oct-2015 04:25:35 UTC] PHP Stack trace:
+[17-Oct-2015 04:25:35 UTC] PHP   1. {main}() /home/ubuntu/workspace/assets/get_all_orders.php:0
+[17-Oct-2015 04:25:35 UTC] PHP   2. mysql_close() /home/ubuntu/workspace/assets/get_all_orders.php:19
+[17-Oct-2015 04:30:10 UTC] PHP Warning:  mysql_close() expects parameter 1 to be resource, string given in /home/ubuntu/workspace/assets/get_all_orders.php on line 19
+[17-Oct-2015 04:30:10 UTC] PHP Stack trace:
+[17-Oct-2015 04:30:10 UTC] PHP   1. {main}() /home/ubuntu/workspace/assets/get_all_orders.php:0
+[17-Oct-2015 04:30:10 UTC] PHP   2. mysql_close() /home/ubuntu/workspace/assets/get_all_orders.php:19
+[17-Oct-2015 04:40:13 UTC] PHP Warning:  mysql_close() expects parameter 1 to be resource, string given in /home/ubuntu/workspace/assets/get_all_orders.php on line 19
+[17-Oct-2015 04:40:13 UTC] PHP Stack trace:
+[17-Oct-2015 04:40:13 UTC] PHP   1. {main}() /home/ubuntu/workspace/assets/get_all_orders.php:0
+[17-Oct-2015 04:40:13 UTC] PHP   2. mysql_close() /home/ubuntu/workspace/assets/get_all_orders.php:19
+[17-Oct-2015 04:41:42 UTC] PHP Warning:  mysql_close() expects parameter 1 to be resource, string given in /home/ubuntu/workspace/assets/get_all_orders.php on line 19
+[17-Oct-2015 04:41:42 UTC] PHP Stack trace:
+[17-Oct-2015 04:41:42 UTC] PHP   1. {main}() /home/ubuntu/workspace/assets/get_all_orders.php:0
+[17-Oct-2015 04:41:42 UTC] PHP   2. mysql_close() /home/ubuntu/workspace/assets/get_all_orders.php:19
+[17-Oct-2015 11:37:28 UTC] PHP Warning:  fclose(): supplied resource is not a valid stream resource in /home/ubuntu/workspace/rest/all_employee.php on line 38
+[17-Oct-2015 11:37:28 UTC] PHP Stack trace:
+[17-Oct-2015 11:37:28 UTC] PHP   1. {main}() /home/ubuntu/workspace/rest/all_employee.php:0
+[17-Oct-2015 11:37:28 UTC] PHP   2. fclose() /home/ubuntu/workspace/rest/all_employee.php:38
+[17-Oct-2015 11:44:29 UTC] PHP Warning:  require_once(connect.php): failed to open stream: No such file or directory in /home/ubuntu/workspace/rest/all_employee.php on line 3
+[17-Oct-2015 11:44:29 UTC] PHP Stack trace:
+[17-Oct-2015 11:44:29 UTC] PHP   1. {main}() /home/ubuntu/workspace/rest/all_employee.php:0
+[17-Oct-2015 11:44:29 UTC] PHP Fatal error:  require_once(): Failed opening required 'connect.php' (include_path='.:/usr/share/php:/usr/share/pear') in /home/ubuntu/workspace/rest/all_employee.php on line 3
+[17-Oct-2015 11:44:29 UTC] PHP Stack trace:
+[17-Oct-2015 11:44:29 UTC] PHP   1. {main}() /home/ubuntu/workspace/rest/all_employee.php:0
+[17-Oct-2015 11:44:46 UTC] PHP Warning:  require_once(./assets/connect.php): failed to open stream: No such file or directory in /home/ubuntu/workspace/rest/all_employee.php on line 3
+[17-Oct-2015 11:44:46 UTC] PHP Stack trace:
+[17-Oct-2015 11:44:46 UTC] PHP   1. {main}() /home/ubuntu/workspace/rest/all_employee.php:0
+[17-Oct-2015 11:44:46 UTC] PHP Fatal error:  require_once(): Failed opening required './assets/connect.php' (include_path='.:/usr/share/php:/usr/share/pear') in /home/ubuntu/workspace/rest/all_employee.php on line 3
+[17-Oct-2015 11:44:46 UTC] PHP Stack trace:
+[17-Oct-2015 11:44:46 UTC] PHP   1. {main}() /home/ubuntu/workspace/rest/all_employee.php:0
+[17-Oct-2015 11:45:16 UTC] PHP Warning:  require_once(assets/connect.php): failed to open stream: No such file or directory in /home/ubuntu/workspace/rest/all_employee.php on line 3
+[17-Oct-2015 11:45:16 UTC] PHP Stack trace:
+[17-Oct-2015 11:45:16 UTC] PHP   1. {main}() /home/ubuntu/workspace/rest/all_employee.php:0
+[17-Oct-2015 11:45:16 UTC] PHP Fatal error:  require_once(): Failed opening required 'assets/connect.php' (include_path='.:/usr/share/php:/usr/share/pear') in /home/ubuntu/workspace/rest/all_employee.php on line 3
+[17-Oct-2015 11:45:16 UTC] PHP Stack trace:
+[17-Oct-2015 11:45:16 UTC] PHP   1. {main}() /home/ubuntu/workspace/rest/all_employee.php:0
+[17-Oct-2015 11:45:52 UTC] PHP Warning:  mysql_select_db() expects parameter 2 to be resource, object given in /home/ubuntu/workspace/rest/all_employee.php on line 19
+[17-Oct-2015 11:45:52 UTC] PHP Stack trace:
+[17-Oct-2015 11:45:52 UTC] PHP   1. {main}() /home/ubuntu/workspace/rest/all_employee.php:0
+[17-Oct-2015 11:45:52 UTC] PHP   2. mysql_select_db() /home/ubuntu/workspace/rest/all_employee.php:19
+[17-Oct-2015 11:45:52 UTC] PHP Warning:  mysql_query() expects parameter 2 to be resource, object given in /home/ubuntu/workspace/rest/all_employee.php on line 22
+[17-Oct-2015 11:45:52 UTC] PHP Stack trace:
+[17-Oct-2015 11:45:52 UTC] PHP   1. {main}() /home/ubuntu/workspace/rest/all_employee.php:0
+[17-Oct-2015 11:45:52 UTC] PHP   2. mysql_query() /home/ubuntu/workspace/rest/all_employee.php:22
+[17-Oct-2015 11:45:52 UTC] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, null given in /home/ubuntu/workspace/rest/all_employee.php on line 27
+[17-Oct-2015 11:45:52 UTC] PHP Stack trace:
+[17-Oct-2015 11:45:52 UTC] PHP   1. {main}() /home/ubuntu/workspace/rest/all_employee.php:0
+[17-Oct-2015 11:45:52 UTC] PHP   2. mysql_fetch_array() /home/ubuntu/workspace/rest/all_employee.php:27
+[17-Oct-2015 11:45:52 UTC] PHP Warning:  mysql_close() expects parameter 1 to be resource, object given in /home/ubuntu/workspace/rest/all_employee.php on line 41
+[17-Oct-2015 11:45:52 UTC] PHP Stack trace:
+[17-Oct-2015 11:45:52 UTC] PHP   1. {main}() /home/ubuntu/workspace/rest/all_employee.php:0
+[17-Oct-2015 11:45:52 UTC] PHP   2. mysql_close() /home/ubuntu/workspace/rest/all_employee.php:41
+[17-Oct-2015 15:41:27 UTC] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home/ubuntu/workspace/rest/get_order.php on line 33
+[17-Oct-2015 15:41:27 UTC] PHP Stack trace:
+[17-Oct-2015 15:41:27 UTC] PHP   1. {main}() /home/ubuntu/workspace/rest/get_order.php:0
+[17-Oct-2015 15:41:27 UTC] PHP   2. mysql_fetch_array() /home/ubuntu/workspace/rest/get_order.php:33
+[17-Oct-2015 15:41:39 UTC] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home/ubuntu/workspace/rest/get_order.php on line 33
+[17-Oct-2015 15:41:39 UTC] PHP Stack trace:
+[17-Oct-2015 15:41:39 UTC] PHP   1. {main}() /home/ubuntu/workspace/rest/get_order.php:0
+[17-Oct-2015 15:41:39 UTC] PHP   2. mysql_fetch_array() /home/ubuntu/workspace/rest/get_order.php:33
+[17-Oct-2015 15:52:10 UTC] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home/ubuntu/workspace/rest/get_order.php on line 33
+[17-Oct-2015 15:52:10 UTC] PHP Stack trace:
+[17-Oct-2015 15:52:10 UTC] PHP   1. {main}() /home/ubuntu/workspace/rest/get_order.php:0
+[17-Oct-2015 15:52:10 UTC] PHP   2. mysql_fetch_array() /home/ubuntu/workspace/rest/get_order.php:33
+[17-Oct-2015 15:53:58 UTC] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home/ubuntu/workspace/rest/get_order.php on line 33
+[17-Oct-2015 15:53:58 UTC] PHP Stack trace:
+[17-Oct-2015 15:53:58 UTC] PHP   1. {main}() /home/ubuntu/workspace/rest/get_order.php:0
+[17-Oct-2015 15:53:58 UTC] PHP   2. mysql_fetch_array() /home/ubuntu/workspace/rest/get_order.php:33
+[17-Oct-2015 16:02:00 UTC] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home/ubuntu/workspace/rest/get_order.php on line 33
+[17-Oct-2015 16:02:00 UTC] PHP Stack trace:
+[17-Oct-2015 16:02:00 UTC] PHP   1. {main}() /home/ubuntu/workspace/rest/get_order.php:0
+[17-Oct-2015 16:02:00 UTC] PHP   2. mysql_fetch_array() /home/ubuntu/workspace/rest/get_order.php:33
+[17-Oct-2015 16:03:02 UTC] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home/ubuntu/workspace/rest/get_order.php on line 33
+[17-Oct-2015 16:03:02 UTC] PHP Stack trace:
+[17-Oct-2015 16:03:02 UTC] PHP   1. {main}() /home/ubuntu/workspace/rest/get_order.php:0
+[17-Oct-2015 16:03:02 UTC] PHP   2. mysql_fetch_array() /home/ubuntu/workspace/rest/get_order.php:33
+[17-Oct-2015 16:06:09 UTC] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home/ubuntu/workspace/rest/get_order.php on line 33
+[17-Oct-2015 16:06:09 UTC] PHP Stack trace:
+[17-Oct-2015 16:06:09 UTC] PHP   1. {main}() /home/ubuntu/workspace/rest/get_order.php:0
+[17-Oct-2015 16:06:09 UTC] PHP   2. mysql_fetch_array() /home/ubuntu/workspace/rest/get_order.php:33
+[17-Oct-2015 16:09:34 UTC] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home/ubuntu/workspace/rest/get_order.php on line 33
+[17-Oct-2015 16:09:34 UTC] PHP Stack trace:
+[17-Oct-2015 16:09:34 UTC] PHP   1. {main}() /home/ubuntu/workspace/rest/get_order.php:0
+[17-Oct-2015 16:09:34 UTC] PHP   2. mysql_fetch_array() /home/ubuntu/workspace/rest/get_order.php:33
+[17-Oct-2015 20:23:37 UTC] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home/ubuntu/workspace/rest/get_offer.php on line 29
+[17-Oct-2015 20:23:37 UTC] PHP Stack trace:
+[17-Oct-2015 20:23:37 UTC] PHP   1. {main}() /home/ubuntu/workspace/rest/get_offer.php:0
+[17-Oct-2015 20:23:37 UTC] PHP   2. mysql_fetch_array() /home/ubuntu/workspace/rest/get_offer.php:29
+[17-Oct-2015 20:25:05 UTC] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home/ubuntu/workspace/rest/get_offer.php on line 29
+[17-Oct-2015 20:25:05 UTC] PHP Stack trace:
+[17-Oct-2015 20:25:05 UTC] PHP   1. {main}() /home/ubuntu/workspace/rest/get_offer.php:0
+[17-Oct-2015 20:25:05 UTC] PHP   2. mysql_fetch_array() /home/ubuntu/workspace/rest/get_offer.php:29
+[17-Oct-2015 20:26:37 UTC] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home/ubuntu/workspace/rest/get_offer.php on line 29
+[17-Oct-2015 20:26:37 UTC] PHP Stack trace:
+[17-Oct-2015 20:26:37 UTC] PHP   1. {main}() /home/ubuntu/workspace/rest/get_offer.php:0
+[17-Oct-2015 20:26:37 UTC] PHP   2. mysql_fetch_array() /home/ubuntu/workspace/rest/get_offer.php:29
+[17-Oct-2015 20:26:49 UTC] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home/ubuntu/workspace/rest/get_offer.php on line 29
+[17-Oct-2015 20:26:49 UTC] PHP Stack trace:
+[17-Oct-2015 20:26:49 UTC] PHP   1. {main}() /home/ubuntu/workspace/rest/get_offer.php:0
+[17-Oct-2015 20:26:49 UTC] PHP   2. mysql_fetch_array() /home/ubuntu/workspace/rest/get_offer.php:29
+[17-Oct-2015 20:26:50 UTC] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home/ubuntu/workspace/rest/get_offer.php on line 29
+[17-Oct-2015 20:26:50 UTC] PHP Stack trace:
+[17-Oct-2015 20:26:50 UTC] PHP   1. {main}() /home/ubuntu/workspace/rest/get_offer.php:0
+[17-Oct-2015 20:26:50 UTC] PHP   2. mysql_fetch_array() /home/ubuntu/workspace/rest/get_offer.php:29
+[17-Oct-2015 20:28:17 UTC] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home/ubuntu/workspace/rest/get_offer.php on line 29
+[17-Oct-2015 20:28:17 UTC] PHP Stack trace:
+[17-Oct-2015 20:28:17 UTC] PHP   1. {main}() /home/ubuntu/workspace/rest/get_offer.php:0
+[17-Oct-2015 20:28:17 UTC] PHP   2. mysql_fetch_array() /home/ubuntu/workspace/rest/get_offer.php:29
+[17-Oct-2015 20:28:23 UTC] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home/ubuntu/workspace/rest/get_offer.php on line 29
+[17-Oct-2015 20:28:23 UTC] PHP Stack trace:
+[17-Oct-2015 20:28:23 UTC] PHP   1. {main}() /home/ubuntu/workspace/rest/get_offer.php:0
+[17-Oct-2015 20:28:23 UTC] PHP   2. mysql_fetch_array() /home/ubuntu/workspace/rest/get_offer.php:29
+[17-Oct-2015 20:28:27 UTC] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home/ubuntu/workspace/rest/get_offer.php on line 29
+[17-Oct-2015 20:28:27 UTC] PHP Stack trace:
+[17-Oct-2015 20:28:27 UTC] PHP   1. {main}() /home/ubuntu/workspace/rest/get_offer.php:0
+[17-Oct-2015 20:28:27 UTC] PHP   2. mysql_fetch_array() /home/ubuntu/workspace/rest/get_offer.php:29
+[17-Oct-2015 20:31:47 UTC] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home/ubuntu/workspace/rest/get_offer.php on line 29
+[17-Oct-2015 20:31:47 UTC] PHP Stack trace:
+[17-Oct-2015 20:31:47 UTC] PHP   1. {main}() /home/ubuntu/workspace/rest/get_offer.php:0
+[17-Oct-2015 20:31:47 UTC] PHP   2. mysql_fetch_array() /home/ubuntu/workspace/rest/get_offer.php:29
+[17-Oct-2015 20:31:58 UTC] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home/ubuntu/workspace/rest/get_offer.php on line 29
+[17-Oct-2015 20:31:58 UTC] PHP Stack trace:
+[17-Oct-2015 20:31:58 UTC] PHP   1. {main}() /home/ubuntu/workspace/rest/get_offer.php:0
+[17-Oct-2015 20:31:58 UTC] PHP   2. mysql_fetch_array() /home/ubuntu/workspace/rest/get_offer.php:29
+[17-Oct-2015 20:31:59 UTC] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home/ubuntu/workspace/rest/get_offer.php on line 29
+[17-Oct-2015 20:31:59 UTC] PHP Stack trace:
+[17-Oct-2015 20:31:59 UTC] PHP   1. {main}() /home/ubuntu/workspace/rest/get_offer.php:0
+[17-Oct-2015 20:31:59 UTC] PHP   2. mysql_fetch_array() /home/ubuntu/workspace/rest/get_offer.php:29
+[17-Oct-2015 20:34:55 UTC] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home/ubuntu/workspace/rest/get_offer.php on line 29
+[17-Oct-2015 20:34:55 UTC] PHP Stack trace:
+[17-Oct-2015 20:34:55 UTC] PHP   1. {main}() /home/ubuntu/workspace/rest/get_offer.php:0
+[17-Oct-2015 20:34:55 UTC] PHP   2. mysql_fetch_array() /home/ubuntu/workspace/rest/get_offer.php:29
+[17-Oct-2015 20:34:57 UTC] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home/ubuntu/workspace/rest/get_offer.php on line 29
+[17-Oct-2015 20:34:57 UTC] PHP Stack trace:
+[17-Oct-2015 20:34:57 UTC] PHP   1. {main}() /home/ubuntu/workspace/rest/get_offer.php:0
+[17-Oct-2015 20:34:57 UTC] PHP   2. mysql_fetch_array() /home/ubuntu/workspace/rest/get_offer.php:29
+[17-Oct-2015 20:34:58 UTC] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home/ubuntu/workspace/rest/get_offer.php on line 29
+[17-Oct-2015 20:34:58 UTC] PHP Stack trace:
+[17-Oct-2015 20:34:58 UTC] PHP   1. {main}() /home/ubuntu/workspace/rest/get_offer.php:0
+[17-Oct-2015 20:34:58 UTC] PHP   2. mysql_fetch_array() /home/ubuntu/workspace/rest/get_offer.php:29
+[17-Oct-2015 20:37:20 UTC] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home/ubuntu/workspace/rest/get_offer.php on line 29
+[17-Oct-2015 20:37:20 UTC] PHP Stack trace:
+[17-Oct-2015 20:37:20 UTC] PHP   1. {main}() /home/ubuntu/workspace/rest/get_offer.php:0
+[17-Oct-2015 20:37:20 UTC] PHP   2. mysql_fetch_array() /home/ubuntu/workspace/rest/get_offer.php:29
+[17-Oct-2015 20:58:44 UTC] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home/ubuntu/workspace/rest/get_offer.php on line 29
+[17-Oct-2015 20:58:44 UTC] PHP Stack trace:
+[17-Oct-2015 20:58:44 UTC] PHP   1. {main}() /home/ubuntu/workspace/rest/get_offer.php:0
+[17-Oct-2015 20:58:44 UTC] PHP   2. mysql_fetch_array() /home/ubuntu/workspace/rest/get_offer.php:29
+[17-Oct-2015 21:06:00 UTC] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home/ubuntu/workspace/rest/get_offer.php on line 29
+[17-Oct-2015 21:06:00 UTC] PHP Stack trace:
+[17-Oct-2015 21:06:00 UTC] PHP   1. {main}() /home/ubuntu/workspace/rest/get_offer.php:0
+[17-Oct-2015 21:06:00 UTC] PHP   2. mysql_fetch_array() /home/ubuntu/workspace/rest/get_offer.php:29
+[17-Oct-2015 21:08:03 UTC] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home/ubuntu/workspace/rest/get_offer.php on line 29
+[17-Oct-2015 21:08:03 UTC] PHP Stack trace:
+[17-Oct-2015 21:08:03 UTC] PHP   1. {main}() /home/ubuntu/workspace/rest/get_offer.php:0
+[17-Oct-2015 21:08:03 UTC] PHP   2. mysql_fetch_array() /home/ubuntu/workspace/rest/get_offer.php:29
+[17-Oct-2015 21:09:36 UTC] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home/ubuntu/workspace/rest/get_offer.php on line 29
+[17-Oct-2015 21:09:36 UTC] PHP Stack trace:
+[17-Oct-2015 21:09:36 UTC] PHP   1. {main}() /home/ubuntu/workspace/rest/get_offer.php:0
+[17-Oct-2015 21:09:36 UTC] PHP   2. mysql_fetch_array() /home/ubuntu/workspace/rest/get_offer.php:29
+[17-Oct-2015 21:26:03 UTC] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home/ubuntu/workspace/rest/get_offer.php on line 29
+[17-Oct-2015 21:26:03 UTC] PHP Stack trace:
+[17-Oct-2015 21:26:03 UTC] PHP   1. {main}() /home/ubuntu/workspace/rest/get_offer.php:0
+[17-Oct-2015 21:26:03 UTC] PHP   2. mysql_fetch_array() /home/ubuntu/workspace/rest/get_offer.php:29
+[18-Oct-2015 17:17:22 UTC] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home/ubuntu/workspace/rest/get_an_offer.php on line 31
+[18-Oct-2015 17:17:22 UTC] PHP Stack trace:
+[18-Oct-2015 17:17:22 UTC] PHP   1. {main}() /home/ubuntu/workspace/rest/get_an_offer.php:0
+[18-Oct-2015 17:17:22 UTC] PHP   2. mysql_fetch_array() /home/ubuntu/workspace/rest/get_an_offer.php:31
+[18-Oct-2015 17:17:50 UTC] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home/ubuntu/workspace/rest/get_an_offer.php on line 31
+[18-Oct-2015 17:17:50 UTC] PHP Stack trace:
+[18-Oct-2015 17:17:50 UTC] PHP   1. {main}() /home/ubuntu/workspace/rest/get_an_offer.php:0
+[18-Oct-2015 17:17:50 UTC] PHP   2. mysql_fetch_array() /home/ubuntu/workspace/rest/get_an_offer.php:31
+[20-Oct-2015 11:34:54 UTC] PHP Fatal error:  Class 'PHPMailer' not found in /home/ubuntu/workspace/mails/test.php on line 4
+[20-Oct-2015 11:34:54 UTC] PHP Stack trace:
+[20-Oct-2015 11:34:54 UTC] PHP   1. {main}() /home/ubuntu/workspace/mails/test.php:0
+[29-Oct-2015 11:57:01 UTC] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home/ubuntu/workspace/rest/get_order.php on line 34
+[29-Oct-2015 11:57:01 UTC] PHP Stack trace:
+[29-Oct-2015 11:57:01 UTC] PHP   1. {main}() /home/ubuntu/workspace/rest/get_order.php:0
+[29-Oct-2015 11:57:01 UTC] PHP   2. mysql_fetch_array() /home/ubuntu/workspace/rest/get_order.php:34
+[29-Oct-2015 11:57:18 UTC] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home/ubuntu/workspace/rest/get_order.php on line 34
+[29-Oct-2015 11:57:18 UTC] PHP Stack trace:
+[29-Oct-2015 11:57:18 UTC] PHP   1. {main}() /home/ubuntu/workspace/rest/get_order.php:0
+[29-Oct-2015 11:57:18 UTC] PHP   2. mysql_fetch_array() /home/ubuntu/workspace/rest/get_order.php:34
+[29-Oct-2015 11:57:37 UTC] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home/ubuntu/workspace/rest/get_order.php on line 34
+[29-Oct-2015 11:57:37 UTC] PHP Stack trace:
+[29-Oct-2015 11:57:37 UTC] PHP   1. {main}() /home/ubuntu/workspace/rest/get_order.php:0
+[29-Oct-2015 11:57:37 UTC] PHP   2. mysql_fetch_array() /home/ubuntu/workspace/rest/get_order.php:34
+[13-Nov-2015 10:11:31 UTC] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home/ubuntu/workspace/rest/to_confirm_offers.php on line 31
+[13-Nov-2015 10:11:31 UTC] PHP Stack trace:
+[13-Nov-2015 10:11:31 UTC] PHP   1. {main}() /home/ubuntu/workspace/rest/to_confirm_offers.php:0
+[13-Nov-2015 10:11:31 UTC] PHP   2. mysql_fetch_array() /home/ubuntu/workspace/rest/to_confirm_offers.php:31
+[13-Nov-2015 10:11:31 UTC] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home/ubuntu/workspace/rest/to_confirm_offers.php on line 31
+[13-Nov-2015 10:11:31 UTC] PHP Stack trace:
+[13-Nov-2015 10:11:31 UTC] PHP   1. {main}() /home/ubuntu/workspace/rest/to_confirm_offers.php:0
+[13-Nov-2015 10:11:31 UTC] PHP   2. mysql_fetch_array() /home/ubuntu/workspace/rest/to_confirm_offers.php:31
+[13-Nov-2015 11:08:05 UTC] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home/ubuntu/workspace/rest/get_an_offer.php on line 31
+[13-Nov-2015 11:08:05 UTC] PHP Stack trace:
+[13-Nov-2015 11:08:05 UTC] PHP   1. {main}() /home/ubuntu/workspace/rest/get_an_offer.php:0
+[13-Nov-2015 11:08:05 UTC] PHP   2. mysql_fetch_array() /home/ubuntu/workspace/rest/get_an_offer.php:31
+[14-Nov-2015 13:20:57 UTC] PHP Warning:  mysql_close() expects parameter 1 to be resource, object given in /home/ubuntu/workspace/rest/new_offer.php on line 29
+[14-Nov-2015 13:20:57 UTC] PHP Stack trace:
+[14-Nov-2015 13:20:57 UTC] PHP   1. {main}() /home/ubuntu/workspace/rest/new_offer.php:0
+[14-Nov-2015 13:20:57 UTC] PHP   2. mysql_close() /home/ubuntu/workspace/rest/new_offer.php:29
+[14-Nov-2015 13:22:32 UTC] PHP Warning:  mysql_close() expects parameter 1 to be resource, object given in /home/ubuntu/workspace/rest/add_order.php on line 33
+[14-Nov-2015 13:22:32 UTC] PHP Stack trace:
+[14-Nov-2015 13:22:32 UTC] PHP   1. {main}() /home/ubuntu/workspace/rest/add_order.php:0
+[14-Nov-2015 13:22:32 UTC] PHP   2. mysql_close() /home/ubuntu/workspace/rest/add_order.php:33
+[14-Nov-2015 13:23:58 UTC] PHP Warning:  mysql_close() expects parameter 1 to be resource, object given in /home/ubuntu/workspace/rest/add_order.php on line 33
+[14-Nov-2015 13:23:58 UTC] PHP Stack trace:
+[14-Nov-2015 13:23:58 UTC] PHP   1. {main}() /home/ubuntu/workspace/rest/add_order.php:0
+[14-Nov-2015 13:23:58 UTC] PHP   2. mysql_close() /home/ubuntu/workspace/rest/add_order.php:33
+[14-Nov-2015 13:25:31 UTC] PHP Warning:  mysql_close() expects parameter 1 to be resource, object given in /home/ubuntu/workspace/rest/add_order.php on line 33
+[14-Nov-2015 13:25:31 UTC] PHP Stack trace:
+[14-Nov-2015 13:25:31 UTC] PHP   1. {main}() /home/ubuntu/workspace/rest/add_order.php:0
+[14-Nov-2015 13:25:31 UTC] PHP   2. mysql_close() /home/ubuntu/workspace/rest/add_order.php:33
+[14-Nov-2015 13:26:19 UTC] PHP Warning:  mysql_close() expects parameter 1 to be resource, object given in /home/ubuntu/workspace/rest/add_order.php on line 33
+[14-Nov-2015 13:26:19 UTC] PHP Stack trace:
+[14-Nov-2015 13:26:19 UTC] PHP   1. {main}() /home/ubuntu/workspace/rest/add_order.php:0
+[14-Nov-2015 13:26:19 UTC] PHP   2. mysql_close() /home/ubuntu/workspace/rest/add_order.php:33
+[14-Nov-2015 13:27:30 UTC] PHP Warning:  mysql_close() expects parameter 1 to be resource, object given in /home/ubuntu/workspace/rest/add_order.php on line 33
+[14-Nov-2015 13:27:30 UTC] PHP Stack trace:
+[14-Nov-2015 13:27:30 UTC] PHP   1. {main}() /home/ubuntu/workspace/rest/add_order.php:0
+[14-Nov-2015 13:27:30 UTC] PHP   2. mysql_close() /home/ubuntu/workspace/rest/add_order.php:33
+[14-Nov-2015 13:30:15 UTC] PHP Warning:  mysql_close() expects parameter 1 to be resource, object given in /home/ubuntu/workspace/rest/add_order.php on line 33
+[14-Nov-2015 13:30:15 UTC] PHP Stack trace:
+[14-Nov-2015 13:30:15 UTC] PHP   1. {main}() /home/ubuntu/workspace/rest/add_order.php:0
+[14-Nov-2015 13:30:15 UTC] PHP   2. mysql_close() /home/ubuntu/workspace/rest/add_order.php:33
+[14-Nov-2015 14:52:00 UTC] PHP Warning:  mysql_close() expects parameter 1 to be resource, object given in /home/ubuntu/workspace/rest/new_offer.php on line 29
+[14-Nov-2015 14:52:00 UTC] PHP Stack trace:
+[14-Nov-2015 14:52:00 UTC] PHP   1. {main}() /home/ubuntu/workspace/rest/new_offer.php:0
+[14-Nov-2015 14:52:00 UTC] PHP   2. mysql_close() /home/ubuntu/workspace/rest/new_offer.php:29
+[14-Nov-2015 14:59:43 UTC] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home/ubuntu/workspace/rest/get_an_order.php on line 37
+[14-Nov-2015 14:59:43 UTC] PHP Stack trace:
+[14-Nov-2015 14:59:43 UTC] PHP   1. {main}() /home/ubuntu/workspace/rest/get_an_order.php:0
+[14-Nov-2015 14:59:43 UTC] PHP   2. mysql_fetch_array() /home/ubuntu/workspace/rest/get_an_order.php:37
+[14-Nov-2015 14:59:57 UTC] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home/ubuntu/workspace/rest/get_an_order.php on line 37
+[14-Nov-2015 14:59:57 UTC] PHP Stack trace:
+[14-Nov-2015 14:59:57 UTC] PHP   1. {main}() /home/ubuntu/workspace/rest/get_an_order.php:0
+[14-Nov-2015 14:59:57 UTC] PHP   2. mysql_fetch_array() /home/ubuntu/workspace/rest/get_an_order.php:37
+[14-Nov-2015 15:00:18 UTC] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home/ubuntu/workspace/rest/get_an_order.php on line 37
+[14-Nov-2015 15:00:18 UTC] PHP Stack trace:
+[14-Nov-2015 15:00:18 UTC] PHP   1. {main}() /home/ubuntu/workspace/rest/get_an_order.php:0
+[14-Nov-2015 15:00:18 UTC] PHP   2. mysql_fetch_array() /home/ubuntu/workspace/rest/get_an_order.php:37
+[14-Nov-2015 15:01:24 UTC] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home/ubuntu/workspace/rest/get_an_order.php on line 37
+[14-Nov-2015 15:01:24 UTC] PHP Stack trace:
+[14-Nov-2015 15:01:24 UTC] PHP   1. {main}() /home/ubuntu/workspace/rest/get_an_order.php:0
+[14-Nov-2015 15:01:24 UTC] PHP   2. mysql_fetch_array() /home/ubuntu/workspace/rest/get_an_order.php:37
+[14-Nov-2015 15:07:53 UTC] PHP Warning:  mysql_close() expects parameter 1 to be resource, object given in /home/ubuntu/workspace/rest/new_offer.php on line 29
+[14-Nov-2015 15:07:53 UTC] PHP Stack trace:
+[14-Nov-2015 15:07:53 UTC] PHP   1. {main}() /home/ubuntu/workspace/rest/new_offer.php:0
+[14-Nov-2015 15:07:53 UTC] PHP   2. mysql_close() /home/ubuntu/workspace/rest/new_offer.php:29
+[14-Nov-2015 15:49:39 UTC] PHP Warning:  mysql_close() expects parameter 1 to be resource, object given in /home/ubuntu/workspace/rest/new_offer.php on line 29
+[14-Nov-2015 15:49:39 UTC] PHP Stack trace:
+[14-Nov-2015 15:49:39 UTC] PHP   1. {main}() /home/ubuntu/workspace/rest/new_offer.php:0
+[14-Nov-2015 15:49:39 UTC] PHP   2. mysql_close() /home/ubuntu/workspace/rest/new_offer.php:29
+[15-Nov-2015 05:37:29 UTC] PHP Warning:  mysql_close() expects parameter 1 to be resource, object given in /home/ubuntu/workspace/rest/new_offer.php on line 29
+[15-Nov-2015 05:37:29 UTC] PHP Stack trace:
+[15-Nov-2015 05:37:29 UTC] PHP   1. {main}() /home/ubuntu/workspace/rest/new_offer.php:0
+[15-Nov-2015 05:37:29 UTC] PHP   2. mysql_close() /home/ubuntu/workspace/rest/new_offer.php:29
+[15-Nov-2015 05:38:20 UTC] PHP Warning:  mysql_close() expects parameter 1 to be resource, object given in /home/ubuntu/workspace/rest/new_offer.php on line 29
+[15-Nov-2015 05:38:20 UTC] PHP Stack trace:
+[15-Nov-2015 05:38:20 UTC] PHP   1. {main}() /home/ubuntu/workspace/rest/new_offer.php:0
+[15-Nov-2015 05:38:20 UTC] PHP   2. mysql_close() /home/ubuntu/workspace/rest/new_offer.php:29
+[15-Nov-2015 05:40:34 UTC] PHP Warning:  mysql_close() expects parameter 1 to be resource, object given in /home/ubuntu/workspace/rest/new_offer.php on line 29
+[15-Nov-2015 05:40:34 UTC] PHP Stack trace:
+[15-Nov-2015 05:40:34 UTC] PHP   1. {main}() /home/ubuntu/workspace/rest/new_offer.php:0
+[15-Nov-2015 05:40:34 UTC] PHP   2. mysql_close() /home/ubuntu/workspace/rest/new_offer.php:29
+[15-Nov-2015 05:41:18 UTC] PHP Warning:  mysql_close() expects parameter 1 to be resource, object given in /home/ubuntu/workspace/rest/new_offer.php on line 29
+[15-Nov-2015 05:41:18 UTC] PHP Stack trace:
+[15-Nov-2015 05:41:18 UTC] PHP   1. {main}() /home/ubuntu/workspace/rest/new_offer.php:0
+[15-Nov-2015 05:41:18 UTC] PHP   2. mysql_close() /home/ubuntu/workspace/rest/new_offer.php:29
+[15-Nov-2015 11:16:47 UTC] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home/ubuntu/workspace/rest/get_an_offer.php on line 31
+[15-Nov-2015 11:16:47 UTC] PHP Stack trace:
+[15-Nov-2015 11:16:47 UTC] PHP   1. {main}() /home/ubuntu/workspace/rest/get_an_offer.php:0
+[15-Nov-2015 11:16:47 UTC] PHP   2. mysql_fetch_array() /home/ubuntu/workspace/rest/get_an_offer.php:31
+[15-Nov-2015 11:18:32 UTC] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home/ubuntu/workspace/rest/get_an_offer.php on line 31
+[15-Nov-2015 11:18:32 UTC] PHP Stack trace:
+[15-Nov-2015 11:18:32 UTC] PHP   1. {main}() /home/ubuntu/workspace/rest/get_an_offer.php:0
+[15-Nov-2015 11:18:32 UTC] PHP   2. mysql_fetch_array() /home/ubuntu/workspace/rest/get_an_offer.php:31
+[15-Nov-2015 20:34:20 UTC] PHP Warning:  mysql_close() expects parameter 1 to be resource, object given in /home/ubuntu/workspace/rest/new_offer.php on line 29
+[15-Nov-2015 20:34:20 UTC] PHP Stack trace:
+[15-Nov-2015 20:34:20 UTC] PHP   1. {main}() /home/ubuntu/workspace/rest/new_offer.php:0
+[15-Nov-2015 20:34:20 UTC] PHP   2. mysql_close() /home/ubuntu/workspace/rest/new_offer.php:29
+[15-Nov-2015 20:43:47 UTC] PHP Warning:  mysql_close() expects parameter 1 to be resource, object given in /home/ubuntu/workspace/rest/new_offer.php on line 29
+[15-Nov-2015 20:43:47 UTC] PHP Stack trace:
+[15-Nov-2015 20:43:47 UTC] PHP   1. {main}() /home/ubuntu/workspace/rest/new_offer.php:0
+[15-Nov-2015 20:43:47 UTC] PHP   2. mysql_close() /home/ubuntu/workspace/rest/new_offer.php:29
+[15-Nov-2015 20:50:01 UTC] PHP Warning:  mysql_close() expects parameter 1 to be resource, object given in /home/ubuntu/workspace/rest/new_offer.php on line 29
+[15-Nov-2015 20:50:01 UTC] PHP Stack trace:
+[15-Nov-2015 20:50:01 UTC] PHP   1. {main}() /home/ubuntu/workspace/rest/new_offer.php:0
+[15-Nov-2015 20:50:01 UTC] PHP   2. mysql_close() /home/ubuntu/workspace/rest/new_offer.php:29
+[15-Nov-2015 21:03:42 UTC] PHP Warning:  mysql_close() expects parameter 1 to be resource, object given in /home/ubuntu/workspace/rest/new_offer.php on line 30
+[15-Nov-2015 21:03:42 UTC] PHP Stack trace:
+[15-Nov-2015 21:03:42 UTC] PHP   1. {main}() /home/ubuntu/workspace/rest/new_offer.php:0
+[15-Nov-2015 21:03:42 UTC] PHP   2. mysql_close() /home/ubuntu/workspace/rest/new_offer.php:30
+[15-Nov-2015 21:09:16 UTC] PHP Warning:  mysql_close() expects parameter 1 to be resource, object given in /home/ubuntu/workspace/rest/new_offer.php on line 30
+[15-Nov-2015 21:09:16 UTC] PHP Stack trace:
+[15-Nov-2015 21:09:16 UTC] PHP   1. {main}() /home/ubuntu/workspace/rest/new_offer.php:0
+[15-Nov-2015 21:09:16 UTC] PHP   2. mysql_close() /home/ubuntu/workspace/rest/new_offer.php:30
+[15-Nov-2015 21:10:51 UTC] PHP Warning:  mysql_close() expects parameter 1 to be resource, object given in /home/ubuntu/workspace/rest/new_offer.php on line 30
+[15-Nov-2015 21:10:51 UTC] PHP Stack trace:
+[15-Nov-2015 21:10:51 UTC] PHP   1. {main}() /home/ubuntu/workspace/rest/new_offer.php:0
+[15-Nov-2015 21:10:51 UTC] PHP   2. mysql_close() /home/ubuntu/workspace/rest/new_offer.php:30
+[15-Nov-2015 21:12:28 UTC] PHP Warning:  mysql_close() expects parameter 1 to be resource, object given in /home/ubuntu/workspace/rest/new_offer.php on line 30
+[15-Nov-2015 21:12:28 UTC] PHP Stack trace:
+[15-Nov-2015 21:12:28 UTC] PHP   1. {main}() /home/ubuntu/workspace/rest/new_offer.php:0
+[15-Nov-2015 21:12:28 UTC] PHP   2. mysql_close() /home/ubuntu/workspace/rest/new_offer.php:30
+[15-Nov-2015 21:13:47 UTC] PHP Warning:  mysql_close() expects parameter 1 to be resource, object given in /home/ubuntu/workspace/rest/new_offer.php on line 30
+[15-Nov-2015 21:13:47 UTC] PHP Stack trace:
+[15-Nov-2015 21:13:47 UTC] PHP   1. {main}() /home/ubuntu/workspace/rest/new_offer.php:0
+[15-Nov-2015 21:13:47 UTC] PHP   2. mysql_close() /home/ubuntu/workspace/rest/new_offer.php:30
+[19-Nov-2015 12:29:38 UTC] PHP Warning:  mysql_close() expects parameter 1 to be resource, object given in /home/ubuntu/workspace/rest/new_offer.php on line 30
+[19-Nov-2015 12:29:38 UTC] PHP Stack trace:
+[19-Nov-2015 12:29:38 UTC] PHP   1. {main}() /home/ubuntu/workspace/rest/new_offer.php:0
+[19-Nov-2015 12:29:38 UTC] PHP   2. mysql_close() /home/ubuntu/workspace/rest/new_offer.php:30
+[19-Nov-2015 13:02:11 UTC] PHP Warning:  mysql_close() expects parameter 1 to be resource, object given in /home/ubuntu/workspace/rest/new_offer.php on line 30
+[19-Nov-2015 13:02:11 UTC] PHP Stack trace:
+[19-Nov-2015 13:02:11 UTC] PHP   1. {main}() /home/ubuntu/workspace/rest/new_offer.php:0
+[19-Nov-2015 13:02:11 UTC] PHP   2. mysql_close() /home/ubuntu/workspace/rest/new_offer.php:30
+[19-Nov-2015 13:02:30 UTC] PHP Warning:  mysql_close() expects parameter 1 to be resource, object given in /home/ubuntu/workspace/rest/new_offer.php on line 30
+[19-Nov-2015 13:02:30 UTC] PHP Stack trace:
+[19-Nov-2015 13:02:30 UTC] PHP   1. {main}() /home/ubuntu/workspace/rest/new_offer.php:0
+[19-Nov-2015 13:02:30 UTC] PHP   2. mysql_close() /home/ubuntu/workspace/rest/new_offer.php:30
+[19-Nov-2015 13:37:45 UTC] PHP Warning:  mysql_close() expects parameter 1 to be resource, object given in /home/ubuntu/workspace/rest/new_offer.php on line 30
+[19-Nov-2015 13:37:45 UTC] PHP Stack trace:
+[19-Nov-2015 13:37:45 UTC] PHP   1. {main}() /home/ubuntu/workspace/rest/new_offer.php:0
+[19-Nov-2015 13:37:45 UTC] PHP   2. mysql_close() /home/ubuntu/workspace/rest/new_offer.php:30
+[19-Nov-2015 13:38:38 UTC] PHP Warning:  mysql_close() expects parameter 1 to be resource, object given in /home/ubuntu/workspace/rest/new_offer.php on line 30
+[19-Nov-2015 13:38:38 UTC] PHP Stack trace:
+[19-Nov-2015 13:38:38 UTC] PHP   1. {main}() /home/ubuntu/workspace/rest/new_offer.php:0
+[19-Nov-2015 13:38:38 UTC] PHP   2. mysql_close() /home/ubuntu/workspace/rest/new_offer.php:30
+[19-Nov-2015 13:39:46 UTC] PHP Warning:  mysql_close() expects parameter 1 to be resource, object given in /home/ubuntu/workspace/rest/new_offer.php on line 30
+[19-Nov-2015 13:39:46 UTC] PHP Stack trace:
+[19-Nov-2015 13:39:46 UTC] PHP   1. {main}() /home/ubuntu/workspace/rest/new_offer.php:0
+[19-Nov-2015 13:39:46 UTC] PHP   2. mysql_close() /home/ubuntu/workspace/rest/new_offer.php:30
+[19-Nov-2015 13:40:12 UTC] PHP Warning:  mysql_close() expects parameter 1 to be resource, object given in /home/ubuntu/workspace/rest/new_offer.php on line 30
+[19-Nov-2015 13:40:12 UTC] PHP Stack trace:
+[19-Nov-2015 13:40:12 UTC] PHP   1. {main}() /home/ubuntu/workspace/rest/new_offer.php:0
+[19-Nov-2015 13:40:12 UTC] PHP   2. mysql_close() /home/ubuntu/workspace/rest/new_offer.php:30
+[19-Nov-2015 14:06:35 UTC] PHP Warning:  mysql_close() expects parameter 1 to be resource, object given in /home/ubuntu/workspace/rest/new_offer.php on line 30
+[19-Nov-2015 14:06:35 UTC] PHP Stack trace:
+[19-Nov-2015 14:06:35 UTC] PHP   1. {main}() /home/ubuntu/workspace/rest/new_offer.php:0
+[19-Nov-2015 14:06:35 UTC] PHP   2. mysql_close() /home/ubuntu/workspace/rest/new_offer.php:30
+[19-Nov-2015 14:07:24 UTC] PHP Warning:  mysql_close() expects parameter 1 to be resource, object given in /home/ubuntu/workspace/rest/new_offer.php on line 30
+[19-Nov-2015 14:07:24 UTC] PHP Stack trace:
+[19-Nov-2015 14:07:24 UTC] PHP   1. {main}() /home/ubuntu/workspace/rest/new_offer.php:0
+[19-Nov-2015 14:07:24 UTC] PHP   2. mysql_close() /home/ubuntu/workspace/rest/new_offer.php:30
+[19-Nov-2015 14:25:20 UTC] PHP Warning:  mysql_close() expects parameter 1 to be resource, object given in /home/ubuntu/workspace/rest/new_offer.php on line 30
+[19-Nov-2015 14:25:20 UTC] PHP Stack trace:
+[19-Nov-2015 14:25:20 UTC] PHP   1. {main}() /home/ubuntu/workspace/rest/new_offer.php:0
+[19-Nov-2015 14:25:20 UTC] PHP   2. mysql_close() /home/ubuntu/workspace/rest/new_offer.php:30
+[19-Nov-2015 14:55:30 UTC] PHP Warning:  mysql_close() expects parameter 1 to be resource, object given in /home/ubuntu/workspace/rest/new_offer.php on line 30
+[19-Nov-2015 14:55:30 UTC] PHP Stack trace:
+[19-Nov-2015 14:55:30 UTC] PHP   1. {main}() /home/ubuntu/workspace/rest/new_offer.php:0
+[19-Nov-2015 14:55:30 UTC] PHP   2. mysql_close() /home/ubuntu/workspace/rest/new_offer.php:30
+[19-Nov-2015 15:12:04 UTC] PHP Warning:  mysql_close() expects parameter 1 to be resource, object given in /home/ubuntu/workspace/rest/new_offer.php on line 31
+[19-Nov-2015 15:12:04 UTC] PHP Stack trace:
+[19-Nov-2015 15:12:04 UTC] PHP   1. {main}() /home/ubuntu/workspace/rest/new_offer.php:0
+[19-Nov-2015 15:12:04 UTC] PHP   2. mysql_close() /home/ubuntu/workspace/rest/new_offer.php:31
+[19-Nov-2015 15:19:32 UTC] PHP Warning:  mysql_close() expects parameter 1 to be resource, object given in /home/ubuntu/workspace/rest/new_offer.php on line 31
+[19-Nov-2015 15:19:32 UTC] PHP Stack trace:
+[19-Nov-2015 15:19:32 UTC] PHP   1. {main}() /home/ubuntu/workspace/rest/new_offer.php:0
+[19-Nov-2015 15:19:32 UTC] PHP   2. mysql_close() /home/ubuntu/workspace/rest/new_offer.php:31
+[19-Nov-2015 15:20:08 UTC] PHP Warning:  mysql_close() expects parameter 1 to be resource, object given in /home/ubuntu/workspace/rest/new_offer.php on line 31
+[19-Nov-2015 15:20:08 UTC] PHP Stack trace:
+[19-Nov-2015 15:20:08 UTC] PHP   1. {main}() /home/ubuntu/workspace/rest/new_offer.php:0
+[19-Nov-2015 15:20:08 UTC] PHP   2. mysql_close() /home/ubuntu/workspace/rest/new_offer.php:31
+[19-Nov-2015 15:30:57 UTC] PHP Warning:  mysql_close() expects parameter 1 to be resource, object given in /home/ubuntu/workspace/rest/new_offer.php on line 31
+[19-Nov-2015 15:30:57 UTC] PHP Stack trace:
+[19-Nov-2015 15:30:57 UTC] PHP   1. {main}() /home/ubuntu/workspace/rest/new_offer.php:0
+[19-Nov-2015 15:30:57 UTC] PHP   2. mysql_close() /home/ubuntu/workspace/rest/new_offer.php:31
+[19-Nov-2015 15:33:09 UTC] PHP Warning:  mysql_close() expects parameter 1 to be resource, object given in /home/ubuntu/workspace/rest/new_offer.php on line 31
+[19-Nov-2015 15:33:09 UTC] PHP Stack trace:
+[19-Nov-2015 15:33:09 UTC] PHP   1. {main}() /home/ubuntu/workspace/rest/new_offer.php:0
+[19-Nov-2015 15:33:09 UTC] PHP   2. mysql_close() /home/ubuntu/workspace/rest/new_offer.php:31
+[19-Nov-2015 18:21:38 UTC] PHP Warning:  mysql_close() expects parameter 1 to be resource, object given in /home/ubuntu/workspace/rest/new_offer.php on line 31
+[19-Nov-2015 18:21:38 UTC] PHP Stack trace:
+[19-Nov-2015 18:21:38 UTC] PHP   1. {main}() /home/ubuntu/workspace/rest/new_offer.php:0
+[19-Nov-2015 18:21:38 UTC] PHP   2. mysql_close() /home/ubuntu/workspace/rest/new_offer.php:31
+[19-Nov-2015 18:25:49 UTC] PHP Warning:  mysql_close() expects parameter 1 to be resource, object given in /home/ubuntu/workspace/rest/new_offer.php on line 31
+[19-Nov-2015 18:25:49 UTC] PHP Stack trace:
+[19-Nov-2015 18:25:49 UTC] PHP   1. {main}() /home/ubuntu/workspace/rest/new_offer.php:0
+[19-Nov-2015 18:25:49 UTC] PHP   2. mysql_close() /home/ubuntu/workspace/rest/new_offer.php:31
+[19-Nov-2015 18:58:07 UTC] PHP Warning:  mysql_close() expects parameter 1 to be resource, object given in /home/ubuntu/workspace/rest/new_offer.php on line 31
+[19-Nov-2015 18:58:07 UTC] PHP Stack trace:
+[19-Nov-2015 18:58:07 UTC] PHP   1. {main}() /home/ubuntu/workspace/rest/new_offer.php:0
+[19-Nov-2015 18:58:07 UTC] PHP   2. mysql_close() /home/ubuntu/workspace/rest/new_offer.php:31
+[20-Nov-2015 06:12:02 UTC] PHP Warning:  mysql_close() expects parameter 1 to be resource, object given in /home/ubuntu/workspace/rest/new_offer.php on line 31
+[20-Nov-2015 06:12:02 UTC] PHP Stack trace:
+[20-Nov-2015 06:12:02 UTC] PHP   1. {main}() /home/ubuntu/workspace/rest/new_offer.php:0
+[20-Nov-2015 06:12:02 UTC] PHP   2. mysql_close() /home/ubuntu/workspace/rest/new_offer.php:31
+[20-Nov-2015 09:17:40 UTC] PHP Warning:  mysql_close() expects parameter 1 to be resource, object given in /home/ubuntu/workspace/rest/new_offer.php on line 31
+[20-Nov-2015 09:17:40 UTC] PHP Stack trace:
+[20-Nov-2015 09:17:40 UTC] PHP   1. {main}() /home/ubuntu/workspace/rest/new_offer.php:0
+[20-Nov-2015 09:17:40 UTC] PHP   2. mysql_close() /home/ubuntu/workspace/rest/new_offer.php:31
+[20-Nov-2015 09:25:07 UTC] PHP Warning:  mysql_close() expects parameter 1 to be resource, object given in /home/ubuntu/workspace/rest/new_offer.php on line 31
+[20-Nov-2015 09:25:07 UTC] PHP Stack trace:
+[20-Nov-2015 09:25:07 UTC] PHP   1. {main}() /home/ubuntu/workspace/rest/new_offer.php:0
+[20-Nov-2015 09:25:07 UTC] PHP   2. mysql_close() /home/ubuntu/workspace/rest/new_offer.php:31
+[20-Nov-2015 11:43:22 UTC] PHP Warning:  mysql_close() expects parameter 1 to be resource, object given in /home/ubuntu/workspace/rest/new_offer.php on line 31
+[20-Nov-2015 11:43:22 UTC] PHP Stack trace:
+[20-Nov-2015 11:43:22 UTC] PHP   1. {main}() /home/ubuntu/workspace/rest/new_offer.php:0
+[20-Nov-2015 11:43:22 UTC] PHP   2. mysql_close() /home/ubuntu/workspace/rest/new_offer.php:31
+[20-Nov-2015 11:45:35 UTC] PHP Warning:  mysql_close() expects parameter 1 to be resource, object given in /home/ubuntu/workspace/rest/new_offer.php on line 31
+[20-Nov-2015 11:45:35 UTC] PHP Stack trace:
+[20-Nov-2015 11:45:35 UTC] PHP   1. {main}() /home/ubuntu/workspace/rest/new_offer.php:0
+[20-Nov-2015 11:45:35 UTC] PHP   2. mysql_close() /home/ubuntu/workspace/rest/new_offer.php:31
+[20-Nov-2015 12:16:28 UTC] PHP Warning:  mysql_close() expects parameter 1 to be resource, object given in /home/ubuntu/workspace/rest/new_offer.php on line 31
+[20-Nov-2015 12:16:28 UTC] PHP Stack trace:
+[20-Nov-2015 12:16:28 UTC] PHP   1. {main}() /home/ubuntu/workspace/rest/new_offer.php:0
+[20-Nov-2015 12:16:28 UTC] PHP   2. mysql_close() /home/ubuntu/workspace/rest/new_offer.php:31
+[20-Nov-2015 16:13:39 UTC] PHP Warning:  mysql_close() expects parameter 1 to be resource, object given in /home/ubuntu/workspace/rest/new_offer.php on line 31
+[20-Nov-2015 16:13:39 UTC] PHP Stack trace:
+[20-Nov-2015 16:13:39 UTC] PHP   1. {main}() /home/ubuntu/workspace/rest/new_offer.php:0
+[20-Nov-2015 16:13:39 UTC] PHP   2. mysql_close() /home/ubuntu/workspace/rest/new_offer.php:31
+[20-Nov-2015 16:28:57 UTC] PHP Warning:  mysql_close() expects parameter 1 to be resource, object given in /home/ubuntu/workspace/rest/new_offer.php on line 31
+[20-Nov-2015 16:28:57 UTC] PHP Stack trace:
+[20-Nov-2015 16:28:57 UTC] PHP   1. {main}() /home/ubuntu/workspace/rest/new_offer.php:0
+[20-Nov-2015 16:28:57 UTC] PHP   2. mysql_close() /home/ubuntu/workspace/rest/new_offer.php:31
+[20-Nov-2015 16:53:07 UTC] PHP Warning:  mysql_close() expects parameter 1 to be resource, object given in /home/ubuntu/workspace/rest/new_offer.php on line 31
+[20-Nov-2015 16:53:07 UTC] PHP Stack trace:
+[20-Nov-2015 16:53:07 UTC] PHP   1. {main}() /home/ubuntu/workspace/rest/new_offer.php:0
+[20-Nov-2015 16:53:07 UTC] PHP   2. mysql_close() /home/ubuntu/workspace/rest/new_offer.php:31
+[21-Nov-2015 08:48:15 UTC] PHP Warning:  mysql_close() expects parameter 1 to be resource, object given in /home/ubuntu/workspace/rest/new_offer.php on line 31
+[21-Nov-2015 08:48:15 UTC] PHP Stack trace:
+[21-Nov-2015 08:48:15 UTC] PHP   1. {main}() /home/ubuntu/workspace/rest/new_offer.php:0
+[21-Nov-2015 08:48:15 UTC] PHP   2. mysql_close() /home/ubuntu/workspace/rest/new_offer.php:31
+[21-Nov-2015 08:48:56 UTC] PHP Warning:  mysql_close() expects parameter 1 to be resource, object given in /home/ubuntu/workspace/rest/new_offer.php on line 31
+[21-Nov-2015 08:48:56 UTC] PHP Stack trace:
+[21-Nov-2015 08:48:56 UTC] PHP   1. {main}() /home/ubuntu/workspace/rest/new_offer.php:0
+[21-Nov-2015 08:48:56 UTC] PHP   2. mysql_close() /home/ubuntu/workspace/rest/new_offer.php:31
+[21-Nov-2015 08:53:44 UTC] PHP Warning:  mysql_close() expects parameter 1 to be resource, object given in /home/ubuntu/workspace/rest/new_offer.php on line 31
+[21-Nov-2015 08:53:44 UTC] PHP Stack trace:
+[21-Nov-2015 08:53:44 UTC] PHP   1. {main}() /home/ubuntu/workspace/rest/new_offer.php:0
+[21-Nov-2015 08:53:44 UTC] PHP   2. mysql_close() /home/ubuntu/workspace/rest/new_offer.php:31
+[21-Nov-2015 08:54:15 UTC] PHP Warning:  mysql_close() expects parameter 1 to be resource, object given in /home/ubuntu/workspace/rest/new_offer.php on line 31
+[21-Nov-2015 08:54:15 UTC] PHP Stack trace:
+[21-Nov-2015 08:54:15 UTC] PHP   1. {main}() /home/ubuntu/workspace/rest/new_offer.php:0
+[21-Nov-2015 08:54:15 UTC] PHP   2. mysql_close() /home/ubuntu/workspace/rest/new_offer.php:31
+[21-Nov-2015 09:11:36 UTC] PHP Warning:  mysql_close() expects parameter 1 to be resource, object given in /home/ubuntu/workspace/rest/new_offer.php on line 31
+[21-Nov-2015 09:11:36 UTC] PHP Stack trace:
+[21-Nov-2015 09:11:36 UTC] PHP   1. {main}() /home/ubuntu/workspace/rest/new_offer.php:0
+[21-Nov-2015 09:11:36 UTC] PHP   2. mysql_close() /home/ubuntu/workspace/rest/new_offer.php:31
+[21-Nov-2015 09:12:44 UTC] PHP Warning:  mysql_close() expects parameter 1 to be resource, object given in /home/ubuntu/workspace/rest/new_offer.php on line 31
+[21-Nov-2015 09:12:44 UTC] PHP Stack trace:
+[21-Nov-2015 09:12:44 UTC] PHP   1. {main}() /home/ubuntu/workspace/rest/new_offer.php:0
+[21-Nov-2015 09:12:44 UTC] PHP   2. mysql_close() /home/ubuntu/workspace/rest/new_offer.php:31

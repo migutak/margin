@@ -1,0 +1,140 @@
+<!-- Main content -->
+<section class="content">
+    <i class="fa fa-arrow-left"></i> <a href="#/home">Back</a>
+    <b>Settlement</b>
+    <div class="row">
+        <div class="col-md-7">
+            <div class="table-responsive" style="overflow-y:auto; min-height: 800px">
+                            <table class="table no-margin">
+                                <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>Counterparty</th>
+                                    <th>Ccy Pair</th>
+                                    <th>Buy/Sell</th>
+                                    <th>Deal Details</th>
+                                    <th>Dealer</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr ng-repeat="ord in confirmedoffers">
+                                    <td>
+                                        <!--<button class="btn btn-info" ng-click="viewdeal(ord.orderidfk)"><i class="fa fa-check-square"></i> View Deal</button>-->
+                                        <div class="dropdown">
+                                          <button class="btn btn-info btn-flat dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            View Deal
+                                            <span class="caret"></span>
+                                          </button>
+                                          <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                            <li><a href="" ng-click="viewdeal(ord.orderidfk)">History</a></li>
+                                            <li><a href="#/confirmoffer/{{ord.offerid}}">View Confirmation</a></li>
+                                            <li><a href="#/bookdeal/{{ord.offerid}}">View Ticket</a></li>   
+                                            <li><a href="" data-toggle="modal" data-target="#myModal">Process Payment</a></li>  
+                                          </ul>
+                                        </div>
+                                    </td>
+                                    <td>{{ord.usernamefk}}</td>
+                                    <td>{{ord.ccypair}}</td>
+                                    <td>{{ord.buysellbank}}</td>
+                                    <td>
+                                        <p>{{ord.paybank}} Amount: {{ord.ccypair | limitTo:-ord.limitnum}} {{ord.orderamount | number}}</p>
+                                        <p>Rate: {{ord.offeredrate}}</p>
+                                        <p>{{ord.recbank}} Amount: {{ord.ccypair | limitTo:ord.limitnum}} {{ord.settleamount | number}}</p>
+                                    </td>
+                                    <td>{{ord.offeredby}}</td>
+                                </tr>
+                                </tbody>
+                            </table>
+            </div><!-- /.table-responsive -->
+        </div>
+        <div class="col-md-5">
+            <ul class="timeline">
+
+			    <!-- timeline time label -->
+			    <li class="time-label">
+			        <span class="bg-red">
+			            History of Events
+			        </span>
+			    </li>
+			    <!-- /.timeline-label -->
+			
+			    <!-- timeline item -->
+			    <li ng-repeat="n in notehis">
+			        <!-- timeline icon -->
+			        <i class="fa fa-envelope bg-blue"></i>
+			        <div class="timeline-item">
+			            <span class="time"><i class="fa fa-clock-o"></i> {{n.datemade}}</span>
+			
+			            <h3 class="timeline-header"><a href="#">{{n.owner}}</a> </h3>
+			
+			            <div class="timeline-body">
+			                {{n.commentmade}}
+			            </div>
+			
+			            <div class="timeline-footer">
+			                <a class="btn btn-primary btn-xs"><i class="fa fa-share-alt"></i></a>
+			            </div>
+			        </div>
+			    </li>
+			    <!-- END timeline item -->
+			</ul>
+        </div>
+    </div>
+</section>
+
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog" ng-controller="settlementCtrl">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Payment Processing</h4>
+      </div>
+      <div class="modal-body">
+        <p>Confirm Processing Payments ....</p>
+            <div class="row">
+				<div class="col-md-3">
+					<select class="form-control" ng-model="settlement.confirm">
+					    <option>Done</option>
+						<option>Cancelled</option>
+						<option selected>Pending</option>
+					</select>
+				</div>
+				<hr>
+				<form ng-submit="pay()" ng-show="showAcceptfrm">
+					<div class="form-group">
+                        <label for="custbank">Received Account:</label>
+                        <input type="text" class="form-control" id="custbank">
+                    </div>
+                    <div class="form-group">
+                        <label for="recamount">Received Amount:</label>
+                        <input type="text" class="form-control" id="recamount">
+                    </div>
+                    <div class="form-group">
+                        <label for="payamount">Pay Amount:</label>
+                        <input type="text" class="form-control" id="payamount">
+                    </div>
+                    <div class="form-group">
+                        <label for="recaccnt">Pay Account:</label>
+                        <input type="text" class="form-control" id="recaccnt">
+                    </div>
+                    <button type="submit" class="btn btn-default">Submit</button>
+				</form>
+				<form ng-submit="cancel()" ng-show="showCancelfrm">
+				    <div class="form-group">
+				        <label for="recaccnt">Cancel reason</label>
+				        <input type="text" class="form-control" ng-model="cancelfrm.cancelreason" required/>
+				    </div>
+					<input class="btn btn-danger" type="submit" value="Cancel" ng-disabled="cancelfrm.$invalid"/>
+				</form>
+        	</div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>

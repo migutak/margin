@@ -1,0 +1,50 @@
+<!-- Main content -->
+<section class="content">
+<i class="fa fa-arrow-left"></i><a href="#/accepts">Back</a>
+    <div class="row">
+    <form ng-submit="confirmOffer()" method="post" class="form-horizontal">
+                    <div class="form-group">
+                        <label class="col-xs-3 control-label">Order ID</label>
+                        <div class="col-xs-5 selectContainer">
+                        	<input type="text" class="form-control" ng-model="acceptedOfferdetails.orderid" ng-disabled=true>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-3 control-label">Offer ID</label>
+                        <div class="col-xs-5 selectContainer">
+                        	<input type="text" class="form-control" ng-model="acceptedOfferdetails.offerid" ng-disabled=true>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-3 control-label">Rate Offered</label>
+                        <div class="col-xs-5 selectContainer">
+                        	<input type="text" class="form-control" ng-model="acceptedOfferdetails.offeredrate" ng-disabled=true>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-3 control-label">Settlement Amount</label>
+                        <div class="col-xs-5 selectContainer">
+                        	<input class="form-control" ng-model="acceptedOfferdetails.settlementamount" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-3 control-label">Bank Name</label>
+                        <div class="col-xs-5 selectContainer">
+                        	<input type="text" class="form-control" ng-model="acceptedOfferdetails.offeredby" ng-disabled=true>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-3 control-label">Status</label>
+                        <div class="col-xs-5 selectContainer">
+                        	<input type="text" class="form-control" ng-model="acceptedOfferdetails.status" ng-disabled=true>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                    <label class="col-xs-3 control-label"></label>
+                    	<div class="col-xs-5 selectContainer">
+                    		<button type="submit" class="btn btn-info">Submit</button>
+                    	</div>
+                    </div>
+        </form>
+    </div>
+</section>

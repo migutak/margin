@@ -1,0 +1,30 @@
+<!-- Main content -->
+<section class="content">
+<a href="#/accepts">Back</a>
+    <div class="row">
+        <div class="col-md-12">
+                <div class="table-responsive">
+                            <table class="table no-margin">
+                                <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>BankName</th>
+                                    <th>OfferedRate</th>
+                                    <th>Settlement Amount</th>
+                                    <th>Status</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr ng-repeat="ord in confirmed">
+                                    <td><a class="btn btn-info" href="#/confirmDetails/{{ord.$id}}"><i class="fa fa-check-square"></i> Confirmed</a></td>
+                                    <td>{{ord.offeredby}}</td>
+                                    <td>{{ord.offeredrate}}</td>
+                                    <td>{{ord.settlementamount}}</td>
+                                    <td>{{ord.status}}</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div><!-- /.table-responsive -->
+        </div>
+    </div>
+</section>

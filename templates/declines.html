@@ -1,0 +1,38 @@
+<!-- Main content -->
+<section class="content">
+<a href="#/accepts">Back</a>
+    <div class="row">
+        <div class="col-md-12">
+                <div class="table-responsive">
+                            <table class="table no-margin">
+                                <thead>
+                                <tr>
+                                    <th>View</th>
+                                    <th>OrderID</th>
+                                    <th>SpotRate</th>
+                                    <th>Margin</th>
+                                    <th>OfferedRate</th>
+                                    <th>Margin</th>
+                                    <th>Settlement Date</th>
+                                    <th>Settlement Amount</th>
+                                    <th>Status</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr ng-repeat="ord in offers">
+                                    <td><a class="btn btn-info" href="#/offerDetails/{{ord.orderid}}"><i class="fa fa-paper-plane-o"></i></a></td>
+                                    <td>{{ord.orderidfk}}</td>
+                                    <td>{{ord.spotrate}}</td>
+                                    <td>{{ord.magin}}</td>
+                                    <td>{{ord.offeredrate}}</td>
+                                    <td>{{ord.settledate}}</td>
+                                    <td>{{ord.settleamount}}</td>
+                                    <td>{{ord.comment}}</td>
+                                    <td>{{ord.confirmation}}</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div><!-- /.table-responsive -->
+        </div>
+    </div>
+</section>

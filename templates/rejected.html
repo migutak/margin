@@ -1,0 +1,39 @@
+<!-- Main content -->
+<section class="content">
+    <i class="fa fa-arrow-left"></i> <a href="#/home">Back</a>
+    <b>Settlement</b>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="table-responsive">
+                            <table class="table no-margin">
+                                <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>Counterparty</th>
+                                    <th>OrderAmount</th>
+                                    <th>Settlement Amount</th>
+                                    <th>Offered Rate</th>
+                                    <th>Dealer</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr ng-repeat="ord in confirmedoffers">
+                                    <td><a class="btn btn-info" href="#/viewdeal/{{ord.offerid}}"><i class="fa fa-check-square"></i> View Deal</a></td>
+                                    <td>{{ord.usernamefk}}</td>
+                                    <td>{{ord.orderamount | number}}</td>
+                                    <td>{{ord.settleamount | number}}</td>
+                                    <td>{{ord.offeredrate}}</td>
+                                    <td>{{ord.offeredby}}</td>
+                                </tr>
+                                </tbody>
+                            </table>
+            </div><!-- /.table-responsive -->
+        </div>
+        <div class="col-md-6">
+            <form>
+            	<input type="text" name="" value=""/>
+            	<input type="submit" value="Submit"/>
+            </form>
+        </div>
+    </div>
+</section>
