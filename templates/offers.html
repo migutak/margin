@@ -26,9 +26,9 @@
                                     <td>{{ord.usernamefk}}</td>
                                     <td>{{ord.ccypair}}</td>
                                     <td>{{ord.buysellbank}}</td>
-                                    <td>{{ord.ccypair | limitTo:ord.limitnum}} {{ord.orderamount | number}}</td>
+                                    <td>{{ord.ccypair | limitTo:ord.limitnum}} {{ord.buy_orderamount | number}}</td>
                                     <td>{{ord.offeredrate}}</td>
-                                    <td>{{ord.ccypair | limitTo:-ord.limitnum}} {{ord.settleamount | number}}</td>
+                                    <td>{{ord.ccypair | limitTo:-ord.limitnum}} {{ord.sell_orderamount | number}}</td>
                                     <td>{{ord.settlementdate}}</td>
                                     <td>{{ord.status}}</td>
                                 </tr>

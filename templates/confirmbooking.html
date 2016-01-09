@@ -36,11 +36,11 @@
         	<h3>Subject:	Foreign Exchange Spot Transaction (Deal ID: WXYZ123)</h3>
         	<p>
         		1.	This “Trade Notification” confirms and notifies the Counterparty of the terms and conditions of the Transaction referred to above and entered into on the Trade Date specified below (the “Transaction”). 
-<br>
+				<br>
 				2.	The terms and conditions of the Bank’s standard Direct Dealing Mandate (“Mandate”) will be incorporated by reference, and will govern the Transaction, whether the Mandate was signed by the Counterparty or not.
-<br>
+				<br>
 				3.	The Counterparty must provide the Bank with its signed Payment Instructions on or before the Settlement Date. In the event that the Counterparty does not provide the Payment Instructions or cancel the Transaction, the Counterparty indemnifies the Bank, and will be liable for the Bank’s reversal/cancellation costs.   
-<br>
+				<br>
 			<b>4.	General Terms:</b>	
         	</p>
         	<div class="row">
@@ -48,12 +48,12 @@
         		<div class="col-md-2">{{booking.orderdate}}</div>
         	</div>
         	<div class="row">
-        		<div class="col-md-3">Amount and currency payable by the Bank:</div>
-        		<div class="col-md-2">{{booking.ccypair | limitTo:3}} {{booking.settleamount | number:2}}</div>
+        		<div class="col-md-3">Amount/Ccy payable by the Bank:</div>
+        		<div class="col-md-2">{{booking.ccypair | limitTo:lim}} {{booking.recamount | number:2}}</div>
         	</div>
         	<div class="row">
-        		<div class="col-md-3">Amount and currency payable by the Counterparty:</div>
-        		<div class="col-md-2">{{booking.ccypair | limitTo:-3}} {{booking.orderamount | number:2}}</div>
+        		<div class="col-md-3">Amount/Ccy payable by the Customer:</div>
+        		<div class="col-md-2">{{booking.ccypair | limitTo:-lim}} {{booking.payamount | number:2}}</div>
         	</div>
         	<div class="row">
         		<div class="col-md-3">Spot Rate:</div>
@@ -65,7 +65,7 @@
         	</div>
         	<p>
         		<b>5.	Settlement Details:</b><br><br>
-        		<b>We RECEIVE {{booking.ccypair | limitTo:3}} as below:</b>
+        		<b>We RECEIVE {{booking.ccypair | limitTo:-lim}} as below:</b>
         	</p>
         	<div class="row">
         		<div class="col-md-3">Account Name :</div>
@@ -89,7 +89,7 @@
         	</div>
         	<br>
         	<p>
-        		<b>We PAY {{booking.ccypair | limitTo:-3}} as below:</b>
+        		<b>We PAY {{booking.ccypair | limitTo:lim}} as below:</b>
         	</p>
         	<div class="row">
         		<div class="col-md-3">Account Name:</div>

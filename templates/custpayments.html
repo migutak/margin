@@ -1,0 +1,40 @@
+<div class="container">
+    <div class="row">
+        <div class="panel panel-default widget">
+            <div class="panel-heading">
+                <h3 class="panel-title">
+                    Payments</h3>
+            </div>
+            <div class="panel-body">
+                <ul class="list-group">
+                    <li class="list-group-item" ng-repeat="c in custpay">
+                        <div class="row">
+                            
+                            <div class="col-xs-10 col-md-11">
+                                <div>
+                                    <a href="">
+                                        {{c.buysell}}
+                                    </a>
+                                    <div class="mic-info">
+                                        {{c.ccypair}}: <a href="">Order amount: {{c.orderamount | number:0}}</a> on {{c.orderdate}}
+                                    </div>
+                                </div>
+                                <div class="comment-text">
+                                    Settlement Date : {{c.settlementdate}}
+                                </div>
+                                <div class="action">
+                                    <button type="button" class="btn btn-primary btn-xs" title="Pay" ng-click="pay()">
+                                        <span class="glyphicon glyphicon-pencil"></span> Pay
+                                    </button>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    
+                </ul>
+                
+            </div>
+        </div>
+    </div>
+</div>

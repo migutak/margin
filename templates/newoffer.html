@@ -41,13 +41,13 @@
                     </div>
                     <div class="row">
                         <div class="col-md-3">
-                    		<label>Buy Amount Ccy ({{newoffer.ccypair | limitTo:holder}})</label>
+                    		<label>{{newoffer.buy_sell1}} Amount/CCy ({{newoffer.ccypair | limitTo:holder}})</label>
                             <input type="text" class="form-control" id="amount" ng-model="newoffer.orderamount" required ng-disabled=true>
                     	</div>
                     </div>
                     <div class="row">
                             <div class="col-md-3">
-                    		    <label>Sell Amount ({{newoffer.ccypair | limitTo:-holder}})</label>
+                    		    <label>{{newoffer.buy_sell}} Amount/CCy ({{newoffer.ccypair | limitTo:-holder}})</label>
                                 <input type="text" class="form-control" id="settleamount" ng-model="newoffer.settleamount" required ng-disabled=true>
                     		</div>
                     </div>

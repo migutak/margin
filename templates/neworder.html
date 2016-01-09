@@ -9,8 +9,9 @@
     <link href="plugins/select2/select2.min.css" rel="stylesheet" type="text/css" />
      
 <div class="content" cg-busy="{promise:promise,templateUrl:templateUrl,message:'Data being submitted',backdrop:backdrop,delay:0,minDuration:700}">
-	 <b>New ForeSpot</b>
+	 <b>Forex Spot</b> | <a href="#/newswap">Forex Swap</a> | <a href="#/newforward">Forex Forward</a>
         <section class="content">
+        	<h1 class="container">Forex Spot</h1>
             <div class="row">
                 <form ng-submit="save_c9_Order()" method="post" id="neworderform" class="form-horizontal">
 	                <div class="form-group">
@@ -43,15 +44,25 @@
 				    	</div>
 				    </div>
 				    <div class="form-group">
-				    	<label class="col-xs-3 control-label">Buy Amount ({{ccytitle | limitTo:num}})</label>
+				    	<label class="col-xs-3 control-label">Buy Amount</label>
 				    	<div class="col-xs-5 selectContainer">
-				    		<input type="text" class="form-control" ng-model="neworder.buyorderamount" ng-disabled = "s_buy" ng-blur="setfunct()">
+				    		<div class="input-group">
+				    			<div class="input-group-addon">
+                                    {{ccytitle | limitTo:num}}
+                                </div>
+				    			<input type="text" class="form-control" ng-model="neworder.buyorderamount" ng-disabled = "s_buy" ng-blur="setfunct()">
+				    		</div>
 				    	</div>
 				    </div>
 				    <div class="form-group">
-				    	<label class="col-xs-3 control-label">Sell Amount ({{ccytitle | limitTo:-num}})</label>
+				    	<label class="col-xs-3 control-label">Sell Amount</label>
 				    	<div class="col-xs-5 selectContainer">
-				    		<input type="text" class="form-control" ng-model="neworder.sellorderamount" ng-disabled = "s_sell" ng-blur="setfunct2()">
+				    		<div class="input-group">
+				    			<div class="input-group-addon">
+                                    {{ccytitle | limitTo:-num}}
+                                </div>
+				    			<input type="text" class="form-control" ng-model="neworder.sellorderamount" ng-disabled = "s_sell" ng-blur="setfunct2()">
+				    		</div>
 				    	</div>
 				    </div>
 				    <div class="form-group">

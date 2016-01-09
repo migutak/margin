@@ -8,24 +8,18 @@
 <!-- Select2 -->
     <link href="plugins/select2/select2.min.css" rel="stylesheet" type="text/css" />
      
-<div class="content">
-     <b>New Swap</b>
-        <section class="content">
+<div class="content" cg-busy="{promise:promise,templateUrl:templateUrl,message:'Data being submitted',backdrop:backdrop,delay:0,minDuration:700}">
+	 <a href="#/neworder">Forex Spot</a> | <b>Forex Swap</b> | <a href="#/newforward">Forex Forward</a>
+	 <section class="content">
+        	<h1 class="container">Forex Swap</h1>
             <div class="row">
-                <form ng-submit="save_c9_Order()" method="post" id="neworderform" class="form-horizontal">
-	                <div class="form-group">
-				        <label class="col-xs-3 control-label">Buy/Sell</label>
-				        <div class="col-xs-5 selectContainer">
-				            <select name="colors" class="form-control" ng-model="neworder.buysell" required>
-				                <option>BUY</option>
-							    <option>SELL</option>
-				            </select>
-				        </div>
-				    </div>
-				    <div class="form-group">
+            	<div class="cloading"></div>
+                <form ng-submit="save_swapOrder()" method="post" id="newswaporderform" class="form-horizontal">
+                	<p>__________ Near Leg __________</p>
+                	<div class="form-group">
 				    	<label class="col-xs-3 control-label">Currency pair</label>
 				    	<div class="col-xs-5 selectContainer">
-				    		<select class="form-control" ng-model="neworder.ccypair" required>
+				    		<select class="form-control" ng-model="newswaporder.ccypair" required>
 							    <option>USD/KES</option>
 								<option>KES/UGX</option>
 								<option>KES/TZS</option>
@@ -37,44 +31,101 @@
 								<option>JPY/KES</option>
 								<option>RUB/KES</option>
 								<option>BRL/KES</option>
+								<option>EUR/USD</option>
+								<option>GBP/USD</option>
 							</select>
 				    	</div>
 				    </div>
-				    <div class="form-group">
-				    	<label class="col-xs-3 control-label">Buy Amount ({{ccytitle | limitTo:num}})</label>
-				    	<div class="col-xs-5 selectContainer">
-				    		<input type="text" class="form-control" ng-model="neworder.buyorderamount" ng-disabled = "s_buy" ng-blur="setfunct()">
-				    	</div>
+	                <div class="form-group">
+				        <label class="col-xs-3 control-label">Buy/Sell</label>
+				        <div class="col-xs-5 selectContainer">
+				            <select name="colors" class="form-control" ng-model="newswaporder.buysell" required>
+				                <option value="BUY">BUY <small>Leg 1</small> - SELL <small>Leg 2</small></option>
+							    <option value="SELL">SELL <b>leg 1</b> - BUY <small>leg 2</small></option>
+				            </select>
+				        </div>
 				    </div>
+				    
 				    <div class="form-group">
-				    	<label class="col-xs-3 control-label">Sell Amount ({{ccytitle | limitTo:-num}})</label>
-				    	<div class="col-xs-5 selectContainer">
-				    		<input type="text" class="form-control" ng-model="neworder.sellorderamount" ng-disabled = "s_sell" ng-blur="setfunct2()">
-				    	</div>
-				    </div>
-				    <div class="form-group">
-				    	<label class="col-xs-3 control-label">Select Bank(s)</label>
-				    	<div class="col-xs-5 selectContainer">
-						    <select class="form-control select2" multiple="multiple" data-placeholder="Select Bank(s)" ng-model="neworder.bank">
-		                      <option ng-repeat="option in banks" value="{{option.username}}">{{option.username}}</option>
-		                    </select>
-				    	</div>
-				    </div>
-				    <div class="form-group">
-				    	<label class="col-xs-3 control-label">Settlement Date</label>
+				    	<label class="col-xs-3 control-label">Near Date</label>
 				    	<div class="col-xs-5 selectContainer">
 				    		<div class="input-group">
                             	<div class="input-group-addon">
                                     <i class="fa fa-calendar"></i>
                                 </div>
-                                <input type="text" class="datepicker" id="settlement" name="settlement" ng-model="neworder.settlementdate"/>
+                                <input type="text" class="datepicker" id="neardate" name="neardate" ng-model="newswaporder.neardate" required/>
                             </div><!-- /.input group -->
 				    	</div>
 				    </div>
+				    <div class="form-group">
+				    	<label class="col-xs-3 control-label">Buy Amount</label>
+				    	<div class="col-xs-5 selectContainer">
+				    		<div class="input-group">
+				    			<div class="input-group-addon">
+                                    {{newswaporder.nearbuyorderamountccy}}
+                                </div>
+				    			<input type="text" class="form-control" ng-model="newswaporder.nearbuyorderamount" ng-blur="setfunct()">
+				    		</div>
+				    	</div>
+				    </div>
+				    <div class="form-group">
+				    	<label class="col-xs-3 control-label">Sell Amount</label>
+				    	<div class="col-xs-5 selectContainer">
+				    		<div class="input-group">
+				    			<div class="input-group-addon">
+                                    {{newswaporder.nearsellorderamountccy}}
+                                </div>
+				    			<input type="text" class="form-control" ng-model="newswaporder.nearsellorderamount" ng-blur="setfunct2()">
+				    		</div>
+				    	</div>
+				    </div>
+				    <p>__________ Far Leg __________</p>
+				    <div class="form-group">
+				    	<label class="col-xs-3 control-label">Far Date</label>
+				    	<div class="col-xs-5 selectContainer">
+				    		<div class="input-group">
+                            	<div class="input-group-addon">
+                                    <i class="fa fa-calendar"></i>
+                                </div>
+                                <input type="text" class="datepicker" id="fardate" name="fardate" ng-model="newswaporder.fardate" required/>
+                            </div><!-- /.input group -->
+				    	</div>
+				    </div>
+				    <div class="form-group">
+				    	<label class="col-xs-3 control-label">Buy Amount</label>
+				    	<div class="col-xs-5 selectContainer">
+				    		<div class="input-group">
+				    			<div class="input-group-addon">
+                                    {{newswaporder.farbuyorderamountccy}}
+                                </div>
+				    			<input type="text" class="form-control" ng-model="newswaporder.farbuyorderamount" disabled>
+				    		</div>
+				    	</div>
+				    </div>
+				    <div class="form-group">
+				    	<label class="col-xs-3 control-label">Sell Amount</label>
+				    	<div class="col-xs-5 selectContainer">
+				    		<div class="input-group">
+				    			<div class="input-group-addon">
+                                    {{newswaporder.farsellorderamountccy}}
+                                </div>
+				    			<input type="text" class="form-control" ng-model="newswaporder.farsellorderamount" disabled>
+				    		</div>
+				    	</div>
+				    </div>
+				    <div class="form-group">
+				    	<label class="col-xs-3 control-label">Select Bank(s)</label>
+				    	<div class="col-xs-5 selectContainer">
+						    <select class="form-control select2" multiple="multiple" data-placeholder="Select Bank(s)" ng-model="newswaporder.bank">
+		                      <option ng-repeat="option in banks" value="{{option.username}}">{{option.username}}</option>
+		                    </select>
+				    	</div>
+				    </div>
+				    
                     <div class="form-group">
                     	<label class="col-xs-3 control-label">Comment</label>
                     	<div class="col-xs-5 selectContainer">
-                    		<textarea class="form-control" rows="3" placeholder="Enter ..." ng-model="neworder.custcomment"></textarea>
+                    		<textarea class="form-control" rows="3" placeholder="Enter ..." ng-model="newswaporder.custcomment"></textarea>
                     	</div>
                     </div>
                     <div class="form-group">
@@ -98,8 +149,7 @@
           clearBtn: true,
           orientation: "auto top",
           todayHighlight:true,
-          startDate: '0d',
-          endDate: '+7d'
+          startDate: '0d'
         });
         
   </script>

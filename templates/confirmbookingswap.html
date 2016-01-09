@@ -1,16 +1,16 @@
 <!-- Main content -->
 <section class="content">
-<i class="fa fa-arrow-left"></i> <a href="#/settlement/93">Back</a>
+<i class="fa fa-arrow-left"></i> <a href="#/custconfirmations_swap">Back</a>
     <div class="row">
         <div class="container">
         	<div class="row">
         		<div class="col-md-12" align="right" ><img src="images/Diamond_Bank_Logo.jpg" height="100" width="242"></img></div>
         	</div>
         	
-        	<h2>(CONFIRMED) FOREIGN EXCHANGE SPOT CONFIRMATION</h2>
+        	<h2>FOREIGN EXCHANGE SWAP CONFIRMATION</h2>
 
         	<p>
-        		Date: {{booking.orderdate}}
+        		Date: {{booking.createdate}}
         	</p>
         	<br>
         	<div class="row">
@@ -33,39 +33,49 @@
         	</div>
         	
         	
-        	<h3>Subject:	Foreign Exchange Spot Transaction (Deal ID: WXYZ123)</h3>
+        	<h3>Subject:	Foreign Exchange Swap Transaction (Deal ID: {{booking.orderidfk}})</h3>
         	<p>
         		1.	This “Trade Notification” confirms and notifies the Counterparty of the terms and conditions of the Transaction referred to above and entered into on the Trade Date specified below (the “Transaction”). 
-<br>
+				<br>
 				2.	The terms and conditions of the Bank’s standard Direct Dealing Mandate (“Mandate”) will be incorporated by reference, and will govern the Transaction, whether the Mandate was signed by the Counterparty or not.
-<br>
+				<br>
 				3.	The Counterparty must provide the Bank with its signed Payment Instructions on or before the Settlement Date. In the event that the Counterparty does not provide the Payment Instructions or cancel the Transaction, the Counterparty indemnifies the Bank, and will be liable for the Bank’s reversal/cancellation costs.   
-<br>
+				<br>
 			<b>4.	General Terms:</b>	
         	</p>
         	<div class="row">
         		<div class="col-md-3">Trade Date and Time:</div>
-        		<div class="col-md-2">{{booking.orderdate}}</div>
+        		<div class="col-md-2">{{booking.createdate}}</div>
+        	</div>
+        	<div class="row">__________ Near Leg __________</div>
+        	<div class="row">
+        		<div class="col-md-3">Amount/Ccy payable by the Bank:</div>
+        		<div class="col-md-2">{{booking.nearsellorderamountccy}} {{booking.nearsellorderamount | number:2}}</div>
         	</div>
         	<div class="row">
-        		<div class="col-md-3">Amount and currency payable by the Bank:</div>
-        		<div class="col-md-2">{{booking.ccypair | limitTo:3}} {{booking.settleamount | number:2}}</div>
+        		<div class="col-md-3">Amount/Ccy payable by the Customer:</div>
+        		<div class="col-md-2">{{booking.nearbuyorderamountccy}} {{booking.nearbuyorderamount | number:2}}</div>
         	</div>
         	<div class="row">
-        		<div class="col-md-3">Amount and currency payable by the Counterparty:</div>
-        		<div class="col-md-2">{{booking.ccypair | limitTo:-3}} {{booking.orderamount | number:2}}</div>
+        		<div class="col-md-3">Near Date:</div>
+        		<div class="col-md-2">{{booking.neardate}} subject to adjustment in accordance with the Modified Following Business Day Convention.</div>
+        	</div>
+        	<div class="row">__________ Far  Leg __________</div>
+        	<div class="row">
+        		<div class="col-md-3">Amount/Ccy payable by the Bank:</div>
+        		<div class="col-md-2">{{booking.farsellorderamountccy}} {{booking.farsellorderamount | number:2}}</div>
         	</div>
         	<div class="row">
-        		<div class="col-md-3">Spot Rate:</div>
-        		<div class="col-md-2">{{booking.offeredrate}}</div>
+        		<div class="col-md-3">Amount/Ccy payable by the Customer:</div>
+        		<div class="col-md-2">{{booking.farbuyorderamountccy}} {{booking.farbuyorderamount | number:2}}</div>
         	</div>
         	<div class="row">
-        		<div class="col-md-3">Settlement Date:</div>
-        		<div class="col-md-2">{{booking.settlementdate}} subject to adjustment in accordance with the Modified Following Business Day Convention.</div>
+        		<div class="col-md-3">Far Date:</div>
+        		<div class="col-md-2">{{booking.fardate}} subject to adjustment in accordance with the Modified Following Business Day Convention.</div>
         	</div>
         	<p>
         		<b>5.	Settlement Details:</b><br><br>
-        		<b>We RECEIVE {{booking.ccypair | limitTo:3}} as below:</b>
+        		<b>We RECEIVE {{booking.nearbuyorderamountccy}} as below:</b>
         	</p>
         	<div class="row">
         		<div class="col-md-3">Account Name :</div>
@@ -83,13 +93,9 @@
         		<div class="col-md-3">Correspondent bank:</div>
         		<div class="col-md-2">Central Bank of Kenya</div>
         	</div>
-        	<div class="row">
-        		<div class="col-md-3">Settlement date:</div>
-        		<div class="col-md-2">{{booking.settlementdate}}</div>
-        	</div>
         	<br>
         	<p>
-        		<b>We PAY {{booking.ccypair | limitTo:-3}} as below:</b>
+        		<b>We PAY {{booking.nearsellorderamountccy}} as below:</b>
         	</p>
         	<div class="row">
         		<div class="col-md-3">Account Name:</div>
@@ -116,10 +122,24 @@
         	</p>
         	<p>
         		………………………………… <br>                                    
-				<h5>Authorized Signatory </h5>                                            
-				<h5>{{booking.usernamefk}}</h5>
-
+				<h5>Confirmed below </h5>
         	</p>
+        	
+			<div class="row">
+				<div class="col-md-3">
+					<select class="form-control" ng-model="booking.confirm">
+					    <option>Accept</option>
+						<option>Reject</option>
+					</select>
+				</div>
+				<form ng-submit="accept()" ng-show="showAccept">
+					<input class="btn btn-success" type="submit" value="Accept"/>
+				</form>
+				<form ng-submit="reject()" ng-show="showReject" name='confirmbookingfrm'>
+					<input type="text" name="rejectreason" placeholder="reason" ng-model="reject.rejectreason" required/>
+					<input class="btn btn-danger" type="submit" value="Reject" ng-disabled="confirmbookingfrm.$invalid"/>
+				</form>
+        	</div>
         	
 		</div>
     </div>

@@ -1,41 +1,17 @@
-<b>Forex Spot</b> | <a href="#/homeswap">Forex Swap</a> | <a href="#/homeforward">Forex Forward</a>
+<a href="#/home">Forex Spot</a> | <a href="#/homeswap">Forex Swap</a> | <b>Forex Forward</b>
 <div class="row">
         <div class="col-md-7">
             <!-- Map box -->
             <div class="box box-solid bg-light-blue-gradient">
-
-                Home FxSpot
-              
+                Home Forward
             </div>
-            <!-- /.box 
-            <div class="dropup">
-              <button class="btn btn-info btn-flat dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                New Order
-                <span class="caret"></span>
-              </button>
-              <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                <li><a href="#/neworder">Forex Spot</a></li>
-                <li><a href="#/newforward">Forex Forward</a></li>
-                <li><a href="#/newswap">Forex Swap</a></li>              
-              </ul>
-            </div>-->
-                        <!--<div>
-                                <div class="input-group-btn">
-			                      <button type="button" class="btn btn-info btn-flat dropdown-toggle" data-toggle="dropdown"> <i class="fa fa-pencil"></i> New Order <span class="fa fa-caret-down"></span></button>
-			                      	<ul class="dropdown-menu" role="menu">
-	                                    <li><a href="#/neworder">Forex Spot</a></li>
-	                                    <li><a href="#/newforward">Forex Forward</a></li>
-	                                    <li><a href="#/newswap">Forex Swap</a></li>
-	                               </ul>
-			                    </div>
-                        </div>-->
+            
                         <input ng-model="searchKeyword" type="text" placeholder="Filter by" autofocus>
                         <div class="table-responsive" style="min-Height:500px">
                             <table class="table no-margin">
                                 <thead>
                                 <tr>
                                     <th>View</th>
-                                    <th>Deal Number</th>
                                     <th>Currency Pair</th>
                                     <th>Buy/Sell</th>
                                     <th>Settlement Date</th>
@@ -44,11 +20,9 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr ng-repeat="ord in custorders | filter: searchKeyword">
+                                <tr ng-repeat="ord in custorders_forward | filter: searchKeyword">
                                     <td>
-                                        <button class="btn btn-info" ng-click="viewoffers(ord.orderid)"><i class="fa fa-external-link"></i> <span class="badge">{{ord.nOffers}}</span></button>
-                                        <button class="btn btn-danger" ><i class="fa fa-trash"></i></button>
-                                        <!--<button class="btn btn-info" ng-click="viewoffers(ord.orderid)"><i class="fa fa-external-link"></i> <span class="badge">{{ord.nOffers}}</span></button>
+                                        <!--<button class="btn btn-info" ng-click="viewoffers(ord.orderid)"><i class="fa fa-external-link"></i> <span class="badge">{{ord.nOffers}}</span></button>-->
                                         <div class="dropdown">
                                           <button class="btn btn-info btn-flat dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                             View Deal <span class="badge">{{ord.nOffers}}</span>
@@ -58,9 +32,8 @@
                                             <li><a href="" ng-click="viewoffers(ord.orderid)">View Offers</a></li>
                                             <li><a data-toggle="modal" data-target="#myModal" class="announce" data-id="107">Withdraw Order</a></li>
                                           </ul>
-                                        </div>-->
+                                        </div>
                                     </td>
-                                    <td>{{ord.orderid}}</td>
                                     <td>{{ord.ccypair}}</td>
                                     <td>{{ord.buysell}}</td>
                                     <td>{{ord.settlementdate}}</td>

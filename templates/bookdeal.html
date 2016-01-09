@@ -59,12 +59,12 @@
         		<div class="col-md-6">{{booking.settlementdate}}</div>
         	</div>
         	<div class="row">
-        		<div class="col-md-6">{{booking.buysellbank}} ccy/amount:</div>
-        		<div class="col-md-6">{{booking.ccypair | limitTo:3}} {{booking.settleamount | number}}</div>
+        		<div class="col-md-6">{{booking.buysellrec}} ccy/amount:</div>
+        		<div class="col-md-6">{{booking.ccypair | limitTo:-lim}} {{booking.settleamount | number}}</div>
         	</div>
         	<div class="row">
-        		<div class="col-md-6">{{booking.buysell}} ccy/amount:</div>
-        		<div class="col-md-6">{{booking.ccypair | limitTo:-3}} {{booking.orderamount | number}}</div>
+        		<div class="col-md-6">{{booking.buysellrec2}} ccy/amount:</div>
+        		<div class="col-md-6">{{booking.ccypair | limitTo:lim}} {{booking.orderamount | number}}</div>
         	</div>
         	<div class="row">
         		<div class="col-md-6">Spot rate:</div>
@@ -93,16 +93,16 @@
 			<div class="row">
 		        <div class="col-md-2" style="border: 1px solid blue">{{booking.settlementdate}}</div>
 		    	<div class="col-md-2" style="border: 1px solid blue">{{booking.pay}}</div>
-		    	<div class="col-md-2" style="border: 1px solid blue">{{booking.orderamount | number}}</div>
-		        <div class="col-md-2" style="border: 1px solid blue">{{booking.ccypair | limitTo:-3}}</div>
+		    	<div class="col-md-2" style="border: 1px solid blue">{{booking.settleamount | number}}</div>
+		        <div class="col-md-2" style="border: 1px solid blue">{{booking.ccypair | limitTo:-lim}}</div>
 		    	<div class="col-md-2" style="border: 1px solid blue">COMMERZBANK FRA</div>
 		    	<div class="col-md-2" style="border: 1px solid blue">Null</div>
 			</div>
 			<div class="row">
 		        <div class="col-md-2" style="border: 1px solid blue">{{booking.settlementdate}}</div>
 		    	<div class="col-md-2" style="border: 1px solid blue">{{booking.rec}}</div>
-		    	<div class="col-md-2" style="border: 1px solid blue">{{booking.settleamount | number}}</div>
-		        <div class="col-md-2" style="border: 1px solid blue">{{booking.ccypair | limitTo:3}}</div>
+		    	<div class="col-md-2" style="border: 1px solid blue">{{booking.orderamount | number}}</div>
+		        <div class="col-md-2" style="border: 1px solid blue">{{booking.ccypair | limitTo:lim}}</div>
 		    	<div class="col-md-2" style="border: 1px solid blue">ALL/ABCD/ANY/</div>
 		    	<div class="col-md-2" style="border: 1px solid blue">Null</div>
 			</div>
