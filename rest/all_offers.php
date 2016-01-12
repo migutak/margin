@@ -22,7 +22,9 @@
     
     //Replace * in the query with the column names.
     $result = mysql_query("select offerid,orderidfk,spotrate,magin,offeredrate,custorders.settlementdate,offeredby,reqamount,settleamount,createdate,usernamefk
-    ,ccypair,orderdate,buyorderamount+sellorderamount orderamount,buysell,buysellbank,if(buysell='BUY',3,-3) limitnum,currentstatus,recipient,comment, custcomment,ordertypefk,status 
+    ,ccypair,orderdate,buyorderamount+sellorderamount orderamount,buysell,buysellbank,if(buysell='BUY',-3,if(buysell='SELL' && buyorderamount>0,3,3)) limitnum,currentstatus,
+    recipient,comment, custcomment,ordertypefk,status, if(buysell='SELL' && sellorderamount>0,buyorderamount+sellorderamount,if(buysell='BUY' && sellorderamount>0,buyorderamount+sellorderamount,settleamount)) buy_orderamount,
+    if(buysell='SELL' && sellorderamount>0,settleamount,if(buysell='BUY' && sellorderamount>0,settleamount,buyorderamount+sellorderamount)) sell_orderamount
     from offers left join custorders on offers.orderindex = custorders.orderindex where offeredby = '$bankid' and status = 'Open' ", $db);  
     
     //Create an array
@@ -53,6 +55,8 @@
         $row_array['ordertypefk'] = $row['ordertypefk'];
         $row_array['usernamefk'] = $row['usernamefk'];
         $row_array['status'] = $row['status'];
+        $row_array['buy_orderamount'] = $row['buy_orderamount'];
+        $row_array['sell_orderamount'] = $row['sell_orderamount'];
         
         //push the values in the array
         array_push($json_response,$row_array);

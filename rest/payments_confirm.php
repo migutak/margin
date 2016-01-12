@@ -21,10 +21,11 @@
     mysql_select_db("$database",$db);
     
     //Replace * in the query with the column names.
-    $result = mysql_query("select offerid,orderidfk,spotrate,magin,offeredrate,custorders.settlementdate,offeredby,reqamount,ccysettleamount,settleamount,createdate,usernamefk
-    ,ccypair,orderdate,buyorderamount+sellorderamount orderamount,buysell,buysellbank,if(buysell='SELL' AND sellorderamount>0,-3,3) limitnum,currentstatus,recipient,comment, 
-    custcomment,ordertypefk,status,if(buysell='SELL' AND buyorderamount>0,'REC','PAY') recbank,if(buysell='SELL' AND buyorderamount>0,'PAY','REC') paybank 
-    from offers left join custorders on offers.orderindex = custorders.orderindex where status = 'Accepted' and confirm = 'Pending' and buysellbank = 'BUY' and offeredby = '$bankid' ", $db);  
+    $result = mysql_query("select offerid,orderidfk,spotrate,magin,offeredrate,custorders.settlementdate,offeredby,reqamount,settleamount,createdate,usernamefk
+    ,ccypair,orderdate,buyorderamount+sellorderamount orderamount,buysell,buysellbank,if(buysell='BUY' AND buyorderamount>0,3,if(buysell='SELL' AND sellorderamount>0,3,-3)) limitnum,currentstatus,recipient,comment, 
+    custcomment,ordertypefk,status,if(buysell='BUY' AND buyorderamount>0,'REC',if(buysell='SELL' AND buyorderamount>0,'REC','PAY')) recbank,
+    if(buysell='BUY' AND buyorderamount>0,'PAY',if(buysell='SELL' AND buyorderamount>0,'PAY','REC')) paybank
+    from offers left outer join custorders on offers.orderidfk = custorders.orderid where status = 'Accepted' and confirm = 'Confirmed'", $db);  
     
     //Create an array
     $json_response = array();
@@ -38,7 +39,6 @@
         $row_array['settlementdate'] = $row['settlementdate'];
         $row_array['offeredby'] = $row['offeredby'];
         $row_array['reqamount'] = $row['reqamount'];
-        $row_array['ccysettleamount'] = $row['ccysettleamount'];
         $row_array['settleamount'] = $row['settleamount'];
         $row_array['createdate'] = $row['createdate'];
         $row_array['comment'] = $row['comment'];
@@ -49,15 +49,14 @@
         $row_array['buysell'] = $row['buysell'];
         $row_array['buysellbank'] = $row['buysellbank'];
         $row_array['limitnum'] = $row['limitnum'];
-        $row_array['limit_num'] = $row['limit_num'];
+        $row_array['recbank'] = $row['recbank'];
+        $row_array['paybank'] = $row['paybank'];
         $row_array['currentstatus'] = $row['currentstatus'];
         $row_array['recipient'] = $row['recipient'];
         $row_array['custcomment'] = $row['custcomment'];
         $row_array['ordertypefk'] = $row['ordertypefk'];
         $row_array['usernamefk'] = $row['usernamefk'];
         $row_array['status'] = $row['status'];
-        $row_array['recbank'] = $row['recbank'];
-        $row_array['paybank'] = $row['paybank'];
         
         //push the values in the array
         array_push($json_response,$row_array);

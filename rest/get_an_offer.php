@@ -22,7 +22,7 @@
     
     //Replace * in the query with the column names.
     $result = mysql_query("select offerid,orderidfk,spotrate,magin,offeredrate,custorders.settlementdate,offeredby,reqamount,ccysettleamount,settleamount,createdate,usernamefk
-    ,ccypair,orderdate,buyorderamount+sellorderamount orderamount,buysell,if(buysell='BUY',3,-3) limitnum,buysellbank,currentstatus,recipient,comment, custcomment,ordertypefk 
+    ,ccypair,orderdate,buyorderamount,sellorderamount,buyorderamount+sellorderamount orderamount,buysell,if(buysell='BUY' AND buyorderamount>0,3,-3) limitnum,buysellbank,currentstatus,recipient,comment, custcomment,ordertypefk 
     from offers left outer join custorders on offers.orderidfk = custorders.orderid where offerid = $offerid ", $db);  
     
     //Create an array
@@ -44,6 +44,8 @@
         $row_array['ccypair'] = $row['ccypair'];
         $row_array['orderdate'] = $row['orderdate'];
         $row_array['orderamount'] = $row['orderamount'];
+        $row_array['buyorderamount'] = $row['buyorderamount'];
+        $row_array['sellorderamount'] = $row['sellorderamount'];
         $row_array['offeredrate'] = $row['offeredrate'];
         $row_array['buysell'] = $row['buysell'];
         $row_array['buysellbank'] = $row['buysellbank'];
