@@ -15,12 +15,13 @@
     $settlementdate = $_GET['settlementdate'];
     $custcomment = $_GET['custcomment'];
     $ordertypefk = $_GET['ordertypefk'];
+    $mmtype = $_GET['mmtype'];
 
 // array for JSON response
         $response = array();
 
-		$addorder = "insert into Moneymarketorders(orderid,usernamefk,ccy,orderamount,mmfrom,mmto,tenuredays,recipient,custcomment,ordertypefk) 
-            values ('$orderid','$usernamefk','$ccy','$orderamount','$mmfrom','$mmto','$tenure','$recipient','$custcomment','$ordertypefk')";
+		$addorder = "insert into Moneymarketorders(orderid,usernamefk,ccy,orderamount,mmfrom,mmto,tenuredays,recipient,custcomment,ordertypefk,mmtype) 
+            values ('$orderid','$usernamefk','$ccy','$orderamount','$mmfrom','$mmto','$tenure','$recipient','$custcomment','$ordertypefk','$mmtype')";
            
 
         if($db->query($addorder) === TRUE){

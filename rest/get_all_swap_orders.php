@@ -21,8 +21,8 @@
     mysql_select_db("$database",$db);
     
     //Replace * in the query with the column names.
-    $result = mysql_query("select distinct orderid,usernamefk,ccypair,nearbuyorderamountccy,nearbuyorderamount,buysell,buysellbank,nearsellorderamountccy,nearsellorderamount,
-    if(buysell='BUY',3,-3) limitnum,neardate,fardate,custcomment,ordertypefk,nOffers from Swaporders left outer join v_swaporders on Swaporders.orderid=v_swaporders.orderidfk 
+    $result = mysql_query("select distinct orderid,usernamefk,ccypair,nearbuyorderamountccy,nearbuyorderamount,farbuyorderamountccy,farbuyorderamount,buysell,buysellbank,nearsellorderamountccy,nearsellorderamount,
+    farsellorderamountccy,farsellorderamount,if(buysell='BUY',3,-3) limitnum,neardate,fardate,custcomment,ordertypefk,nOffers from Swaporders left outer join v_swaporders on Swaporders.orderid=v_swaporders.orderidfk 
     where Swaporders.currentstatus in ('N','OfferReceived') and usernamefk = '$user' ", $db);  
     
     //Create an array
@@ -38,6 +38,10 @@
         $row_array['nearbuyorderamount'] = $row['nearbuyorderamount'];
         $row_array['nearsellorderamountccy'] = $row['nearsellorderamountccy'];
         $row_array['nearsellorderamount'] = $row['nearsellorderamount'];
+        $row_array['farbuyorderamountccy'] = $row['farbuyorderamountccy'];
+        $row_array['farbuyorderamount'] = $row['farbuyorderamount'];
+        $row_array['farsellorderamountccy'] = $row['farsellorderamountccy'];
+        $row_array['farsellorderamount'] = $row['farsellorderamount'];
         $row_array['buysell'] = $row['buysell'];
         $row_array['buysellbank'] = $row['buysellbank'];
         $row_array['limitnum'] = $row['limitnum'];
