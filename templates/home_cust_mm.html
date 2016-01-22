@@ -46,27 +46,28 @@
                     <div class="tab-content">
                         <div class="tab-pane active" id="tab_1">
                             <input ng-model="query" type="text" placeholder="Filter by" autofocus>
+                            <div class="cloading"></div>
                             <table class="table table-hover">
                                 <tr>
                                     <th>Bank</th>
                                     <th>Rate</th>
-                                    <th>Settlement Amount</th>
-                                    <th>Date of Offer</th>
-                                    <th>Expiry Date</th>
+                                    <th>Total Interest</th>
+                                    <th>Withholding Tax</th>
+                                    <th>Net Interest</th>
                                     <th></th>
                                 </tr>
                                 <tr ng-repeat="ord in orderdetails | filter:query">
                                     <td>{{ord.offeredby}}</td>
-                                    <td>{{ord.offeredrate}}</td>
-                                    <td>{{ord.ccysettleamount}} {{ord.settleamount | number}}</td>
-                                    <td>{{ord.createdate}}</td>
-                                    <td>{{ord.settlementdate}}</td>
+                                    <td>{{ord.fixedrate}}</td>
+                                    <td>{{ord.ccy}} {{ord.totalinterest | number}}</td>
+                                    <td>{{ord.ccy}} {{ord.tax}}</td>
+                                    <td>{{ord.netinterest}}</td>
                                     <td>
                                         <div class="btn-group pull-left">
-                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-gears"></i></a>
+                                            <a href="#/homemoneymarket" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-gears"></i></a>
                                             <ul class="dropdown-menu icons-right dropdown-menu-right">
-                                                <li><a href="#"><i class="fa fa-commenting"></i> Chat</a></li>
-                                                <li><a href="#/offeraccept/{{ord.offerid}}"><i class="fa fa-check"></i> Accept</a></li>
+                                                <li><a href=""><i class="fa fa-commenting"></i> Chat</a></li>
+                                                <li><a href="#/offeraccept_mm/{{ord.offerid}}"><i class="fa fa-check"></i> Accept</a></li>
                                             </ul>
                                         </div>
                                     </td>
