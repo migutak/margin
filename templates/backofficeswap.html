@@ -1,0 +1,26 @@
+            <h3>
+              Confirmed FxSwap Deals
+              <small>{{}}</small>
+            </h3>
+<div class="container">
+            <div class="callout callout-info" ng-repeat="c in confirmedswapoffers">
+              <h4>{{c.usernamefk}}</h4>
+              <p>{{c.ccypair}} | {{c.buysellbank}}</p>
+              <p></p>
+              <p>Order amount :{{c.orderamount | number:2}}</p>
+            <div class="comment-text">
+                Actions
+            </div>
+            <div class="action">
+                <button type="button" class="btn btn-primary btn-xs" title="Edit">
+                    <span class="glyphicon glyphicon-pencil"></span>
+                </button>
+                <button type="button" class="btn btn-success btn-xs" title="Approved">
+                    <span class="glyphicon glyphicon-ok"></span>
+                </button>
+                <button type="button" class="btn btn-danger btn-xs" title="Delete">
+                    <span class="glyphicon glyphicon-trash"></span>
+                </button>
+            </div>
+            </div>
+</div>

@@ -11,7 +11,7 @@
                     		</div>
                     		<div class="col-md-3">
                     		    <label>Buy/Sell</label>
-                                <input type="text" class="form-control" id="buysellbank" ng-model="newswapoffer.buysellbank" required ng-disabled=true>
+                                <input type="text" class="form-control" id="buysellbank" ng-model="newswapoffer.buysellbank_disp" required ng-disabled=true>
                     		</div>
                     		<div class="col-md-3">
                     		    <label>Currency Pair</label>
@@ -68,7 +68,7 @@
                                 <input type="text" class="form-control" id="farspotrate" ng-model="newswapoffer.farspotrate" required>
                     		</div>
                     		<div class="col-md-3">
-                    		    <label>Far Margin</label>
+                    		    <label>Far points</label>
                                 <input type="text" class="form-control" id="farmagin" ng-model="newswapoffer.farmagin" ng-blur="fill_far()" required>
                     		</div>
                     		<div class="col-md-3">
@@ -114,7 +114,7 @@
                     <div class="row">
                         <div class="col-md-6">
                             <label>Bank Comment</label>
-                            <textarea class="form-control" id="comment" ng-model="newswapoffer.bankcomment" ng-disabled=true></textarea>
+                            <textarea class="form-control" id="comment" ng-model="newswapoffer.bankcomment"></textarea>
                         </div>
                     </div>
                 </div><!-- /.box-body -->

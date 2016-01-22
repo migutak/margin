@@ -1,59 +1,36 @@
-<a href="#/home">Forex Spot</a> | <b>Forex Swap</b> | <a href="#/homeforward">Forex Forward</a>
+<a href="#/home">Forex Spot</a> | <a href="#/homeswap">Forex Swap</a> | <a href="#/homeforward">Forex Forward</a> | <b>Money Markets</b>
+
 <div class="row">
         <div class="col-md-7">
             <!-- Map box -->
             <div class="box box-solid bg-light-blue-gradient">
-                Home FxSwap
+                Money Markets
             </div>
-            
+            <div class="cloading"></div>
                         <input ng-model="searchKeyword" type="text" placeholder="Filter by" autofocus>
                         <div class="table-responsive" style="min-Height:500px">
                             <table class="table no-margin">
                                 <thead>
                                 <tr>
                                     <th>View</th>
-                                    <th>Deal Number</th>
-                                    <th>Currency Pair</th>
-                                    <th>Buy/Sell</th>
-                                    <th>Date</th>
-                                    <th>Buy Amount</th>
-                                    <th>Sell Amount</th>
+                                    <th>Type</th>
+                                    <th>Currency</th>
+                                    <th>From</th>
+                                    <th>To</th>
+                                    <th>Nominal Amount</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr ng-repeat="ord in custorders_swap | filter: searchKeyword">
+                                <tr ng-repeat="ord in custorders_mm | filter: searchKeyword">
                                     <td>
-                                        <button class="btn btn-info" ng-click="viewswapoffers(ord.orderid)"><i class="fa fa-external-link"></i> <span class="badge">{{ord.nOffers}}</span></button>
+                                        <button class="btn btn-info" ng-click="viewmmoffers(ord.orderid)"><i class="fa fa-external-link"></i> <span class="badge">{{ord.nOffers}}</span></button>
                                         <button class="btn btn-danger" ><i class="fa fa-trash"></i></button>
-                                        <!--<div class="dropdown">
-                                          <button class="btn btn-info btn-flat dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            View Deal <span class="badge">{{ord.nOffers}}</span>
-                                            <span class="caret"></span>
-                                          </button>
-                                          <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                                            <li><a href="" ng-click="viewswapoffers(ord.orderid)">View Offers</a></li>
-                                            <li><a data-toggle="modal" data-target="#myModal" class="announce" data-id="107">Withdraw Order</a></li>
-                                          </ul>
-                                        </div>-->
                                     </td>
-                                    <td>{{ord.orderid}}</td>
-                                    <td>{{ord.ccypair}}</td>
-                                    <td>
-                                        <p>{{ord.buysell}}</p>
-                                        <p>{{ord.buysellbank}}</p>
-                                    </td>
-                                    <td>
-                                        <p>{{ord.neardate}}</p>
-                                        <p>{{ord.fardate}}</p>
-                                    </td>
-                                    <td>
-                                        <p>{{ord.nearbuyorderamountccy}} {{ord.nearbuyorderamount | number:2}}</p>
-                                        <p>{{ord.farbuyorderamountccy}} {{ord.farbuyorderamount | number:2}}</p>
-                                    </td>
-                                    <td>
-                                        <p>{{ord.nearsellorderamountccy}} {{ord.nearsellorderamount | number:2}}</p>
-                                        <p>{{ord.farsellorderamountccy}} {{ord.farsellorderamount | number:2}}</p>
-                                    </td>
+                                    <td>{{ord.mmtype}}</td>
+                                    <td>{{ord.ccy}}</td>
+                                    <td>{{ord.mmfrom}}</td>
+                                    <td>{{ord.mmto}}</td>
+                                    <td>{{ord.orderamount | number}}</td>
                                 </tr>
                                 </tbody>
                             </table>
@@ -64,7 +41,7 @@
             <div class="row">
                 <div class="nav-tabs-custom">
                     <ul class="nav nav-tabs">
-                        <li class="active"><a href="#tab_1" data-toggle="tab">FxSwap Offers {{offertitle}}</a></li>
+                        <li class="active"><a href="#tab_1" data-toggle="tab">Offers {{offertitle}}</a></li>
                     </ul>
                     <div class="tab-content">
                         <div class="tab-pane active" id="tab_1">
@@ -72,24 +49,24 @@
                             <table class="table table-hover">
                                 <tr>
                                     <th>Bank</th>
-                                    <th>Near Leg Rate</th>
-                                    <th>Far Leg Rate</th>
-                                    <th>Near Buy Amount</th>
-                                    <th>Near Sell Amount</th>
+                                    <th>Rate</th>
+                                    <th>Settlement Amount</th>
+                                    <th>Date of Offer</th>
+                                    <th>Expiry Date</th>
                                     <th></th>
                                 </tr>
                                 <tr ng-repeat="ord in orderdetails | filter:query">
                                     <td>{{ord.offeredby}}</td>
-                                    <td>{{ord.nearfinal}}</td>
-                                    <td>{{ord.farfinal}}</td>
-                                    <td>{{ord.nearbuyorderamountccy}} {{ord.nearbuyorderamount | number:2}}</td>
-                                    <td>{{ord.nearsellorderamountccy}} {{ord.nearsellorderamount | number:2}}</td>
-                                    <td> 
+                                    <td>{{ord.offeredrate}}</td>
+                                    <td>{{ord.ccysettleamount}} {{ord.settleamount | number}}</td>
+                                    <td>{{ord.createdate}}</td>
+                                    <td>{{ord.settlementdate}}</td>
+                                    <td>
                                         <div class="btn-group pull-left">
-                                            <a href="#/homeswap" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-gears"></i></a>
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-gears"></i></a>
                                             <ul class="dropdown-menu icons-right dropdown-menu-right">
                                                 <li><a href="#"><i class="fa fa-commenting"></i> Chat</a></li>
-                                                <li><a href="#/offeraccept_swap/{{ord.offerid}}"><i class="fa fa-check"></i> Accept</a></li>
+                                                <li><a href="#/offeraccept/{{ord.offerid}}"><i class="fa fa-check"></i> Accept</a></li>
                                             </ul>
                                         </div>
                                     </td>
@@ -113,7 +90,7 @@
                       </button>
                     </li>
                     <li class="option">
-                      <button class="material-button option2" type="button">
+                      <button class="material-button option2" type="button" onclick="window.location.href='#newmoneymarket'">
                         <span class="fa fa-credit-card" aria-hidden="true"></span> Mm
                       </button>
                     </li>
@@ -306,267 +283,8 @@
   </div>
 </div>
 
+
 <script type="text/javascript">
-$(function () {
-    // Create the chart
-    $('#custchart').highcharts({
-        chart: {
-            type: 'column'
-        },
-        title: {
-            text: 'Orders History'
-        },
-        subtitle: {
-            text: 'Click the columns to view offers made'
-        },
-        xAxis: {
-            type: 'category'
-        },
-        yAxis: {
-            title: {
-                text: 'Total orders made'
-            }
-
-        },
-        legend: {
-            enabled: false
-        },
-        credits: {
-            enabled: false
-        },
-        plotOptions: {
-            series: {
-                borderWidth: 0,
-                dataLabels: {
-                    enabled: true,
-                    format: '{point.y:.0f}'
-                }
-            }
-        },
-
-        tooltip: {
-            headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
-            pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.0f}</b> <br/>'
-        },
-
-        series: [{
-            name: "Month",
-            colorByPoint: true,
-            data: [{
-                name: "January",
-                y: 56.33,
-                drilldown: "January"
-            }, {
-                name: "February",
-                y: 24.03,
-                drilldown: "February"
-            }, {
-                name: "March",
-                y: 10.38,
-                drilldown: "March"
-            }, {
-                name: "April",
-                y: 4.77,
-                drilldown: "April"
-            }, {
-                name: "May",
-                y: 0.91,
-                drilldown: "May"
-            }, {
-                name: "June",
-                y: 0.2,
-                drilldown: null
-            }]
-        }],
-        drilldown: {
-            series: [{
-                name: "January",
-                id: "January",
-                data: [
-                    [
-                        "Bank11",
-                        24.13
-                    ],
-                    [
-                        "Bank8",
-                        17.2
-                    ],
-                    [
-                        "Bank9",
-                        8.11
-                    ],
-                    [
-                        "Bank10",
-                        5.33
-                    ],
-                    [
-                        "Bank6",
-                        1.06
-                    ],
-                    [
-                        "Bank7",
-                        0.5
-                    ]
-                ]
-            }, {
-                name: "February",
-                id: "February",
-                data: [
-                    [
-                        "v40",
-                        5
-                    ],
-                    [
-                        "v41",
-                        4.32
-                    ],
-                    [
-                        "v42",
-                        3.68
-                    ],
-                    [
-                        "v39",
-                        2.96
-                    ],
-                    [
-                        "v36",
-                        2.53
-                    ],
-                    [
-                        "v43",
-                        1.45
-                    ],
-                    [
-                        "v31",
-                        1.24
-                    ],
-                    [
-                        "v35",
-                        0.85
-                    ],
-                    [
-                        "v38",
-                        0.6
-                    ],
-                    [
-                        "v32",
-                        0.55
-                    ],
-                    [
-                        "v37",
-                        0.38
-                    ],
-                    [
-                        "v33",
-                        0.19
-                    ],
-                    [
-                        "v34",
-                        0.14
-                    ],
-                    [
-                        "v30",
-                        0.14
-                    ]
-                ]
-            }, {
-                name: "March",
-                id: "March",
-                data: [
-                    [
-                        "v35",
-                        2.76
-                    ],
-                    [
-                        "v36",
-                        2.32
-                    ],
-                    [
-                        "v37",
-                        2.31
-                    ],
-                    [
-                        "v34",
-                        1.27
-                    ],
-                    [
-                        "v38",
-                        1.02
-                    ],
-                    [
-                        "v31",
-                        0.33
-                    ],
-                    [
-                        "v33",
-                        0.22
-                    ],
-                    [
-                        "v32",
-                        0.15
-                    ]
-                ]
-            }, {
-                name: "April",
-                id: "April",
-                data: [
-                    [
-                        "v8.0",
-                        2.56
-                    ],
-                    [
-                        "v7.1",
-                        0.77
-                    ],
-                    [
-                        "v5.1",
-                        0.42
-                    ],
-                    [
-                        "v5.0",
-                        0.3
-                    ],
-                    [
-                        "v6.1",
-                        0.29
-                    ],
-                    [
-                        "v7.0",
-                        0.26
-                    ],
-                    [
-                        "v6.2",
-                        0.17
-                    ]
-                ]
-            }, {
-                name: "May",
-                id: "May",
-                data: [
-                    [
-                        "v12.x",
-                        0.34
-                    ],
-                    [
-                        "v28",
-                        0.24
-                    ],
-                    [
-                        "v27",
-                        0.17
-                    ],
-                    [
-                        "v29",
-                        0.16
-                    ]
-                ]
-            }]
-        }
-    });
-});
-        </script>
-        
-    <script type="text/javascript">
         $(document).ready(function () {
             $('.material-button-toggle').click(function () {
                 $(this).toggleClass('open');
@@ -616,7 +334,7 @@ $(function () {
     
         });
     </script>
-    
+                    
     <script>
         $('.multiselect').multipleSelect({
             placeholder: "Select Bank(s)",

@@ -1,24 +1,27 @@
-<b>Forex Spot <span class="label label-info">{{spotnotification}}</span></b> | <a href="#/paymentswap">Forex Swap <span class="label label-info">{{swapnotification}}</span></a> | <a href="#/paymentforward">Forex Forward <span class="label label-info">{{forwardnotification}}</span></a>
-<h3>FxSpot Payments</h3>
+<a href="#/payments">Forex Spot <span class="label label-info">{{spotnotification}}</span></a> | <b>Forex Swap <span class="label label-info">{{swapnotification}}</span></b> | <a href="#/paymentforward">Forex Forward <span class="label label-info">{{forwardnotification}}</span></a>
+<h3>FxSwap Payments</h3>
 <div class="row">
         <div class="panel panel-default widget">
             
             <div class="panel-body">
                 <ul class="list-group">
-                    <li class="list-group-item" ng-repeat="c in custpay">
+                    <li class="list-group-item" ng-repeat="c in custswappay">
                         <div class="row">
                             
                             <div class="col-xs-10 col-md-11">
                                 <div>
                                     <a href="">
-                                        {{c.buysell}}
+                                        {{c.buysell}} {{c.ccypair}}
                                     </a>
                                     <div class="mic-info">
-                                        {{c.ccypair}}: <a href="">Order amount: {{c.orderamount | number:0}}</a> on {{c.orderdate}}
+                                        <p>Near-Leg Buy Amount: {{c.nearbuyorderamountccy}} {{c.nearbuyorderamount | number:0}}</p>
+                                        <p>Near-Leg Sell Amount: {{c.nearsellorderamountccy}} {{c.nearsellorderamount | number:0}}</p>
+                                        <p>Far-Leg Buy Amount: {{c.farbuyorderamountccy}} {{c.farbuyorderamount | number:0}}</p>
+                                        <p>Near-Leg Sell Amount: {{c.farsellorderamountccy}} {{c.farsellorderamount | number:0}}</p>
                                     </div>
                                 </div>
                                 <div class="comment-text">
-                                    Settlement Date : {{c.settlementdate}}
+                                    Deal Number : {{c.orderidfk}}
                                 </div>
                                 <div class="action">
                                     <button type="button" class="btn btn-primary btn-xs" title="Pay" ng-click="pay(c.offerid)">

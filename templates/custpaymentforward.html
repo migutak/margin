@@ -1,4 +1,4 @@
-<b>Forex Spot <span class="label label-info">{{spotnotification}}</span></b> | <a href="#/paymentswap">Forex Swap <span class="label label-info">{{swapnotification}}</span></a> | <a href="#/paymentforward">Forex Forward <span class="label label-info">{{forwardnotification}}</span></a>
+<a href="#/payments">Forex Spot <span class="label label-info">{{spotnotification}}</span></b> | <a href="#/paymentswap">Forex Swap <span class="label label-info">{{swapnotification}}</span></a> | <b>Forex Forward <span class="label label-info">{{forwardnotification}}</span></b>
 <h3>FxSpot Payments</h3>
 <div class="row">
         <div class="panel panel-default widget">
@@ -11,14 +11,15 @@
                             <div class="col-xs-10 col-md-11">
                                 <div>
                                     <a href="">
-                                        {{c.buysell}}
+                                        {{c.buysell}} {{c.ccypair}}
                                     </a>
                                     <div class="mic-info">
-                                        {{c.ccypair}}: <a href="">Order amount: {{c.orderamount | number:0}}</a> on {{c.orderdate}}
+                                        <p>Near Buy Order amount: {{c.nearbuyorderamount | number:0}}</p>
+                                        <p>Near Sell Order amount: {{c.nearbuyorderamount | number:0}}</p>
                                     </div>
                                 </div>
                                 <div class="comment-text">
-                                    Settlement Date : {{c.settlementdate}}
+                                    Deal Number : {{c.orderidfk}}
                                 </div>
                                 <div class="action">
                                     <button type="button" class="btn btn-primary btn-xs" title="Pay" ng-click="pay(c.offerid)">

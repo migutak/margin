@@ -10,17 +10,14 @@
      
 <div class="content" cg-busy="{promise:promise,templateUrl:templateUrl,message:'Data being submitted',backdrop:backdrop,delay:0,minDuration:700}">
 	 <a href="#/neworder">Forex Spot</a> | <a href="#/newswap">Forex Swap</a> | <b>Forex Forward</b>
+	 <div class="cloading"></div>
         <section class="content">
         	<h1 class="container">Forex Forward</h1>
-            <form class="form-horizontal" role="form" id="newforwardorderform"></<form>
-            	<div class="row">
-            		  
-				      <div class="col-sm-6 col-lg-4">
-				        <div class="form-group">
-				          <label for="ccypair" class="col-md-4 control-label">Ccy Pair:</label>
-				          <div class="col-md-8">
-				            
-				            <select class="form-control" ng-model="newforwardorder.ccypair" required>
+            <form class="form-horizontal" role="form" id="newforwardorderform" ng-submit="saveforwardorder()">
+            		<div class="form-group">
+				    	<label class="col-xs-3 control-label">Currency pair</label>
+				    	<div class="col-xs-5 selectContainer">
+				    		<select class="form-control" ng-model="newforwardorder.ccypair" required>
 							    <option>USD/KES</option>
 								<option>KES/UGX</option>
 								<option>KES/TZS</option>
@@ -35,48 +32,100 @@
 								<option>EUR/USD</option>
 								<option>GBP/USD</option>
 							</select>
-				          </div>
-				        </div>
-				      </div>
-				      <div class="col-sm-6 col-lg-4">
-				        <div class="form-group">
-				          <label for="buysell" class="col-md-4 control-label">Buy/Sell:</label>
-				          <div class="col-md-8">
-				            <select name="buysell" class="form-control" ng-model="newforwardorder.buysell" required>
-				                <option>BUY</option>
-							    <option>SELL</option>
+				    	</div>
+				    </div>
+				    <div class="form-group">
+				        <label class="col-xs-3 control-label">Buy/Sell</label>
+				        <div class="col-xs-5 selectContainer">
+				            <select name="colors" class="form-control" ng-model="newforwardorder.buysell" required>
+				                <option value="BUY">BUY</option>
+							    <option value="SELL">SELL</option>
 				            </select>
-				          </div>
 				        </div>
-				      </div>
-				      
-            	</div>
-            	<div class="row">
-            		<div class="form-group">
-                      <div class="radio">
-                        <label>
-                          <input type="radio" name="optionsRadios" id="optionsRadios1" value="manual" checked />
-                          Manually Generate Schedule
-                        </label>
-                      </div>
-                      <div class="radio">
-                        <label>
-                          <input type="radio" name="optionsRadios" id="optionsRadios2" value="auto" />
-                          Auto Generate Schedule
-                        </label>
-                      </div>
+				    </div>
+				    <div class="form-group">
+				        <label class="col-xs-3 control-label">Frequency</label>
+				        <div class="col-xs-5 selectContainer">
+				            <select name="colors" class="form-control" ng-model="newforwardorder.frequency" required>
+				                <option value="Weekly">Weekly</option>
+							    <option value="Monthly">Monthly</option>
+				            </select>
+				        </div>
+				    </div>
+				    <div class="form-group">
+				        <label class="col-xs-3 control-label">No of Frequency</label>
+				        <div class="col-xs-5 selectContainer">
+				            <input type="text" class="form-control" ng-model="newforwardorder.nofrequency">
+				        </div>
+				    </div>
+				    
+				    <div class="form-group">
+				    	<label class="col-xs-3 control-label">Start Date</label>
+				    	<div class="col-xs-5 selectContainer">
+				    		<div class="input-group">
+                            	<div class="input-group-addon">
+                                    <i class="fa fa-calendar"></i>
+                                </div>
+                                <input type="text" class="datepicker" id="startdate" name="startdate" ng-model="newforwardorder.startdate" required/>
+                            </div><!-- /.input group -->
+				    	</div>
+				    </div>
+				    <div class="form-group">
+				    	<label class="col-xs-3 control-label">Buy Amount</label>
+				    	<div class="col-xs-5 selectContainer">
+				    		<div class="input-group">
+				    			<div class="input-group-addon">
+                                    {{newforwardorder.buyorderamountccy}}
+                                </div>
+				    			<input type="text" class="form-control" ng-model="newforwardorder.buyorderamount" ng-blur="setfunct()">
+				    		</div>
+				    	</div>
+				    </div>
+				    <div class="form-group">
+				    	<label class="col-xs-3 control-label">Sell Amount</label>
+				    	<div class="col-xs-5 selectContainer">
+				    		<div class="input-group">
+				    			<div class="input-group-addon">
+                                    {{newforwardorder.sellorderamountccy}}
+                                </div>
+				    			<input type="text" class="form-control" ng-model="newforwardorder.sellorderamount" ng-blur="setfunct2()">
+				    		</div>
+				    	</div>
+				    </div>
+				    <div class="form-group">
+				    	<label class="col-xs-3 control-label">Select Bank(s)</label>
+				    	<div class="col-xs-5 selectContainer">
+						    <select class="form-control select2" multiple="multiple" data-placeholder="Select Bank(s)" ng-model="newforwardorder.bank">
+		                      <option ng-repeat="option in banks" value="{{option.username}}">{{option.username}}</option>
+		                    </select>
+				    	</div>
+				    </div>
+				    <div class="form-group">
+                    	<label class="col-xs-3 control-label">Comment</label>
+                    	<div class="col-xs-5 selectContainer">
+                    		<textarea class="form-control" rows="3" placeholder="Enter ..." ng-model="newforwardorder.custcomment"></textarea>
+                    	</div>
                     </div>
                     <div class="form-group">
-                      <label for="exampleInputFile">File input</label>
-                      <input type="file" id="exampleInputFile">
+                    	<label class="col-xs-3 control-label"></label>
+                    	<div class="col-xs-5 selectContainer">
+                    		<button type="button" class="btn btn-info" ng-click="schedule()">View Schedule</button>
+                    	</div>
                     </div>
-            	</div>
-            	<div class="row">
+                    <div class="form-group">
+                    <label class="col-xs-3 control-label"></label>
+                    	<div class="col-xs-5 selectContainer">
+                    		<button type="submit" class="btn btn-info" ng-disabled="neworderform.$invalid">Submit</button>
+                    		<a class="btn btn-danger" href="#/">Cancel</a> 
+                    	</div>
+                    </div>
+            	
+            	<!--<div class="row">
             		<input onclick="addRow(this.form);" type="button" value="Add row" class="btn btn-success"/>
             	</div>
             	<div class="row" id="itemRows">
 				    <p>Order Amount: <input type="text" id="orderamount" name="orderamount">Settlement Amount: <input type="text" name="settlementamount"> Settlement Date: <input type="text" name="settlementdate" ></p>
-            	</div>
+            	</div>-->
             </form>
         </section>
 </div>
@@ -90,8 +139,8 @@
           clearBtn: true,
           orientation: "auto top",
           todayHighlight:true,
-          startDate: '0d',
-          endDate: '+7d'
+          startDate: '0d'
+          //endDate: '+7d'
         });
         
   </script>

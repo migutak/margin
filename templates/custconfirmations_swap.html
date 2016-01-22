@@ -15,7 +15,7 @@
                                     <th>Currency Pair</th>
                                     <th>Buy/Sell</th>
                                     <th>Deal Details</th>
-                                    <th>Far Date</th>
+                                    <th>Date</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -24,13 +24,19 @@
                                     <td>{{ord.orderidfk}}</td>
                                     <td>{{ord.usernamefk}}</td>
                                     <td>{{ord.ccypair}}</td>
-                                    <td>{{ord.buysell}}</td>
                                     <td>
-                                        <p>L1: {{ord.paybank}} Amount: {{ord.nearbuyorderamountccy}} {{ord.nearbuyorderamount | number:2}} | {{ord.recbank}} Amount: {{ord.nearsellorderamountccy}} {{ord.nearsellorderamount | number:2}} | Near Rate: {{ord.nearfinal | number}}</p>
-                                        <p>L2: {{ord.recbank}} Amount: {{ord.farsellorderamountccy}} {{ord.farsellorderamount | number:2}} | {{ord.paybank}} Amount: {{ord.farbuyorderamountccy}} {{ord.farbuyorderamount | number:2}} | Far Rate: {{ord.farfinal | number}}</p>
+                                        <p>{{ord.buysell}}</p>
+                                        <p>{{ord.buysellbank}}</p>
+                                    </td>
+                                    <td>
+                                        <p>L1: {{ord.paybank}} Amount: {{ord.nearbuyorderamountccy}} {{ord.nearbuyorderamount | number:2}} | {{ord.recbank}} Amount: {{ord.nearsellorderamountccy}} {{ord.nearsellorderamount}} | Near Rate: {{ord.nearfinal | number}}</p>
+                                        <p>L2: {{ord.recbank}} Amount: {{ord.farsellorderamountccy}} {{ord.farsellorderamount | number:2}} | {{ord.paybank}} Amount: {{ord.farbuyorderamountccy}} {{ord.farbuyorderamount}} | Far Rate: {{ord.farfinal | number}}</p>
                                         
                                     </td>
-                                    <td>{{ord.fardate}}</td>
+                                    <td>
+                                        <p>{{ord.fardate}}</p>
+                                        <p>{{ord.neardate}}</p>
+                                    </td>
                                 </tr>
                                 </tbody>
                             </table>

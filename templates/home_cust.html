@@ -1,12 +1,14 @@
-<b>Forex Spot</b> | <a href="#/homeswap">Forex Swap</a> | <a href="#/homeforward">Forex Forward</a>
+<b>Forex Spot</b> | <a href="#/homeswap">Forex Swap</a> | <a href="#/homeforward">Forex Forward</a> | <a href="#/homemoneymarket">Money Market</a>
+<div ng-controller="profileCtrl">New Message: {{message}}</div>
 <div class="row">
         <div class="col-md-7">
             <!-- Map box -->
             <div class="box box-solid bg-light-blue-gradient">
 
-                Home FxSpot
+                Home FxSpot {{custorders.offernotification}}
               
             </div>
+            
             <!-- /.box 
             <div class="dropup">
               <button class="btn btn-info btn-flat dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -30,6 +32,7 @@
 			                    </div>
                         </div>-->
                         <input ng-model="searchKeyword" type="text" placeholder="Filter by" autofocus>
+                        <div class="cloading"></div>
                         <div class="table-responsive" style="min-Height:500px">
                             <table class="table no-margin">
                                 <thead>
@@ -70,6 +73,8 @@
                                 </tbody>
                             </table>
                         </div><!-- /.table-responsive -->
+                        
+                        
             
         </div>
         <div class="col-md-5">
@@ -125,7 +130,7 @@
                       </button>
                     </li>
                     <li class="option">
-                      <button class="material-button option2" type="button">
+                      <button class="material-button option2" type="button" onclick="window.location.href='#newmoneymarket'">
                         <span class="fa fa-credit-card" aria-hidden="true"></span> Mm
                       </button>
                     </li>
