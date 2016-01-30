@@ -4,15 +4,36 @@ myapp.config(function($stateProvider, $urlRouterProvider) {
 
 	$urlRouterProvider.otherwise("/home")
 
-	$stateProvider.state('home', {
+	$stateProvider
+	.state('home', {
 		url : "/home",
 		templateUrl : "templates/home_bank.html",
 		controller : 'bankCtrl'
-	})
-	.state('newoffer', {
+	}).state('homeswap', {
+		url : "/homeswap",
+		templateUrl : "templates/home_bank_swap.html",
+		controller : 'bankCtrl'
+	}).state('homeforward', {
+		url : "/homeforward",
+		templateUrl : "templates/home_bank_forward.html",
+		controller : 'bankCtrl'
+	}).state('homemm', {
+		url : "/homemm",
+		templateUrl : "templates/home_bank_mm.html",
+		controller : 'bankCtrl'
+	}).state('newoffer', {
 		url : "/newoffer/:indexid",
 		templateUrl : "templates/newoffer.html",
 		controller : 'newofferCtrl'
+	})
+	.state('newmmoffer', {
+		url : "/newmmoffer/:indexid",
+		templateUrl : "templates/newmmoffer.html",
+		controller : 'newmmofferCtrl'
+	}).state('newswapoffer', {
+		url : "/newswapoffer/:indexid",
+		templateUrl : "templates/newswapoffer.html",
+		controller : 'newswapofferCtrl'
 	}).state('profile', {
 		url : "/profile",
 		templateUrl : "templates/profile.html",
@@ -24,10 +45,30 @@ myapp.config(function($stateProvider, $urlRouterProvider) {
 		url : "/offers",
 		templateUrl : "templates/offers.html",
 		controller : 'offersCtrl'
+	}).state('offersswap', {
+		url : "/offersswap",
+		templateUrl : "templates/offersswap.html",
+		controller : 'offersCtrl'
+	}).state('offersmm', {
+		url : "/offersmm",
+		templateUrl : "templates/offersmm.html",
+		controller : 'offersmmCtrl'
 	}).state('acceptedoffers', {
 		url : "/acceptedoffers",
 		templateUrl : "templates/acceptedoffers.html",
 		controller : 'acceptedoffersCtrl'
+	}).state('acceptedofferswap', {
+		url : "/acceptedofferswap",
+		templateUrl : "templates/acceptedofferswap.html",
+		controller : 'acceptedoffersCtrl'
+	}).state('acceptedofferforward', {
+		url : "/acceptedofferforward",
+		templateUrl : "templates/acceptedofferforward.html",
+		controller : 'acceptedoffersCtrl'
+	}).state('acceptedoffermm', {
+		url : "/acceptedoffermm",
+		templateUrl : "templates/acceptoffermm.html",
+		controller : 'acceptedmmoffersCtrl'
 	}).state('approvals', {
 		url : "/ofapprovalsfers",
 		templateUrl : "templates/approvals.html",
@@ -64,6 +105,14 @@ myapp.config(function($stateProvider, $urlRouterProvider) {
 		url : "/bookdeal/:offerid",
 		templateUrl : "templates/bookdeal.html",
 		controller : 'bookdealCtrl'
+	}).state('bookmmdeal', {
+		url : "/bookmmdeal/:offerid",
+		templateUrl : "templates/bookmmdeal.html",
+		controller : 'bookmmdealCtrl'
+	}).state('bookswapdeal', {
+		url : "/bookswapdeal/:offerid",
+		templateUrl : "templates/bookswapdeal.html",
+		controller : 'bookswapdealCtrl'
 	}).state('confirmDetails', {
 		url : "/confirmDetails/:id",
 		templateUrl : "templates/payment.html",
@@ -72,5 +121,9 @@ myapp.config(function($stateProvider, $urlRouterProvider) {
 		url : "/editOffer/:offerid",
 		templateUrl : "templates/editoffer.html",
 		controller : 'editofferCtrl'
+	}).state('editmmOffer', {
+		url : "/editmmOffer/:offerid",
+		templateUrl : "templates/editmmoffer.html",
+		controller : 'editmmofferCtrl'
 	})
 })

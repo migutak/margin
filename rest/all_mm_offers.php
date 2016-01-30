@@ -22,7 +22,7 @@
     
     //Replace * in the query with the column names.
     $result = mysql_query("select offerid,orderidfk,fixedrate,Moneymarketorders.orderamount,daycount,totalinterest,tax,netinterest,bankcomment,offeredby,usernamefk
-    ,ccy,orderdate,offerdate,orderid,mmto,mmfrom,recipient, custcomment,ordertypefk,tenuredays,mmtype,currentstatus
+    ,ccy,orderdate,offerdate,orderid,mmto,mmfrom,recipient, custcomment,ordertypefk,tenuredays,mmtype,mmtypebank,currentstatus
     from offers_mm left join Moneymarketorders on offers_mm.orderindex = Moneymarketorders.orderindex where offeredby = '$bankid' and status = 'Open' ", $db);  
     
     //Create an array
@@ -52,6 +52,7 @@
         $row_array['ordertypefk'] = $row['ordertypefk'];
         $row_array['tenuredays'] = $row['tenuredays'];
         $row_array['mmtype'] = $row['mmtype'];
+        $row_array['mmtypebank'] = $row['mmtypebank'];
         $row_array['currentstatus'] = $row['currentstatus'];
         
         //push the values in the array

@@ -59,13 +59,14 @@
         		<div class="col-md-6">{{booking.mmfrom}} To {{booking.mmto}}</div>
         	</div>
         	<div class="row">
-        		<div class="col-md-6">PAY ccy/amount:</div>
-        		<div class="col-md-6">{{booking.ccy}} {{booking.netamount | number:2}}</div>
-        	</div>
-        	<div class="row">
         		<div class="col-md-6">REC ccy/amount:</div>
         		<div class="col-md-6">{{booking.ccy}} {{booking.orderamount | number:2}}</div>
         	</div>
+        	<div class="row">
+        		<div class="col-md-6">PAY ccy/amount:</div>
+        		<div class="col-md-6">{{booking.ccy}} {{booking.netamount | number:2}}</div>
+        	</div>
+        	
         	<div class="row">
         		<div class="col-md-6">Fixed rate %:</div>
         		<div class="col-md-6">{{booking.fixedrate}}</div>

@@ -21,8 +21,8 @@
     mysql_select_db("$database",$db);
     
     //Replace * in the query with the column names.
-    $result = mysql_query("select offerid,orderidfk,fixedrate,daycount,totalinterest,tax,netinterest,offeredby,offerdate,status,usernamefk
-    ,orderdate,mmfrom,mmto,Moneymarketorders.orderamount,orderdate,ccy,bankcomment,tenuredays,recipient,custcomment,ordertypefk,currentstatus, Moneymarketorders.orderamount+totalinterest-tax netamount 
+    $result = mysql_query("select offerid,orderidfk,fixedrate,daycount,totalinterest,tax,netinterest,offeredby,offerdate,status,usernamefk,mmtypebank,
+    orderdate,mmfrom,mmto,mmtype,Moneymarketorders.orderamount,orderdate,ccy,bankcomment,tenuredays,recipient,custcomment,ordertypefk,currentstatus, Moneymarketorders.orderamount+totalinterest-tax netamount 
     from offers_mm left outer join Moneymarketorders on offers_mm.orderidfk = Moneymarketorders.orderid where offerid = $offerid ", $db);  
     
     //Create an array
@@ -43,6 +43,8 @@
         $row_array['orderdate'] = $row['orderdate'];
         $row_array['mmfrom'] = $row['mmfrom'];
         $row_array['mmto'] = $row['mmto'];
+        $row_array['mmtype'] = $row['mmtype'];
+        $row_array['mmtypebank'] = $row['mmtypebank'];
         $row_array['orderamount'] = $row['orderamount'];
         $row_array['netamount'] = $row['netamount'];
         $row_array['orderdate'] = $row['orderdate'];

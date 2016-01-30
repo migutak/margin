@@ -6,7 +6,7 @@ myapp.config(function($stateProvider, $urlRouterProvider) {
 
 	$stateProvider.state('home', {
 		url : "/home",
-		templateUrl : "templates/home_backoffice.html",
+		templateUrl : "templates/home_bo.html",
 		controller : 'backofficeCtrl'
 	})
 	.state('profile', {
@@ -49,10 +49,18 @@ myapp.config(function($stateProvider, $urlRouterProvider) {
 		url : "/bookdeal/:offerid",
 		templateUrl : "templates/bookdealf.html",
 		controller : 'bookdealCtrl'
-	}).state('confirmoffer', {
-		url : "/confirmoffer/:offerid",
-		templateUrl : "templates/confirmbookingf.html",
-		controller : 'confirmofferCtrl'
+	}).state('homeswap', {
+		url : "/homeswap",
+		templateUrl : "templates/backofficeswap.html",
+		controller : 'backofficeCtrl'
+	}).state('homeforward', {
+		url : "/homeforward",
+		templateUrl : "templates/backofficeforward.html",
+		controller : 'backofficeCtrl'
+	}).state('homemm', {
+		url : "/homemm",
+		templateUrl : "templates/backofficemm.html",
+		controller : 'backofficeCtrl'
 	})
 })	
 	

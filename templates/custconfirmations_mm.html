@@ -1,5 +1,8 @@
 <!-- Main content -->
 <section class="content">
+<a href="#/custconfirmations">Forex Spot <span class="label label-info">{{spotnotification}}</span></a> | <a href="#/custconfirmations_swap">Forex Swap <span class="label label-info">{{swapnotification}}</span></b> | <a href="#/custconfirmations_forward">Forex Forward <span class="label label-info">{{forwardnotification}}</span></a> | <b>Money Markets <span class="label label-info">{{mmnotification}}</span></b>
+<h3>MM Confimations</h3>
+<div class="cloading"></div>
     <div class="row">
         <div class="col-md-12">
                 <div class="table-responsive">
@@ -9,25 +12,27 @@
                                     <th></th>
                                     <th>Order Date</th>
                                     <th>BankName</th>
-                                    <th>CCY Pair</th>
-                                    <th>Buy/Sell</th>
-                                    <th>Deal Details</th>
-                                    <th>Settlement Date</th>
+                                    <th>Deposit Amount</th>
+                                    <th>From</th>
+                                    <th>To</th>
+                                    <th>Rate %</th>
+                                    <th>Total Interest</th>
+                                    <th>Withholding Tax</th>
+                                    <th>Net Total Amount</th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                 <tr ng-repeat="ord in toconfirmoffers">
-                                    <td><a class="btn btn-warning" href="#/confirmoffer/{{ord.offerid}}"><i class="fa fa-check"></i>Confirm</a></td>
+                                    <td><a class="btn btn-warning" href="#/confirmoffermm/{{ord.offerid}}"><i class="fa fa-check"></i>Confirm</a></td>
                                     <td>{{ord.orderdate}}</td>
                                     <td>{{ord.offeredby}}</td>
-                                    <td>{{ord.ccypair}}</td>
-                                    <td>{{ord.buysell}}</td>
-                                    <td>
-                                        <p>{{ord.recbank}} Amount: {{ord.ccypair | limitTo:ord.limitnum}} {{ord.orderamount | number}}</p>
-                                        <p>Rate: {{ord.offeredrate | number}}</p>
-                                        <p>{{ord.paybank}} Amount: {{ord.ccypair | limitTo:-ord.limitnum}} {{ord.settleamount | number}}</p>
-                                    </td>
-                                    <td>{{ord.settlementdate}}</td>
+                                    <td>{{ord.ccy}} {{ord.orderamount | number:2}}</td>
+                                    <td>{{ord.mmfrom}}</td>
+                                    <td>{{ord.mmto}}</td>
+                                    <td>{{ord.fixedrate}}</td>
+                                    <td>{{ord.totalinterest | number:2}}</td>
+                                    <td>{{ord.tax}}</td>
+                                    <td>{{ord.netamount | number:2}}</td>
                                 </tr>
                                 </tbody>
                             </table>

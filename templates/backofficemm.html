@@ -3,23 +3,21 @@
               <small>{{}}</small>
             </h3>
 <div class="container">
+    <div class="cloading"></div>
             <div class="callout callout-info" ng-repeat="c in confirmedmmoffers">
               <h4>{{c.usernamefk}}</h4>
-              <p>{{c.ccypair}} | {{c.buysellbank}}</p>
-              <p></p>
-              <p>Order amount :{{c.orderamount | number:2}}</p>
+              <p>{{c.mmtype}}</p>
+              <p>Duration: {{c.mmfrom}} - {{c.mmto}}</p>
+              <p>Nominal amount :{{c.ccy}} {{c.orderamount | number:2}}</p>
             <div class="comment-text">
-                Actions
+                Status : {{c.confirm}}
             </div>
             <div class="action">
                 <button type="button" class="btn btn-primary btn-xs" title="Edit">
-                    <span class="glyphicon glyphicon-pencil"></span>
+                    <span class="glyphicon glyphicon-pencil"></span> View
                 </button>
                 <button type="button" class="btn btn-success btn-xs" title="Approved">
-                    <span class="glyphicon glyphicon-ok"></span>
-                </button>
-                <button type="button" class="btn btn-danger btn-xs" title="Delete">
-                    <span class="glyphicon glyphicon-trash"></span>
+                    <span class="glyphicon glyphicon-ok"></span> Confirm
                 </button>
             </div>
             </div>

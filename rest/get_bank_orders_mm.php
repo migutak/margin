@@ -22,7 +22,7 @@
     
     //Replace * in the query with the column names.
     $result = mysql_query("select orderindex, orderid,usernamefk,ccy,orderdate,mmfrom,mmto,orderamount,currentstatus,
-    custcomment,ordertypefk,mmtype from Moneymarketorders  where currentstatus = 'N' and recipient = '$bankid'", $db);  
+    custcomment,ordertypefk,mmtype,mmtypebank from Moneymarketorders  where currentstatus = 'N' and recipient = '$bankid'", $db);  
     
     //Create an array
     $json_response = array();
@@ -40,6 +40,7 @@
         $row_array['ordertypefk'] = $row['ordertypefk'];
         $row_array['mmto'] = $row['mmto'];
         $row_array['mmtype'] = $row['mmtype'];
+        $row_array['mmtypebank'] = $row['mmtypebank'];
         //push the values in the array
         array_push($json_response,$row_array);
     }

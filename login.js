@@ -1,12 +1,55 @@
-angular.module('app', ['ngAnimate','cgBusy','starter.services']);
+var myapp = angular.module('app', ['ui.router','ngAnimate','cgBusy','starter.services']);
 
-angular.module('app').controller('DemoCtrl',function($scope,$http,Login,$window){
+myapp.config(function($stateProvider, $urlRouterProvider){
+	$urlRouterProvider.otherwise("/login")
+	
+	$stateProvider
+	.state('login', {
+		url : "/login",
+		templateUrl : "templates/login.html",
+		controller : 'loginCtrl'
+	}).state('price', {
+		url : "/price",
+		templateUrl : "templates/price.html",
+		controller : 'loginCtrl'
+	}).state('signup', {
+		url : "/signup/:typeid",
+		templateUrl : "templates/signup.html",
+		controller : 'signupCtrl'
+	}).state('success', {
+		url : "/success",
+		templateUrl : "templates/success.html",
+		controller : 'signupCtrl'
+	})
+	
+});
+
+myapp.controller('signupCtrl', function($scope, $http,$stateParams, $window, $state,ordersService) {
+    var typeid = $stateParams.typeid;
+    $scope.signup = {};
+    $scope.signup.typeid = typeid;
+    
+    $scope.countries = [];
+    
+    ordersService.getCountries().then(function(response){
+		$scope.countries =response.data;
+	});
+	
+	$scope.success = function(){
+		$state.go('success');
+	}
+})
+
+myapp.controller('loginCtrl',function($scope,$http,Login,$window,ordersService){
 
 	$scope.delay = 0;
 	$scope.minDuration = 3000;
 	$scope.message = 'Please Wait...';
 	$scope.backdrop = true;
 	$scope.promise = null;
+	
+	
+	
 
 	$scope.login = function(){
 		$scope.msg = "";
@@ -15,7 +58,7 @@ angular.module('app').controller('DemoCtrl',function($scope,$http,Login,$window)
 			url: './assets/login.php',
           	data: $scope.loginData
 			}).then(function(response) {
-			    console.log(response.data);
+			    //console.log(response.data);
 	            var resp = response.data.result;
 	            var type = response.data.usertype;
 	            if(resp=='NO'){
@@ -34,15 +77,12 @@ angular.module('app').controller('DemoCtrl',function($scope,$http,Login,$window)
 	                    $window.open('index_cust.html','_self');
 	                    //console.log(Login.getloginname());
 	                }else if(type=='Backoffice'){
-	                    $window.open('index_boffice.html','_self');
+	                    $window.open('backoffice.html','_self');
 	                }else{
 	                    //$window.open('index_admin.html','_self');
 	                }
 	              // 
 	            }
 			});
-
 	};
-
-
 });
