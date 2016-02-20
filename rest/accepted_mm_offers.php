@@ -22,7 +22,7 @@
     
     //Replace * in the query with the column names.
     $result = mysql_query("select offerid,orderidfk,fixedrate,daycount,totalinterest,tax,netinterest,offeredby,offerdate,status,usernamefk
-    ,orderdate,mmfrom,mmto,Moneymarketorders.orderamount,orderdate,ccy,bankcomment,tenuredays,recipient,custcomment,ordertypefk,currentstatus 
+    ,orderdate,mmfrom,mmto,mmtype,mmtypebank,Moneymarketorders.orderamount,orderdate,ccy,bankcomment,tenuredays,recipient,custcomment,ordertypefk,currentstatus,bankuser 
     from offers_mm left join Moneymarketorders on offers_mm.orderindex = Moneymarketorders.orderindex where status = 'Accepted' and confirm = 'Pending' and offeredby = '$bankid' ", $db);  
     
     //Create an array
@@ -42,6 +42,8 @@
         $row_array['orderdate'] = $row['orderdate'];
         $row_array['mmfrom'] = $row['mmfrom'];
         $row_array['mmto'] = $row['mmto'];
+        $row_array['mmtype'] = $row['mmtype'];
+        $row_array['mmtypebank'] = $row['mmtypebank'];
         $row_array['orderdate'] = $row['orderdate'];
         $row_array['orderamount'] = $row['orderamount'];
         $row_array['ccy'] = $row['ccy'];
@@ -54,6 +56,7 @@
         $row_array['custcomment'] = $row['custcomment'];
         $row_array['bankcomment'] = $row['bankcomment'];
         $row_array['usernamefk'] = $row['usernamefk'];
+        $row_array['bankuser'] = $row['bankuser'];
         
         //push the values in the array
         array_push($json_response,$row_array);

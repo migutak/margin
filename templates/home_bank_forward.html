@@ -18,7 +18,7 @@
                             <div class="box box-primary">
                                 <div class="box-header with-border">
                                     <h3 class="box-title">Open Orders</h3><br>
-                                    <a href="#/home">Forex Spot <span class="label label-info">{{spotnotification}}</span></a> | <a href="#/homeswap">Forex Swap <span class="label label-info">{{swapnotification}}</span></a> | <b>Forex Forward <span class="label label-info">{{forwardnotification}}</span></b>
+                                    <a href="#/home">Forex Spot <span class="label label-info">{{spotnotification}}</span></a> | <a href="#/homeswap">Forex Swap <span class="label label-info">{{swapnotification}}</span></a> | <b>Forex Forward <span class="label label-info">{{forwardnotification}}</span></b> | <a href="#/homemm"> Money Markets <span class="label label-info">{{mmnotification}}</span></a>
                                     <div class="box-tools pull-right">
                                         <div class="btn-group">
                                             <button class="btn btn-box-tool dropdown-toggle" data-toggle="dropdown"><i class="fa fa-filter"></i></button>
@@ -34,19 +34,20 @@
                                     </div>
                                 </div><!-- /.box-header -->
                                 <div class="box-body" style="max-height: 300px;overflow-y: scroll;">
+                                    <div class="cloading"></div>
 				                  <ul class="products-list product-list-in-box">
-				                    <li class="item" ng-repeat="ord in orders | filter:query">
+				                    <li class="item" ng-repeat="ord in orders_forward | filter:query">
 				                      <div class="product-img">
 				                        <img src="plugins/dist/img/default-50x50.gif"/>
 				                      </div>
 				                      <div class="product-info">
 				                        <span class="product-title">
-				                          {{ord.usernamefk}} <span class="label label-warning pull-right">{{ord.orderamount | number}}</span>
+				                          {{ord.usernamefk}} <span class="label label-warning pull-right">BUY: {{ord.buyorderamountccy}} {{ord.buyorderamount | number}}</span>
 				                        </span>
 				                        <span class="product-description">
-				                          {{ord.ccypair}}
+				                          {{ord.ccypair}} <span class="label label-warning pull-right">SELL: {{ord.sellorderamountccy}} {{ord.sellorderamount | number}}</span>
 				                        </span>
-				                        <a href="#/newoffer/{{ord.orderindex}}" class="product-title">New Offer</a>
+				                        <a href="#/newforwardoffer/{{ord.orderindex}}" class="product-title">New Forward Offer</a>
 				                      </div>
 				                    </li><!-- /.item -->
 				                  </ul>

@@ -6,25 +6,25 @@
         
         $orderindex = $_GET['orderindex'];
         $orderidfk = $_GET['orderidfk'];
-        $spotrate = $_GET['spotrate'];
+        $spot = $_GET['spot'];
         $magin = $_GET['magin'];
-        $offeredrate = $_GET['offeredrate'];
+        $finalrate = $_GET['finalrate'];
         $settlementdate = $_GET['settlementdate'];
         $offeredby = $_GET['offeredby'];
-        $reqamount = $_GET['reqamount'];
-        $ccysettleamount = $_GET['ccysettleamount'];
+        $settlementamountccy = $_GET['settlementamountccy'];
+        $settlementamount = $_GET['settlementamount'];
         $settleamount = $_GET['settleamount'];
-        $comment = $_GET['comment'];
+        $bankcomment = $_GET['bankcomment'];
         $bankuser = $_GET['bankuser'];
      
         // array for JSON response
         $response = array();
         
-        $neworderQuery = "insert into `offers`(`orderindex`,`orderidfk`,`spotrate`,`magin`,`offeredrate`,`settlementdate`,`offeredby`,`reqamount`,`ccysettleamount`,`settleamount`,`comment`,`bankuser`) 
-            values (".$orderindex.",'".$orderidfk."','".$spotrate."','".$magin."',".$offeredrate.",'".$settlementdate."','".$offeredby."','".$reqamount."','".$ccysettleamount."','".$settleamount."','".$comment."','".$bankuser."')";
+        $neworderQuery = "insert into `offers_forward`(`orderindex`,`orderidfk`,`spot`,`magin`,`finalrate`,`settlementdate`,`offeredby`,`settlementamountccy`,`settlementamount`,`bankcomment`,`bankuser`) 
+            values (".$orderindex.",'".$orderidfk."','".$spot."','".$magin."',".$finalrate.",'".$settlementdate."','".$offeredby."','".$settlementamountccy."','".$settlementamount."','".$bankcomment."','".$bankuser."')";
         
         if($db->query($neworderQuery) === TRUE){
-            $response["result"] = "Offers Successfully Made";
+            $response["result"] = "Forward Offer Successfully Submitted";
         }
         else{
             $response["result"] = "Error: " . $neworderQuery . "<br>" . $db->error;

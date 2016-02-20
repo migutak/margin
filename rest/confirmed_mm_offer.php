@@ -21,7 +21,7 @@
     mysql_select_db("$database",$db);
     
     $result = mysql_query("select offerid,orderidfk,fixedrate,Moneymarketorders.orderamount,daycount,totalinterest,tax,netinterest,bankcomment,offeredby,usernamefk
-    ,ccy,orderdate,offerdate,orderid,mmto,mmfrom,recipient, custcomment,ordertypefk,tenuredays,mmtype,currentstatus,confirm,status
+    ,ccy,orderdate,offerdate,orderid,mmto,mmfrom,recipient, custcomment,ordertypefk,tenuredays,mmtype,mmtypebank,currentstatus,confirm,status
     from offers_mm left join Moneymarketorders on offers_mm.orderidfk = Moneymarketorders.orderid where status = 'Accepted' and confirm IN ('Confirmed', 'Confirmed-Paid') and recipient=offeredby ", $db);  
     
     //Create an array
@@ -51,6 +51,7 @@
         $row_array['ordertypefk'] = $row['ordertypefk'];
         $row_array['tenuredays'] = $row['tenuredays'];
         $row_array['mmtype'] = $row['mmtype'];
+        $row_array['mmtypebank'] = $row['mmtypebank'];
         $row_array['currentstatus'] = $row['currentstatus'];
         $row_array['confirm'] = $row['confirm'];
         

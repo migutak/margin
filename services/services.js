@@ -26,6 +26,18 @@ app.factory('ordersService', function($http) {
       });
       return promise;
     },
+    forward_orders: function(username) {
+      var promise = $http({
+          method: 'get',
+          url : './rest/get_all_forward_orders.php',
+          headers: {'Content-Type': 'application/json'},
+          params:{username:username}
+      }).then(function (response) {
+        console.log(response);
+        return response.data;
+      });
+      return promise;
+    },
     mm_orders: function(username) {
       var promise = $http({
           method: 'get',
@@ -55,6 +67,19 @@ app.factory('ordersService', function($http) {
       var promise = $http({
           method : 'GET',
           url : './rest/get_bank_orders_swap.php',
+          headers: {'Content-Type': 'application/json'},
+          params:{bankid:bankid}
+      }).then(function (response) {
+        return response.data;
+      });
+      // Return the promise to the controller
+      return promise;
+    },
+    getallorders_forward: function(bankid) {
+      // $http returns a promise, which has a then function, which also returns a promise
+      var promise = $http({
+          method : 'GET',
+          url : './rest/get_bank_orders_forward.php',
           headers: {'Content-Type': 'application/json'},
           params:{bankid:bankid}
       }).then(function (response) {
@@ -98,6 +123,20 @@ app.factory('ordersService', function($http) {
       		params:{id:indexid}
       }).success(function (response) {
       			//console.log(response);
+        		return response;
+      		}).error(function(error){
+      			console.log("Error: "+error);
+      		});
+      return promise;
+    },
+    forwardorder: function(indexid) {
+      var promise = $http({
+      		method:'GET',
+      		url:'./rest/get_forward_order.php',
+      		headers: {'Content-Type': 'application/json'},
+      		params:{id:indexid}
+      }).success(function (response) {
+      			console.log(response);
         		return response;
       		}).error(function(error){
       			console.log("Error: "+error);
@@ -160,12 +199,12 @@ app.factory('ordersService', function($http) {
       });
       return promise;
     },
-    accepted_mm_offers: function(username) {
+    accepted_mm_offers: function(domain) {
       var promise = $http({
       		method:'GET',
       		url:'./rest/accepted_mm_offers.php',
       		headers: {'Content-Type': 'application/json'},
-      		params:	 {id:username}
+      		params:	 {id:domain}
       }).success(function (response) {
       		//console.log(response);
         	return response;
@@ -583,7 +622,8 @@ app.factory('Data', function () {
 app.factory('Login', function () {
 
     var data = {
-        loginname: ''
+        loginname: '',
+        domain: ''
     };
 
     return {
@@ -592,6 +632,12 @@ app.factory('Login', function () {
         },
         setloginname: function (loginname) {
             data.loginname = loginname;
+        },
+        getdomain: function () {
+            return data.domain;
+        },
+        setdomain: function (domain) {
+            data.domain = domain;
         }
     };
 });

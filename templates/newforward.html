@@ -47,6 +47,7 @@
 				        <label class="col-xs-3 control-label">Frequency</label>
 				        <div class="col-xs-5 selectContainer">
 				            <select name="colors" class="form-control" ng-model="newforwardorder.frequency" required>
+				                <option value="Single">Single</option>
 				                <option value="Weekly">Weekly</option>
 							    <option value="Monthly">Monthly</option>
 				            </select>
@@ -94,10 +95,22 @@
 				    </div>
 				    <div class="form-group">
 				    	<label class="col-xs-3 control-label">Select Bank(s)</label>
-				    	<div class="col-xs-5 selectContainer">
+				    	<div class="col-xs-4 selectContainer">
 						    <select class="form-control select2" multiple="multiple" data-placeholder="Select Bank(s)" ng-model="newforwardorder.bank">
-		                      <option ng-repeat="option in banks" value="{{option.username}}">{{option.username}}</option>
+		                      <option ng-repeat="option in banks" value="{{option.domain}}">{{option.domain}}</option>
 		                    </select>
+				    	</div>
+				    	<div class="col-xs-3 selectContainer"><input type="checkbox" ng-model="newforwardorder.mybanks" ng-true-value="yes" ng-false-value="no" name="mybanks" /><span class="text"> Only my Banks</span></div>
+				    </div>
+				    <div class="form-group">
+				    	<label class="col-xs-3 control-label">Settlement Date</label>
+				    	<div class="col-xs-5 selectContainer">
+				    		<div class="input-group">
+                            	<div class="input-group-addon">
+                                    <i class="fa fa-calendar"></i>
+                                </div>
+                                <input type="text" class="datepicker" id="settlementdate" name="settlementdate" ng-model="newforwardorder.settlementdate" required/>
+                            </div><!-- /.input group -->
 				    	</div>
 				    </div>
 				    <div class="form-group">
@@ -164,7 +177,10 @@
         	'deselectAll'
         );
         //Initialize Select2 Elements
-        $(".select2").select2();
+        $(".select2").select2({
+        	tags: "true",
+  			allowClear: true
+        });
     });
 </script>
     

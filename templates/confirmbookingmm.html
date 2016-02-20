@@ -48,21 +48,34 @@
         		<div class="col-md-2">{{booking.orderdate}}</div>
         	</div>
         	<div class="row">
-        		<div class="col-md-3">Amount/Ccy payable by the Bank:</div>
-        		<div class="col-md-2">{{booking.ccy}} {{booking.netamount | number:2}}</div>
-        	</div>
-        	<div class="row">
-        		<div class="col-md-3">Amount/Ccy payable by the Customer:</div>
+        		<div class="col-md-3">Amount and currency received:</div>
         		<div class="col-md-2">{{booking.ccy}} {{booking.orderamount | number:2}}</div>
         	</div>
         	<div class="row">
-        		<div class="col-md-3">Fixed Rate %:</div>
-        		<div class="col-md-2">{{booking.fixedrate}}</div>
+        		<div class="col-md-3">Maturity Value:</div>
+        		<div class="col-md-2">{{booking.ccy}} {{booking.maturityamount | number:2}}</div>
         	</div>
         	<div class="row">
-        		<div class="col-md-3">From Date:</div>
-        		<div class="col-md-2">{{booking.mmfrom}} subject to adjustment in accordance with the Modified Following Business Day Convention.</div>
+        		<div class="col-md-3">Total Interest Amount:</div>
+        		<div class="col-md-2">{{booking.ccy}} {{booking.totalinterest | number:2}}</div>
         	</div>
+        	<div class="row">
+        		<div class="col-md-3">Interest Rate:</div>
+        		<div class="col-md-2">{{booking.fixedrate}}%</div>
+        	</div>
+        	<div class="row">
+        		<div class="col-md-3">Withholding Tax Amount:</div>
+        		<div class="col-md-2">{{booking.ccy}} {{booking.tax | number:2}}</div>
+        	</div>
+        	<div class="row">
+        		<div class="col-md-3">Total Amount Payable:</div>
+        		<div class="col-md-2">{{booking.ccy}} {{booking.netamount | number:2}}</div>
+        	</div>
+        	<div class="row">
+        		<div class="col-md-3">Settlement Date:</div>
+        		<div class="col-md-2">{{booking.mmto}}</div>
+        	</div>
+        	<br>
         	<p>
         		<b>5.	Settlement Details:</b><br><br>
         		<b>We RECEIVE {{booking.ccy}} as below:</b>

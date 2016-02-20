@@ -21,17 +21,13 @@
     mysql_select_db("$database",$db);
     
     //Replace * in the query with the column names.
-    $result = mysql_query("select username,name,email,createdate,usertype from tblusers where usertype = 'BANK' ", $db);  
+    $result = mysql_query("select distinct domain from tblusers where usertype = 'BANK' ", $db);  
     
     //Create an array
     $json_response = array();
     
     while ($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
-        $row_array['username'] = $row['username'];
-        $row_array['name'] = $row['name'];
-        $row_array['email'] = $row['email'];
-        $row_array['createdate'] = $row['createdate'];
-        $row_array['usertype'] = $row['usertype'];
+        $row_array['domain'] = $row['domain'];
         
         
         //push the values in the array

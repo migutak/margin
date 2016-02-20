@@ -24,11 +24,12 @@
         $fardate = $_GET['fardate'];
         $comment = $_GET['comment'];
         $offeredby = $_GET['offeredby'];
+        $bankuser = $_GET['bankuser'];
         // array for JSON response 
         $response = array();
         
-        $neworderQuery = "insert into `offers_swap`(`orderindex`,`orderidfk`,`nearspot`,`nearmargin`,`nearfinal`,`nearbuyorderamountccy`,`nearbuyorderamount`,`nearsellorderamountccy`,`nearsellorderamount`,`neardate`,`farspot`,`farmargin`,`farfinal`,`farbuyorderamountccy`,`farbuyorderamount`,`farsellorderamountccy`,`farsellorderamount`,`fardate`,`comment`,`offeredby`) 
-            values (".$orderindex.",'".$orderidfk."','".$nearspotrate."','".$nearmargin."',".$nearfinal.",'".$nearbuyorderamountccy."','".$nearbuyorderamount."','".$nearsellorderamountccy."','".$nearsellorderamount."','".$neardate."','".$farspot."','".$farmargin."','".$farfinal."','".$farbuyorderamountccy."','".$farbuyorderamount."','".$farsellorderamountccy."','".$farsellorderamount."','".$fardate."','".$comment."','".$offeredby."')";
+        $neworderQuery = "insert into `offers_swap`(`orderindex`,`orderidfk`,`nearspot`,`nearmargin`,`nearfinal`,`nearbuyorderamountccy`,`nearbuyorderamount`,`nearsellorderamountccy`,`nearsellorderamount`,`neardate`,`farspot`,`farmargin`,`farfinal`,`farbuyorderamountccy`,`farbuyorderamount`,`farsellorderamountccy`,`farsellorderamount`,`fardate`,`comment`,`offeredby`,`bankuser`) 
+            values (".$orderindex.",'".$orderidfk."','".$nearspotrate."','".$nearmargin."',".$nearfinal.",'".$nearbuyorderamountccy."','".$nearbuyorderamount."','".$nearsellorderamountccy."','".$nearsellorderamount."','".$neardate."','".$farspot."','".$farmargin."','".$farfinal."','".$farbuyorderamountccy."','".$farbuyorderamount."','".$farsellorderamountccy."','".$farsellorderamount."','".$fardate."','".$comment."','".$offeredby."','".$bankuser."')";
         
         if($db->query($neworderQuery) === TRUE){
             $response["result"] = "Fx Swap Offers Successfully Made";

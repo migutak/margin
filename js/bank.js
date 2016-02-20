@@ -34,6 +34,10 @@ myapp.config(function($stateProvider, $urlRouterProvider) {
 		url : "/newswapoffer/:indexid",
 		templateUrl : "templates/newswapoffer.html",
 		controller : 'newswapofferCtrl'
+	}).state('newforwardoffer', {
+		url : "/newforwardoffer/:indexid",
+		templateUrl : "templates/newforwardoffer.html",
+		controller : 'newforwardofferCtrl'
 	}).state('profile', {
 		url : "/profile",
 		templateUrl : "templates/profile.html",

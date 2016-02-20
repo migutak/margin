@@ -127,6 +127,8 @@ app.controller('indexCtrl', function($scope,$stateParams,$interval,Data,ordersSe
 
 app.controller('bankCtrl', function($scope,$stateParams,$interval,$firebaseArray,Notification,Data,ordersService){
 	var username = sessionStorage.getItem('bankuser');
+	var domain = sessionStorage.getItem('bankdomain');
+	
 	var ref = new Firebase("https://luminous-heat-9368.firebaseio.com/margin/Moneymarketorders");
     $scope.mmorders = $firebaseArray(ref);
     
@@ -150,18 +152,26 @@ app.controller('bankCtrl', function($scope,$stateParams,$interval,$firebaseArray
 	$scope.forwardnotification = 0;
 	
 	$scope.mmorders.$loaded().then(function(notes) {
-	   $scope.mmnotification = notes.length;
+	   //$scope.mmnotification = notes.length;
+	   //$scope.orders_mm = notes;
 	});
 	
 	$scope.Data.pagetitle = 'Dashboard';
 	$scope.loading = true;
+	
+	reload_orders();
+	reload_orders_swap();
+	reload_orders_mm();
+	reload_orders_forward();
+	
 	$interval(reload_orders, 3000);
 	$interval(reload_orders_swap, 3000);
-	//$interval(reload_orders_mm, 3000);
-	reload_orders_mm();
+	$interval(reload_orders_mm, 3000);
+	$interval(reload_orders_forward, 3000);
+	//reload_orders_mm();
 	
 	function reload_orders(){
-		ordersService.getallorders(username).then(function(d) {
+		ordersService.getallorders(domain).then(function(d) {
 	    	$scope.orders = d;
 	    	$scope.spotnotification = d.length;
 		});
@@ -171,7 +181,7 @@ app.controller('bankCtrl', function($scope,$stateParams,$interval,$firebaseArray
 	}
 	
 	function reload_orders_swap(){
-		ordersService.getallorders_swap(username).then(function(d) {
+		ordersService.getallorders_swap(domain).then(function(d) {
 			console.log(d);
 	    	$scope.orders_swap = d;
 	    	$scope.swapnotification = d.length;
@@ -182,9 +192,18 @@ app.controller('bankCtrl', function($scope,$stateParams,$interval,$firebaseArray
 	}
 	
 	function reload_orders_mm(){
-		ordersService.getallorders_mm(username).then(function(d) {
+		ordersService.getallorders_mm(domain).then(function(d) {
 	    	$scope.orders_mm = d;
-	    	//$scope.mmnotification = d.length;
+	    	$scope.mmnotification = d.length;
+		});
+		$scope.loading = false;
+	  //console.log('Refresh reload_orders_swap');
+	}
+	
+	function reload_orders_forward(){
+		ordersService.getallorders_forward(domain).then(function(d) {
+	    	$scope.orders_forward = d;
+	    	$scope.forwardnotification = d.length;
 		});
 		$scope.loading = false;
 	  //console.log('Refresh reload_orders_swap');
@@ -252,6 +271,8 @@ app.controller('custCtrl', function($scope,$interval,Data,Notification,ordersSer
 	
 	reload_custorders();
 	reload_custorders_mm();
+	reload_custorders_swap();
+	reload_custorders_forward()
 	
 	$scope.viewoffers = function(orderid){
 		var x = orderid;
@@ -292,6 +313,8 @@ app.controller('custCtrl', function($scope,$interval,Data,Notification,ordersSer
 
 	$interval(reload_custorders, 5000);
 	$interval(reload_custorders_swap, 5000);
+	$interval(reload_custorders_mm, 5000);
+	$interval(reload_custorders_forward, 5000);
 	
 	function reload_custorders(){
 		//$scope.loading = true;
@@ -314,6 +337,12 @@ app.controller('custCtrl', function($scope,$interval,Data,Notification,ordersSer
 	  });	
 	}
 	
+	function reload_custorders_forward(){
+		ordersService.forward_orders(username).then(function(d) {
+	    $scope.custorders_forward = d;
+	  });	
+	}
+	
 	$scope.withdrawOrder =function(){
 		alert('Function not yet operational');
 	}
@@ -322,6 +351,8 @@ app.controller('custCtrl', function($scope,$interval,Data,Notification,ordersSer
 
 app.controller('newswapofferCtrl', function($scope,$state,$stateParams,Data,$http,ordersService,$filter){
 	var username = window.sessionStorage.getItem('bankuser');
+	var domain = window.sessionStorage.getItem('bankdomain');
+	
 	var orderid = $stateParams.indexid;
 	var indexid = $stateParams.indexid;
 	$scope.Data = Data;
@@ -417,7 +448,7 @@ app.controller('newswapofferCtrl', function($scope,$state,$stateParams,Data,$htt
 		              		nearbuyorderamountccy:$scope.newswapoffer.nearbuyorderamountccy_disp,nearbuyorderamount:$scope.newswapoffer.nearbuyorderamount_disp,nearsellorderamountccy:$scope.newswapoffer.nearsellorderamountccy_disp,nearsellorderamount:$scope.newswapoffer.nearsellorderamount_disp,
 		              		neardate:$scope.newswapoffer.neardate,farspot:$scope.newswapoffer.farspotrate,farmargin:$scope.newswapoffer.farmagin,farfinal:$scope.newswapoffer.farofferedrate
 		              	,farbuyorderamountccy:$scope.newswapoffer.farbuyorderamountccy_disp,farbuyorderamount:$scope.newswapoffer.farbuyorderamount_disp,farsellorderamountccy:$scope.newswapoffer.farsellorderamountccy_disp,farsellorderamount:$scope.newswapoffer.farsellorderamount_disp
-		              	,fardate:$scope.newswapoffer.fardate,comment:$scope.newswapoffer.bankcomment,offeredby:$scope.newswapoffer.offeredby
+		              	,fardate:$scope.newswapoffer.fardate,comment:$scope.newswapoffer.bankcomment,offeredby:domain,bankuser:username
 		              }
 		            }).success(function (data) {
 		              alert("FxSwap Offer Submitted");
@@ -433,12 +464,95 @@ app.controller('newswapofferCtrl', function($scope,$state,$stateParams,Data,$htt
        
 })
 
-app.controller('newofferCtrl', function($scope,$state,$stateParams,$rootScope,Data,$http,ordersService,$filter){
+app.controller('newforwardofferCtrl', function($scope,$state,$stateParams,$rootScope,$timeout,Data,$http,ordersService,$filter){
 	var username = window.sessionStorage.getItem('bankuser');
+	var domain = window.sessionStorage.getItem('bankdomain');
+	
 	var orderid = $stateParams.indexid;
 	var indexid = $stateParams.indexid;
 	$scope.Data = Data;
-	$scope.Data.pagetitle = 'New Offer';
+	$scope.Data.pagetitle = 'New Forward Offer';
+	$scope.newforwardoffer = {};
+	
+	
+	ordersService.forwardorder(indexid).then(function(d) {
+	    $scope.newforwardoffer = d.data[0];
+	    $scope.newforwardoffer.orderindex = d.data[0].orderindex;
+	    $scope.newforwardoffer.orderidfk = d.data[0].orderid;
+	    $scope.newforwardoffer.offeredby = username;
+	    $scope.newforwardoffer.buysell = d.data[0].buysell;
+	    $scope.newforwardoffer.buysellbank = d.data[0].buysellbank;
+	    $scope.newforwardoffer.buyorderamount = d.data[0].buyorderamount;
+	    $scope.newforwardoffer.sellorderamount = d.data[0].sellorderamount;
+	    $scope.newforwardoffer.buyorderamountccy = d.data[0].buyorderamountccy;
+	    $scope.newforwardoffer.sellorderamountccy = d.data[0].sellorderamountccy;
+	    
+	}); 
+	
+	$scope.fill = function(){
+		//if($scope.newforwardoffer.buysellbank == 'BUY'){
+		//	$scope.newforwardoffer.finalrate = $filter('number')(parseFloat($scope.newforwardoffer.spotrate) - parseFloat($scope.newforwardoffer.magin/100),2);
+		//}else{
+		//	$scope.newforwardoffer.finalrate = parseFloat($scope.newforwardoffer.spotrate) + parseFloat($scope.newforwardoffer.magin/100);
+		//}
+		
+		if($scope.newforwardoffer.buysell == 'BUY' && $scope.newforwardoffer.buyorderamount > 0){
+			$scope.newforwardoffer.finalrate = parseFloat($scope.newforwardoffer.spotrate) + parseFloat($scope.newforwardoffer.magin/100);
+			$scope.newforwardoffer.settlementamountccy = $filter('limitTo')($scope.newforwardoffer.ccypair,-3);
+			$scope.newforwardoffer.settlementamount = ($scope.newforwardoffer.buyorderamount*$scope.newforwardoffer.finalrate);
+		}else if($scope.newforwardoffer.buysell == 'BUY' && $scope.newforwardoffer.sellorderamount > 0){
+			$scope.newforwardoffer.finalrate = parseFloat($scope.newforwardoffer.spotrate) + parseFloat($scope.newforwardoffer.magin/100);
+			$scope.newforwardoffer.settlementamount = $filter('number')(($scope.newforwardoffer.sellorderamount/$scope.newforwardoffer.finalrate),2);
+			$scope.newforwardoffer.settlementamountccy = $filter('limitTo')($scope.newforwardoffer.ccypair,3);
+		}else if($scope.newforwardoffer.buysell == 'SELL' && $scope.newforwardoffer.sellorderamount > 0){
+			$scope.newforwardoffer.finalrate = parseFloat($scope.newforwardoffer.spotrate) - parseFloat($scope.newforwardoffer.magin/100);
+			$scope.newforwardoffer.settlementamountccy = $filter('limitTo')($scope.newforwardoffer.ccypair,-3);
+			$scope.newforwardoffer.settlementamount = $filter('number')(($scope.newforwardoffer.sellorderamount*$scope.newforwardoffer.finalrate),2);
+			//
+		}else if($scope.newforwardoffer.buysell == 'SELL' && $scope.newforwardoffer.buyorderamount > 0){
+			$scope.newforwardoffer.finalrate = parseFloat($scope.newforwardoffer.spotrate) - parseFloat($scope.newforwardoffer.magin/100);
+			$scope.newforwardoffer.settlementamount = $filter('number')(($scope.newforwardoffer.buyorderamount/$scope.newforwardoffer.finalrate),2);
+			$scope.newforwardoffer.settlementamountccy = $filter('limitTo')($scope.newforwardoffer.ccypair,3);
+		}
+	};
+
+	$scope.newforwardOffer =function(){
+		
+				$http({
+		              method: 'get',
+		              url: './rest/new_forward_offer.php',
+		              headers: {'Content-Type': 'application/json'},
+		              params:{orderindex:$scope.newforwardoffer.orderindex,orderidfk:$scope.newforwardoffer.orderidfk,spot:$scope.newforwardoffer.spot,magin:$scope.newforwardoffer.magin,finalrate:$scope.newforwardoffer.offeredrate,
+		              		settlementdate:$scope.newforwardoffer.settlementdate,offeredby:domain,bankuser:username,settlementamountccy:$scope.newforwardoffer.settlementamountccy,settlementamount:$scope.newforwardoffer.settlementamount,
+		              		bankcomment:$scope.newforwardoffer.bankcomment,bankuser:username}
+		            }).success(function (data) {
+		            	$timeout(function(){
+		            		$scope.loading = false;
+		            		alert("Forwad Offer Submitted");
+		              		$scope.newforwardoffer = {};
+					  		$state.go('homeforward');
+		            	},300,true)
+		            }).error(function (error) {
+		                alert("Error when making an offer");
+		                //$scope.newforwardoffer = {};
+						//$state.go('homeforward');
+		            });	
+		
+		ordersService.updateorder(indexid).then(function(d){
+			//console.log(d);
+		})
+		            
+	}
+})
+
+app.controller('newofferCtrl', function($scope,$state,$stateParams,$rootScope,Data,$http,ordersService,$filter){
+	var username = window.sessionStorage.getItem('bankuser');
+	var domain = window.sessionStorage.getItem('bankdomain');
+	
+	var orderid = $stateParams.indexid;
+	var indexid = $stateParams.indexid;
+	$scope.Data = Data;
+	$scope.Data.pagetitle = 'New FxSpot Offer';
 	$scope.newoffer = {};
 	//$scope.newoffer = $firebaseObject(ref);
 	//$scope.alertcust = $firebaseArray(alertlist);
@@ -524,7 +638,7 @@ app.controller('newofferCtrl', function($scope,$state,$stateParams,$rootScope,Da
 		              url: './rest/new_offer.php',
 		              headers: {'Content-Type': 'application/json'},
 		              params:{orderindex:$scope.newoffer.orderindex,orderidfk:$scope.newoffer.orderid,spotrate:$scope.newoffer.spotrate,magin:$scope.newoffer.magin,offeredrate:$scope.newoffer.offeredrate,
-		              		settlementdate:$scope.newoffer.settlementdate,offeredby:$scope.newoffer.offeredby,reqamount:$scope.newoffer.reqamount,settleamount:$scope.newoffer.settleamount,
+		              		settlementdate:$scope.newoffer.settlementdate,offeredby:domain,bankuser:username,reqamount:$scope.newoffer.reqamount,settleamount:$scope.newoffer.settleamount,
 		              		comment:$scope.newoffer.comment,ccysettleamount:$scope.newoffer.ccysettleamount}
 		            }).success(function (data) {
 		              alert("Offer Submitted");
@@ -548,22 +662,16 @@ app.controller('newofferCtrl', function($scope,$state,$stateParams,$rootScope,Da
 			//console.log(d);
 		})
 		
-		//Broadcast Notification
-		//$rootScope.$broadcast('s_offerNotification', { message: 'NaN' });
 	}
-	
-		$scope.handleClick = function (msg) {
-	        $scope.$broadcast('s_offerNotification', { message: 'NaN' });
-	        console.log('Broadcast');
-	    };
 })
 
 app.controller('newmmofferCtrl', function($scope, $stateParams, $filter,$state,$http,$timeout, Data, ordersService) {
 	var username = window.sessionStorage.getItem('bankuser');
+	var domain = window.sessionStorage.getItem('bankdomain');
 	var orderid = $stateParams.indexid;
 	var indexid = $stateParams.indexid;
 	$scope.Data = Data;
-	$scope.Data.pagetitle = 'New MM Offer';
+	$scope.Data.pagetitle = 'New MM order';
     $scope.newmmoffer = [];
     $scope.intdays = 365;
     
@@ -575,7 +683,7 @@ app.controller('newmmofferCtrl', function($scope, $stateParams, $filter,$state,$
 	    $scope.newmmoffer.orderindex = d.data[0].orderindex;
 	    $scope.newmmoffer.orderidfk = d.data[0].orderid;
 	    $scope.newmmoffer.dealtype = d.data[0].mmtypebank;
-	    $scope.Data.pagetitle = 'New '+d.data[0].mmtypebank+' Offer';
+	    $scope.Data.pagetitle = 'New '+d.data[0].mmtypebank+' order';
 	    //for interest rate currency days
 	    ordersService.get_a_currency(d.data[0].ccy).then(function(d) {
 	    	//console.log('CCy int days is '+d.data[0].intdays);
@@ -599,7 +707,7 @@ app.controller('newmmofferCtrl', function($scope, $stateParams, $filter,$state,$
 		              headers: {'Content-Type': 'application/json'},
 		              params:{orderindex:$scope.newmmoffer.orderindex,orderidfk:$scope.newmmoffer.orderidfk,fixedrate:$scope.newmmoffer.rate,orderamount:$scope.newmmoffer.orderamount,daycount:$scope.newmmoffer.tenuredays,
 		              		totalinterest:$scope.newmmoffer.totalinterest2,tax:$scope.newmmoffer.tax2,netinterest:$scope.newmmoffer.netinterest,
-		              		bankcomment:$scope.newmmoffer.bankcomment,offeredby:username}
+		              		bankcomment:$scope.newmmoffer.bankcomment,offeredby:domain,bankuser:username}
 		            }).success(function (data) {
 		            	$timeout(function(){
 		            		$scope.loading = false;
@@ -620,19 +728,38 @@ app.controller('newmmofferCtrl', function($scope, $stateParams, $filter,$state,$
     }
 })
 
-app.controller('profileCtrl', function($scope){
-	$scope.message = 0;
-	$scope.$on('s_offerNotification', function (event, args) {
-         $scope.message = args.message;
-         console.log($scope.message);
-         //$scope.$apply(function(args){
-         	
-         //})
-     });
+app.controller('profileCtrl', function($scope,$firebaseArray,$state){
+	var username = window.sessionStorage.getItem('customer');
+	var domain = window.sessionStorage.getItem('custdomain');
+	var ref = new Firebase("https://luminous-heat-9368.firebaseio.com/margin/Bankchosen");
+	$scope.newbank = {};
+	$scope.newbankchosen = $firebaseArray(ref);
+	
+		$scope.newbankchosen.$loaded().then(function(data){
+			$scope.banklist = data;
+			console.log(data);
+		});
+	
+	$scope.Data.pagetitle = 'Profile';
+	$scope.name = username;
+	
+	$scope.savebank = function(){
+		$scope.newbankchosen.$add({
+			bankid:$scope.newbank.name,
+			bankname:$scope.newbank.name,
+			domain:$scope.newbank.name,
+			cust:domain,
+			dateadd:Firebase.ServerValue.TIMESTAMP,
+			status: 'Active'
+	    });
+		alert($scope.newbank.name + ' Added to your Profile');
+		$scope.newbank = {};
+		$state.go('profile');
+	}
 })
 
-app.controller('offeracceptmmCtrl', function($scope, $stateParams, $http, $state, Data,ordersService) {
-	$scope.Data.pagetitle = 'Accept MM Offer';
+app.controller('offeracceptmmCtrl', function($scope, $stateParams, $http, $state,$filter, Data,ordersService) {
+	$scope.Data.pagetitle = 'Accept Offer';
     var orderid = $stateParams.orderidfk;
 	var offerid = $stateParams.offerid;
 	
@@ -640,6 +767,10 @@ app.controller('offeracceptmmCtrl', function($scope, $stateParams, $http, $state
 	
 	ordersService.offerdetails_mm(offerid).then(function(d) {
 	    $scope.acceptoffermm = d.data[0];
+	    $scope.Data.pagetitle = 'Accept '+d.data[0].mmtype+' offer';
+	    $scope.acceptoffermm.totalinterest_disp = $filter('number')(d.data[0].totalinterest,2);
+	    $scope.acceptoffermm.netamount_disp = $filter('number')(d.data[0].netamount,2);
+	    $scope.acceptoffermm.tax_disp = $filter('number')(d.data[0].tax,2);
 	})
 	
 	$scope.accept = function(){
@@ -1046,8 +1177,10 @@ app.controller('acceptedoffersCtrl', function($scope,ordersService){
 app.controller('acceptedmmoffersCtrl', function($scope,ordersService){
 	$scope.mmoffers = [];
 	var username = window.sessionStorage.getItem('bankuser');
+	var domain = window.sessionStorage.getItem('bankdomain');
+	
 	$scope.loading = true;
-	ordersService.accepted_mm_offers(username).then(function(d){
+	ordersService.accepted_mm_offers(domain).then(function(d){
 		//console.log(d.data);
 		$scope.mmoffers = d.data;
 		$scope.loading = false;
@@ -1168,7 +1301,7 @@ app.controller('newswaporderCtrl', function($state,$scope,$http,$filter,Data,ord
 	
 })
 
-app.controller('newforwardorderCtrl', function($state,$scope,$http,$filter,$timeout,Data,ordersService){
+app.controller('newforwardorderCtrl', function($state,$scope,$http,$filter,$timeout,$firebaseArray,Data,ordersService){
 	var username = window.sessionStorage.getItem('customer');
 	$scope.newforwardorder = [];
 	$scope.ccytitle = {};
@@ -1178,6 +1311,7 @@ app.controller('newforwardorderCtrl', function($state,$scope,$http,$filter,$time
 	$scope.Data.pagetitle = 'New FxForward Order';
 	
 	ordersService.getbanks().then(function(d){
+		//console.log(d);
 		$scope.banks = d.data;
 	})
 	
@@ -1259,11 +1393,47 @@ app.controller('newforwardorderCtrl', function($state,$scope,$http,$filter,$time
 	               		$scope.newforwardorder.sellorderamountccy = $filter('limitTo')($scope.newforwardorder.ccypair,3);
 	               };
 	            }, true);
+	            
+	            $scope.$watch("newforwardorder.frequency", function (newval) {
+	               if(newval == 'Single'){
+	               		$scope.newforwardorder.nofrequency = 1;
+	               }else{
+	               		$scope.newforwardorder.nofrequency = '';
+	               };
+	            }, true);
+	            
+	            $scope.setfunct = function(){
+	            	if($scope.newforwardorder.buyorderamount !== ""){
+	            		$scope.newforwardorder.sellorderamount = '';
+	            	}
+	            }
+	            
+	            $scope.setfunct2 = function(){
+	            	if($scope.newforwardorder.sellorderamount !== ""){
+	            		$scope.newforwardorder.buyorderamount = '';
+	            	}
+					
+	            }
+	            
+	            $scope.$watch("newforwardorder.mybanks", function(newval) {
+				    if(newval=="yes"){
+				    	$scope.newforwardorder.bank={};
+				    	var ref = new Firebase("https://luminous-heat-9368.firebaseio.com/margin/Bankchosen");
+						var query = ref.orderByChild("cust").equalTo('customer1');//Awaiting Customer Confirmation
+						$scope.banks = $firebaseArray(query);
+				    }else{
+				    	$scope.newforwardorder.bank={};
+				    	ordersService.getbanks().then(function(d){
+							$scope.banks = d.data;
+						})
+				    };
+				})
 	
 })
 
 app.controller('newmmorderCtrl', function($scope, $stateParams,$state,$http,Data,$interval,$timeout,$firebaseArray,$firebaseObject, ordersService) {
     var username = window.sessionStorage.getItem('customer');
+    var domain = window.sessionStorage.getItem('custdomain');
     var ref = new Firebase("https://luminous-heat-9368.firebaseio.com/margin/Moneymarketorders");
     $scope.mmorder = $firebaseArray(ref);
     
@@ -1272,6 +1442,7 @@ app.controller('newmmorderCtrl', function($scope, $stateParams,$state,$http,Data
 	$scope.ccytitle = 'CCY';
 	$scope.banks = [];
 	$scope.currency = [];
+	//$scope.newmmorder.mybanks = 'yes';
 	
 	$scope.Data = Data;
 	$scope.Data.pagetitle = 'New Money Market Order';
@@ -1291,6 +1462,23 @@ app.controller('newmmorderCtrl', function($scope, $stateParams,$state,$http,Data
 	}, true);
 	
 	
+	$scope.$watch("newmmorder.mybanks", function(newval) {
+	    if(newval=="yes"){
+	    	$scope.newmmorder.bank={};
+	    	var ref = new Firebase("https://luminous-heat-9368.firebaseio.com/margin/Bankchosen");
+			var query = ref.orderByChild("cust").equalTo('customer1');//Awaiting Customer Confirmation
+			$scope.banks = $firebaseArray(query);
+	    }else{
+	    	$scope.newmmorder.bank={};
+	    	ordersService.getbanks().then(function(d){
+				$scope.banks = d.data;
+			})
+	    };
+	})
+	
+	//to hold at start
+	var format = '01-02-2016';
+	
 	$scope.$watch("newmmorder.mmto", function(newval) {
 		$scope.formatString = function(format) {
 		    var day   = parseInt(format.substring(0,2));
@@ -1303,7 +1491,7 @@ app.controller('newmmorderCtrl', function($scope, $stateParams,$state,$http,Data
 	    var date1 = new Date($scope.formatString($scope.newmmorder.mmfrom));
 	    var timeDiff = Math.abs(date2.getTime() - date1.getTime());
 		
-		console.log('Date 2 ..'+ date2);
+		console.log('Date 2 ..'+ date2 + $scope.newmmorder.mmto);
 		console.log('Date 1 ..'+ date1);
 		
 	    $scope.dayDifference = Math.ceil(timeDiff / (1000 * 3600 * 24));
@@ -1377,8 +1565,9 @@ app.controller('newmmorderCtrl', function($scope, $stateParams,$state,$http,Data
 	
 })
 
-app.controller('neworderCtrl', function($state,$scope,$http,Data,ordersService){
+app.controller('neworderCtrl', function($state,$scope,$http,$firebaseArray,Data,ordersService){
 	var username = window.sessionStorage.getItem('customer');
+	var domain = window.sessionStorage.getItem('custdomain');
 	//console.log(username);
 	$scope.neworder = {};
 	$scope.ccytitle = {};
@@ -1503,6 +1692,21 @@ app.controller('neworderCtrl', function($state,$scope,$http,Data,ordersService){
 	               $scope.ccytitle = newval;
 	            }, true);
 	            
+	            $scope.$watch("neworder.mybanks", function(newval) {
+	            	//console.log(newval);
+				    if(newval=="yes"){
+				    	$scope.neworder.bank={};
+				    	var ref = new Firebase("https://luminous-heat-9368.firebaseio.com/margin/Bankchosen");
+						var query = ref.orderByChild("cust").equalTo(domain);
+						$scope.banks = $firebaseArray(query);
+				    }else{
+				    	$scope.neworder.bank={};
+				    	ordersService.getbanks().then(function(d){
+							$scope.banks = d.data;
+						})
+				    };
+				})
+	            
 	            $scope.setfunct = function(){
 	            	if($scope.neworder.buyorderamount !== ""){
 	            		$scope.neworder.sellorderamount = '';
@@ -1590,6 +1794,13 @@ app.controller('bookmmdealCtrl',function($scope,$http,$state,$stateParams,orders
 	
 	ordersService.offerdetails_mm(offerid).then(function(d){
 		$scope.booking = d.data[0];
+		if($scope.booking.mmtypebank == 'Deposit'){
+			$scope.booking.orderamount_disp = $scope.booking.orderamount;
+			$scope.booking.netamount_disp = $scope.booking.netamount;
+		}else{
+			$scope.booking.orderamount_disp = $scope.booking.netamount;
+			$scope.booking.netamount_disp = $scope.booking.orderamount;
+		}
 		//console.log(d.data[0]);
 	})
 	

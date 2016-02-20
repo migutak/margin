@@ -22,7 +22,8 @@
     
     //Replace * in the query with the column names.
     $result = mysql_query("select offerid,orderidfk,fixedrate,daycount,totalinterest,tax,netinterest,offeredby,offerdate,status,usernamefk,mmtypebank,
-    orderdate,mmfrom,mmto,mmtype,Moneymarketorders.orderamount,orderdate,ccy,bankcomment,tenuredays,recipient,custcomment,ordertypefk,currentstatus, Moneymarketorders.orderamount+totalinterest-tax netamount 
+    orderdate,mmfrom,mmto,mmtype,Moneymarketorders.orderamount,orderdate,ccy,bankcomment,tenuredays,recipient,custcomment,ordertypefk,currentstatus, Moneymarketorders.orderamount+totalinterest-tax netamount,
+    Moneymarketorders.orderamount+totalinterest maturityamount
     from offers_mm left outer join Moneymarketorders on offers_mm.orderidfk = Moneymarketorders.orderid where offerid = $offerid ", $db);  
     
     //Create an array
@@ -47,6 +48,7 @@
         $row_array['mmtypebank'] = $row['mmtypebank'];
         $row_array['orderamount'] = $row['orderamount'];
         $row_array['netamount'] = $row['netamount'];
+        $row_array['maturityamount'] = $row['maturityamount'];
         $row_array['orderdate'] = $row['orderdate'];
         $row_array['ccy'] = $row['ccy'];
         $row_array['bankcomment'] = $row['bankcomment'];

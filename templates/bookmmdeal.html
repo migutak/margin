@@ -3,12 +3,10 @@
 <i class="fa fa-arrow-left"></i> <a href="#/acceptedoffermm">Back</a>
     <div class="row">
         <div class="container">
-        	<div class="row">
-        		<div class="col-md-12" align="right" ><div class="col-md-12" align="right" ><img src="images/Diamond_Bank_Logo.jpg" height="100" width="242"></img></div></div>
-        	</div>
-        	<div class="row">
-        		<div class="col-md-6">Deal Status:</div>
-        		<div class="col-md-6">New</div>
+        	<div class="row" align="center">
+        		<p style="font-size: 40px">BANK OF KENYA</p>
+        		<p style="font-size: 40px">DEAL TICKET MONEY MARKET</p>
+        		<p><b>Deal Status : NEW</b></p>
         	</div>
         	<div class="row">
         		<div class="col-md-6"><b>Trade Information</b></div>
@@ -55,16 +53,16 @@
         		<div class="col-md-6"></div>
         	</div>
         	<div class="row">
-        		<div class="col-md-6">Deposit Period:</div>
+        		<div class="col-md-6">{{booking.mmtypebank}} Period:</div>
         		<div class="col-md-6">{{booking.mmfrom}} To {{booking.mmto}}</div>
         	</div>
         	<div class="row">
-        		<div class="col-md-6">REC ccy/amount:</div>
-        		<div class="col-md-6">{{booking.ccy}} {{booking.orderamount | number:2}}</div>
+        		<div class="col-md-6">REC amount and currency:</div>
+        		<div class="col-md-6">{{booking.ccy}} {{booking.orderamount_disp | number:2}}</div>
         	</div>
         	<div class="row">
-        		<div class="col-md-6">PAY ccy/amount:</div>
-        		<div class="col-md-6">{{booking.ccy}} {{booking.netamount | number:2}}</div>
+        		<div class="col-md-6">PAY amount and currency:</div>
+        		<div class="col-md-6">{{booking.ccy}} {{booking.netamount_disp | number:2}}</div>
         	</div>
         	
         	<div class="row">
@@ -94,15 +92,15 @@
 			<div class="row">
 		        <div class="col-md-2" style="border: 1px solid blue">{{booking.mmto}}</div>
 		    	<div class="col-md-2" style="border: 1px solid blue">PAY</div>
-		    	<div class="col-md-2" style="border: 1px solid blue">{{booking.netamount | number:2}}</div>
+		    	<div class="col-md-2" style="border: 1px solid blue">{{booking.netamount_disp | number:2}}</div>
 		        <div class="col-md-2" style="border: 1px solid blue">{{booking.ccy}}</div>
 		    	<div class="col-md-2" style="border: 1px solid blue">COMMERZBANK FRA</div>
 		    	<div class="col-md-2" style="border: 1px solid blue">Null</div>
 			</div>
 			<div class="row">
-		        <div class="col-md-2" style="border: 1px solid blue">{{booking.mmto}}</div>
+		        <div class="col-md-2" style="border: 1px solid blue">{{booking.mmfrom}}</div>
 		    	<div class="col-md-2" style="border: 1px solid blue">REC</div>
-		    	<div class="col-md-2" style="border: 1px solid blue">{{booking.orderamount | number:2}}</div>
+		    	<div class="col-md-2" style="border: 1px solid blue">{{booking.orderamount_disp | number:2}}</div>
 		        <div class="col-md-2" style="border: 1px solid blue">{{booking.ccy}}</div>
 		    	<div class="col-md-2" style="border: 1px solid blue">ALL/ABCD/ANY/</div>
 		    	<div class="col-md-2" style="border: 1px solid blue">Null</div>

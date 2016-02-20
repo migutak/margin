@@ -22,23 +22,14 @@
                                 <tbody>
                                 <tr ng-repeat="ord in custorders_forward | filter: searchKeyword">
                                     <td>
-                                        <!--<button class="btn btn-info" ng-click="viewoffers(ord.orderid)"><i class="fa fa-external-link"></i> <span class="badge">{{ord.nOffers}}</span></button>-->
-                                        <div class="dropdown">
-                                          <button class="btn btn-info btn-flat dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            View Deal <span class="badge">{{ord.nOffers}}</span>
-                                            <span class="caret"></span>
-                                          </button>
-                                          <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                                            <li><a href="" ng-click="viewoffers(ord.orderid)">View Offers</a></li>
-                                            <li><a data-toggle="modal" data-target="#myModal" class="announce" data-id="107">Withdraw Order</a></li>
-                                          </ul>
-                                        </div>
+                                        <button class="btn btn-info" ng-click="viewforwardoffers(ord.orderid)"><i class="fa fa-external-link"></i> <span class="badge">{{ord.nOffers}}</span></button>
+                                        <button class="btn btn-danger" ><i class="fa fa-trash"></i></button>
                                     </td>
                                     <td>{{ord.ccypair}}</td>
                                     <td>{{ord.buysell}}</td>
                                     <td>{{ord.settlementdate}}</td>
-                                    <td>{{ord.ccypair | limitTo:ord.limitnum}} {{ord.buyorderamount | number}}</td>
-                                    <td>{{ord.ccypair | limitTo:-ord.limitnum}} {{ord.sellorderamount | number}}</td>
+                                    <td>{{ord.buyorderamountccy}} {{ord.buyorderamount | number}}</td>
+                                    <td>{{ord.sellorderamountccy}} {{ord.sellorderamount | number}}</td>
                                 </tr>
                                 </tbody>
                             </table>

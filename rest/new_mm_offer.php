@@ -14,12 +14,13 @@
         $netinterest = $_GET['netinterest'];
         $bankcomment = $_GET['bankcomment'];
         $offeredby = $_GET['offeredby'];
+        $bankuser = $_GET['bankuser'];
      
         // array for JSON response
         $response = array();
         
-        $neworderQuery = "insert into `offers_mm`(`orderindex`,`orderidfk`,`fixedrate`,`orderamount`,`daycount`,`totalinterest`,`tax`,`netinterest`,`bankcomment`,`offeredby`) 
-            values (".$orderindex.",'".$orderidfk."','".$fixedrate."','".$orderamount."','".$daycount."','".$totalinterest."','".$tax."','".$netinterest."','".$bankcomment."','".$offeredby."')";
+        $neworderQuery = "insert into `offers_mm`(`orderindex`,`orderidfk`,`fixedrate`,`orderamount`,`daycount`,`totalinterest`,`tax`,`netinterest`,`bankcomment`,`offeredby`,`bankuser`) 
+            values (".$orderindex.",'".$orderidfk."','".$fixedrate."','".$orderamount."','".$daycount."','".$totalinterest."','".$tax."','".$netinterest."','".$bankcomment."','".$offeredby."','".$bankuser."')";
         
         if($db->query($neworderQuery) === TRUE){
             $response["result"] = "MM Offers Successfully Made";
