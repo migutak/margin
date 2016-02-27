@@ -1434,9 +1434,10 @@ app.controller('newforwardorderCtrl', function($state,$scope,$http,$filter,$time
 app.controller('newmmorderCtrl', function($scope, $stateParams,$state,$http,Data,$interval,$timeout,$firebaseArray,$firebaseObject, ordersService) {
     var username = window.sessionStorage.getItem('customer');
     var domain = window.sessionStorage.getItem('custdomain');
+    //var custname = window.sessionStorage.getItem('custname');
+    
     var ref = new Firebase("https://luminous-heat-9368.firebaseio.com/margin/Moneymarketorders");
     $scope.mmorder = $firebaseArray(ref);
-    
     
     $scope.newmmorder = {};
 	$scope.ccytitle = 'CCY';
@@ -1530,7 +1531,7 @@ app.controller('newmmorderCtrl', function($scope, $stateParams,$state,$http,Data
 		              headers: {'Content-Type': 'application/json'},
 		              params:{orderid:$scope.newmmorder.orderid,usernamefk:$scope.newmmorder.usernamefk,ccy:$scope.newmmorder.ccy,orderamount:$scope.newmmorder.orderamount,
 		              		mmfrom:$scope.newmmorder.mmfrom,mmto:$scope.newmmorder.mmto,tenure:$scope.newmmorder.tenure,recipient:rescp,custcomment:$scope.newmmorder.custcomment,
-		              		ordertypefk:$scope.newmmorder.ordertypefk,mmtype:$scope.newmmorder.mmtype,mmtypebank:$scope.newmmorder.mmtypebank}
+		              		ordertypefk:$scope.newmmorder.ordertypefk,mmtype:$scope.newmmorder.mmtype,mmtypebank:$scope.newmmorder.mmtypebank,custname:domain}
       				}).success(function (data) {
 		              //console.log(data);
 		              //

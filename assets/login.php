@@ -18,6 +18,7 @@
         $response["result"] = "YES";
         $response["usertype"] = $useravailable['usertype'];
         $response["domain"] = $useravailable['domain'];
+        $response["name"] = $useravailable['name'];
     }
     else{
         $response["result"] = "NO";

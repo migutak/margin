@@ -59,6 +59,8 @@ myapp.controller('loginCtrl',function($scope,$http,Login,$window,ordersService){
 	            var resp = response.data.result;
 	            var type = response.data.usertype;
 	            var domain = response.data.domain;
+	            var custname = response.data.domain;
+	            
 	            if(resp=='NO'){
 	                $scope.msg = "Wrong Username/Password";
 	            }else{

@@ -28,7 +28,7 @@
     //$result = mysql_query("select orderindex,orderid,usernamefk,ccypair,orderdate,orderamount,buysell,buysellbank,currentstatus,
     //recipient,settlementdate,custcomment,ordertypefk from custorders where orderindex = $id", $db);  
     
-    $result = mysql_query("select orderindex,orderid,usernamefk,ccy,orderdate,orderamount,mmfrom,mmto,
+    $result = mysql_query("select orderindex,orderid,usernamefk,ccy,orderdate,orderamount,mmfrom,mmto,custname,
     tenuredays,recipient,currentstatus,custcomment,ordertypefk,mmtype,mmtypebank from Moneymarketorders where orderindex = $id ", $db);
     
     //Create an array
@@ -50,6 +50,7 @@
         $row_array['recipient'] = $row['recipient'];
         $row_array['custcomment'] = $row['custcomment'];
         $row_array['ordertypefk'] = $row['ordertypefk'];
+        $row_array['custname'] = $row['custname'];
         
         //push the values in the array
         array_push($json_response,$row_array);

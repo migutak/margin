@@ -17,12 +17,13 @@
     $ordertypefk = $_GET['ordertypefk'];
     $mmtype = $_GET['mmtype'];
     $mmtypebank = $_GET['mmtypebank'];
+    $custname = $_GET['custname'];
 
 // array for JSON response
         $response = array();
 
-		$addorder = "insert into Moneymarketorders(orderid,usernamefk,ccy,orderamount,mmfrom,mmto,tenuredays,recipient,custcomment,ordertypefk,mmtype,mmtypebank) 
-            values ('$orderid','$usernamefk','$ccy','$orderamount','$mmfrom','$mmto','$tenure','$recipient','$custcomment','$ordertypefk','$mmtype','$mmtypebank')";
+		$addorder = "insert into Moneymarketorders(orderid,usernamefk,ccy,orderamount,mmfrom,mmto,tenuredays,recipient,custcomment,ordertypefk,mmtype,mmtypebank,custname) 
+            values ('$orderid','$usernamefk','$ccy','$orderamount','$mmfrom','$mmto','$tenure','$recipient','$custcomment','$ordertypefk','$mmtype','$mmtypebank','$custname')";
            
 
         if($db->query($addorder) === TRUE){
